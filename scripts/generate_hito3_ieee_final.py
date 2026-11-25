@@ -1,4 +1,4 @@
-"""Generador del Informe Final de Proyecto (Hito 3) en Formato IEEE con Bitácora IA.
+"""Generador del Informe Técnico Principal (Hito 3) en Formato IEEE (Sin Bitácora).
 
 Cumple estrictamente con la Rúbrica de Evaluación (100 puntos):
 - Criterio 1: Problema y formulación formal respaldada con evidencia; marco PEAS y tarea de IA (10 pts).
@@ -8,8 +8,9 @@ Cumple estrictamente con la Rúbrica de Evaluación (100 puntos):
 - Criterio 5: Experimentación y evaluación: línea base, métricas predeclaradas, corridas cruzadas (15 pts).
 - Criterio 6: Análisis crítico: exactamente 10 errores reales clasificados con hipótesis de causa (10 pts).
 - Criterio 7: IA responsable: riesgos específicos del caso, métricas por subgrupo y mitigación (10 pts).
-- Criterio 8: Comunicación escrita IEEE y bitácora de co-pilotaje IA con verificación y reflexión (5 pts).
 - Criterio 9: Guía de preparación conceptual y predicción de modificaciones para sustentación (15 pts).
+
+Nota: La Bitácora IA (Criterio 8) se genera en un documento anexo independiente: quantum_bitacora_ia.pdf.
 
 Autor: Nilson Rivera Gutiérrez (Código: T00078156)
 Repositorio oficial: https://github.com/dilson123S/quantum
@@ -69,7 +70,7 @@ class IEEENumberedCanvas(canvas.Canvas):
             if self._pageNumber % 2 == 0:
                 self.drawString(54, 756, f"{self._pageNumber}   IEEE TRANSACTIONS ON ARTIFICIAL INTELLIGENCE, VOL. 24, NO. 4, NOVIEMBRE 2026")
             else:
-                self.drawRightString(558, 756, f"RIVERA GUTIÉRREZ: PROYECTO QUANTUM — INFORME FINAL HITO 3   {self._pageNumber}")
+                self.drawRightString(558, 756, f"RIVERA GUTIÉRREZ: PROYECTO QUANTUM — INFORME TÉCNICO FINAL HITO 3   {self._pageNumber}")
             self.setLineWidth(0.5)
             self.line(54, 750, 558, 750)
         else:
@@ -105,7 +106,7 @@ def build_ieee_pdf(filename: str = "quantum_hito3.pdf") -> str:
     frame_c2 = Frame(316, 54, 242, 684, id='f_c2', leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)
     template_two_col = PageTemplate(id='two_col', frames=[frame_c1, frame_c2])
 
-    # 3. Plantilla de 1 columna completa para tablas maestras y bitácora extensa
+    # 3. Plantilla de 1 columna completa para tablas maestras
     frame_full = Frame(54, 54, 504, 684, id='f_full', leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)
     template_one_col = PageTemplate(id='one_col', frames=[frame_full])
 
@@ -309,18 +310,29 @@ def build_ieee_pdf(filename: str = "quantum_hito3.pdf") -> str:
         spaceAfter=2,
     )
 
+    note_box_style = ParagraphStyle(
+        "IEEENoteBox",
+        fontName="Times-Italic",
+        fontSize=8,
+        leading=10.5,
+        textColor=colors.black,
+        alignment=TA_JUSTIFY,
+        spaceBefore=4,
+        spaceAfter=4,
+    )
+
     story = []
 
     # =========================================================================
     # BANNER SUPERIOR DE PÁGINA 1 (Spans 504 pt width)
     # =========================================================================
     story.append(Paragraph("Proyecto Quantum: Arquitectura Híbrida de Inteligencia Artificial para Trading Algorítmico, Supervisión Concurrente de Flota y Control Estricto de Riesgo", title_style))
-    story.append(Paragraph("Informe Técnico Final — Hito 3 (Entrega de Prototipo Funcional, Repositorio y Bitácora IA)", subtitle_style))
+    story.append(Paragraph("Informe Técnico Final — Hito 3 (Entrega de Prototipo Funcional y Repositorio)", subtitle_style))
     story.append(Paragraph("Nilson Rivera Gutiérrez, Código: T00078156", author_style))
     story.append(Paragraph("Facultad de Ingeniería, Programa de Inteligencia Artificial &middot; Repositorio Oficial en GitHub: <u>https://github.com/dilson123S/quantum</u> &middot; Noviembre 2026", affil_style))
     
     story.append(Paragraph(
-        "<b><i>Resumen</i>—El presente artículo expone el diseño, formulación matemática, desarrollo e implementación en producción del Proyecto Quantum, un ecosistema de agentes inteligentes de trading algorítmico concebido para operar bajo condiciones no estacionarias y asimetría de liquidez institucional en mercados financieros descentralizados (XAUUSD y Deriv Synthetic Indices). Frente a la fragilidad demostrada por los sistemas de reglas rígidas y modelos conexionistas aislados, se propone una arquitectura híbrida tripartita que integra: 1) un motor determinista de scoring multitemporal (M15, H1, H4) basado en Smart Money Concepts (SMC); 2) una red neuronal convolucional/recurrente (<i>NanoJevPyTorchNet</i>) optimizada para la detección de trampas de liquidez con un 95.1% de precisión y latencia de 2.68 ms; y 3) un modelo de lenguaje pequeño (SLM) cuantizado localmente a GGUF (<i>quantum:latest</i>, Qwen2.5-3B) calibrado mediante LoRA y Model Soups para inferencia cualitativa sin latencia de red. El sistema incorpora un módulo de persistencia de riesgo basado en SQLite WAL (<i>DrawdownTracker</i>) con circuit breakers inmutables y una salvaguarda temporal (<i>StaleBarGuard</i>) que erradica ejecuciones en señales caducadas. La validación empírica en cuenta demo MetaTrader 5 (#202478924) arroja una tasa de acierto del 85.2% (23W / 4L) con +$820.74 USD de beneficio neto en oro, y un Profit Factor de 7.29 en backtest fuera de muestra (OOS) en sintéticos. Se documenta una taxonomía de 10 fallas empíricas analizadas críticamente, los principios de IA responsable aplicados y la bitácora integral de desarrollo co-pilotado por Inteligencia Artificial.</b>",
+        "<b><i>Resumen</i>—El presente artículo expone el diseño, formulación matemática, desarrollo e implementación en producción del Proyecto Quantum, un ecosistema de agentes inteligentes de trading algorítmico concebido para operar bajo condiciones no estacionarias y asimetría de liquidez institucional en mercados financieros descentralizados (XAUUSD y Deriv Synthetic Indices). Frente a la fragilidad demostrada por los sistemas de reglas rígidas y modelos conexionistas aislados, se propone una arquitectura híbrida tripartita que integra: 1) un motor determinista de scoring multitemporal (M15, H1, H4) basado en Smart Money Concepts (SMC); 2) una red neuronal convolucional/recurrente (<i>NanoJevPyTorchNet</i>) optimizada para la detección de trampas de liquidez con un 95.1% de precisión y latencia de 2.68 ms; y 3) un modelo de lenguaje pequeño (SLM) cuantizado localmente a GGUF (<i>quantum:latest</i>, Qwen2.5-3B) calibrado mediante LoRA y Model Soups para inferencia cualitativa sin latencia de red. El sistema incorpora un módulo de persistencia de riesgo basado en SQLite WAL (<i>DrawdownTracker</i>) con circuit breakers inmutables y una salvaguarda temporal (<i>StaleBarGuard</i>) que erradica ejecuciones en señales caducadas. La validación empírica en cuenta demo MetaTrader 5 (#202478924) arroja una tasa de acierto del 85.2% (23W / 4L) con +$820.74 USD de beneficio neto en oro, y un Profit Factor de 7.29 en backtest fuera de muestra (OOS) en sintéticos. Se documenta una taxonomía de 10 fallas empíricas analizadas críticamente y los principios de IA responsable aplicados. La bitácora integral de co-pilotaje IA se publica como documento anexo independiente (<code>quantum_bitacora_ia.pdf</code>).</b>",
         abstract_text
     ))
     story.append(Paragraph(
@@ -675,7 +687,7 @@ def build_ieee_pdf(filename: str = "quantum_hito3.pdf") -> str:
     story.append(Paragraph("<i>Nota.</i> Registro analítico formal de los 10 errores técnicos identificados en el desarrollo y validación experimental del Hito 2 y 3, demostrando trazabilidad de fallas y soluciones implementadas.", t_note))
 
     # =========================================================================
-    # PÁGINA 5 (DOS COLUMNAS) - IA RESPONSABLE, SUSTENTACIÓN Y BITÁCORA IA
+    # PÁGINA 5 (DOS COLUMNAS) - IA RESPONSABLE, SUSTENTACIÓN, CONCLUSIONES Y REFERENCIAS
     # =========================================================================
     story.append(NextPageTemplate('two_col'))
     story.append(PageBreak())
@@ -727,126 +739,7 @@ def build_ieee_pdf(filename: str = "quantum_hito3.pdf") -> str:
     # COLUMNA 2
     story.append(FrameBreak())
 
-    story.append(Paragraph("X. BITÁCORA DE CO-PILOTAJE CON IA", sec_h1))
-    story.append(Paragraph(
-        "Registro cronológico del co-pilotaje entre el investigador y el asistente IA (Antigravity):",
-        body_p
-    ))
-    story.append(Paragraph(
-        "<b>Entrada 1 (02/11/2026) — Fine-Tuning de SLM en GPU Local:</b><br/>"
-        "• <i>Prompt del usuario:</i> 'Necesito que el bot razone cualitativamente sobre trampas de mercado en local sin depender de APIs.'<br/>"
-        "• <i>Diagnóstico IA:</i> Los modelos tabulares carecen de contexto semántico horario. Se recomendó fine-tuning de Qwen2.5-3B con LoRA en 4-bit.<br/>"
-        "• <i>Implementación:</i> Creación de <code>quantum_train_alpaca.jsonl</code> (575 casos). 351 pasos de entrenamiento en GPU RTX 3050; descenso de loss de 1.41 a 0.023. Fusión en GGUF <code>quantum:latest</code>.<br/>"
-        "• <i>Verificación:</i> Inferencia validada con JSON Schema en &le; 900 ms.",
-        body_p
-    ))
-    story.append(Paragraph(
-        "<b>Entrada 2 (03/11/2026) — Poda de Activos Sintéticos:</b><br/>"
-        "• <i>Prompt:</i> 'Evalúa la rentabilidad en sintéticos Deriv y dime qué activos descartar.'<br/>"
-        "• <i>Diagnóstico IA:</i> Backtest OOS reveló que Volatility 75 generaba -$2,457 USD de pérdidas por fat tails.<br/>"
-        "• <i>Implementación:</i> Poda en <code>settings.yaml</code> eliminando Volatility 75 y Crash 300.<br/>"
-        "• <i>Verificación:</i> Profit Factor subió a 7.29 con acierto de 80.0% a 100.0%.",
-        body_p
-    ))
-    story.append(Paragraph(
-        "<b>Entrada 3 (04/11/2026, Mañana) — Corrección de Kill Switch:</b><br/>"
-        "• <i>Prompt:</i> 'Bot G y Bot E se reinician en bucle cada 10 segundos, soluciónalo.'<br/>"
-        "• <i>Diagnóstico IA:</i> Drawdown global de -$540 USD (5.78%) superaba los límites individuales (3-4%) en la cuenta compartida.<br/>"
-        "• <i>Implementación:</i> Armonización de pérdida diaria al 8.0% y corrección de <code>import os</code> en <code>filters/system_one/hub.py</code>.<br/>"
-        "• <i>Verificación:</i> Flota estabilizada operando 24/7 sin reinicios.",
-        body_p
-    ))
-    story.append(Paragraph(
-        "<b>Entrada 4 (04/11/2026, Mediodía) — Análisis Forense y StaleBarGuard:</b><br/>"
-        "• <i>Prompt:</i> 'Por qué el bot vendió en 4036.8 y tocó Stop Loss en 4068.33?'<br/>"
-        "• <i>Diagnóstico IA:</i> El bot se encendió 39 min después del cierre de vela (10:39 AM vs 10:00 AM) y tomó la señal caducada en pleno retroceso.<br/>"
-        "• <i>Implementación:</i> Módulo <code>StaleBarGuard</code> en <code>main.py</code> (&le; 180s).<br/>"
-        "• <i>Verificación:</i> Eliminación de entradas tardías en arranques en frío.",
-        body_p
-    ))
-    story.append(Paragraph(
-        "<b>Entrada 5 (04/11/2026, Tarde) — Filtro ADX y Gating SLM:</b><br/>"
-        "• <i>Prompt:</i> 'Bloquea ventas contra tendencia cuando haya fuerza extrema.'<br/>"
-        "• <i>Diagnóstico IA:</i> Operación fallida con ADX en 41.05. Se formuló filtro restrictivo de momentum.<br/>"
-        "• <i>Implementación:</i> <code>max_reversal_adx: 35.0</code> en <code>strategy/sweep_strategy.py</code> y calibración de riesgo a 0.5% por bot.<br/>"
-        "• <i>Verificación:</i> Suite de tests en PyTest aprobada al 100%.",
-        body_p
-    ))
-
-    # =========================================================================
-    # PÁGINA 6 (ANCHO COMPLETO 504 pt) - MATRIZ DE TRAZABILIDAD Y CONCLUSIONES
-    # =========================================================================
-    story.append(NextPageTemplate('one_col'))
-    story.append(PageBreak())
-
-    story.append(Paragraph("TABLA III", t_caption))
-    story.append(Paragraph("MATRIZ DE TRAZABILIDAD Y CO-PILOTAJE CON INTELIGENCIA ARTIFICIAL (BITÁCORA INTEGRAL)", t_subcaption))
-
-    table3_data = [
-        [
-            Paragraph("<b>Fecha</b>", t_header),
-            Paragraph("<b>Requerimiento Técnico</b>", t_header),
-            Paragraph("<b>Diagnóstico Asistido por IA</b>", t_header),
-            Paragraph("<b>Intervención en el Repositorio</b>", t_header),
-            Paragraph("<b>Verificación Empírica</b>", t_header),
-            Paragraph("<b>Reflexión Metacognitiva</b>", t_header),
-        ],
-        [
-            Paragraph("02/11/2026", t_cell),
-            Paragraph("Inferencia cualitativa local sin latencia de red.", t_cell_left),
-            Paragraph("Modelos supervisados ciegos a apertura de sesiones.", t_cell_left),
-            Paragraph("Fine-tuning LoRA Qwen2.5-3B con Soup y exportación GGUF a Ollama.", t_cell_left),
-            Paragraph("Inferencia &le; 900 ms con validación de JSON Schema.", t_cell_left),
-            Paragraph("La IA local provee soberanía operativa frente a APIs en la nube vulnerables a cortes.", t_cell_left),
-        ],
-        [
-            Paragraph("03/11/2026", t_cell),
-            Paragraph("Auditoría de rentabilidad en índices sintéticos.", t_cell_left),
-            Paragraph("Volatility 75 acumulaba -$2,457 USD por saltos no estacionarios.", t_cell_left),
-            Paragraph("Poda algorítmica en <code>settings.yaml</code> eliminando Vol 75 y Crash 300.", t_cell_left),
-            Paragraph("Profit Factor se elevó a 7.29 y Max Drawdown bajó a 0.5%.", t_cell_left),
-            Paragraph("Menos activos con ventaja probada superan a portafolios hiper-diversificados con activos tóxicos.", t_cell_left),
-        ],
-        [
-            Paragraph("04/11/2026 [M]", t_cell),
-            Paragraph("Estabilizar bucle de reinicios en Bots E y G.", t_cell_left),
-            Paragraph("Drawdown global del 5.78% violaba límites individuales de 3-4%.", t_cell_left),
-            Paragraph("Armonización a 8.0% de pérdida diaria y fix de <code>import os</code> en <code>hub.py</code>.", t_cell_left),
-            Paragraph("Ejecución concurrente continua 24/7 sin reinicios.", t_cell_left),
-            Paragraph("La orquestación multi-agente en una cuenta exige límites de riesgo integrados y no atomizados.", t_cell_left),
-        ],
-        [
-            Paragraph("04/11/2026 [MD]", t_cell),
-            Paragraph("Análisis forense de Stop Loss en 4068.33.", t_cell_left),
-            Paragraph("Arranque tardío (10:39 AM) procesó vela cerrada a las 10:00 AM.", t_cell_left),
-            Paragraph("Diseño e inserción del guardia <code>StaleBarGuard</code> (&le; 180s) en <code>main.py</code>.", t_cell_left),
-            Paragraph("Simulación de arranque bloqueó órdenes en barras viejas.", t_cell_left),
-            Paragraph("El tiempo de vida de una señal en trading es efímero; el software debe validar frescura temporal.", t_cell_left),
-        ],
-        [
-            Paragraph("04/11/2026 [T]", t_cell),
-            Paragraph("Bloquear ventas contra impulso explosivo.", t_cell_left),
-            Paragraph("ADX en 41.05 invalidó la hipótesis de reversión por barrido.", t_cell_left),
-            Paragraph("Filtro <code>max_reversal_adx: 35.0</code> y riesgo calibrado al 0.5% por bot.", t_cell_left),
-            Paragraph("Suite PyTest ejecutada con 100% de aserciones válidas.", t_cell_left),
-            Paragraph("El respeto a la microestructura exige saber cuándo no operar; abstenerse es parte de la estrategia.", t_cell_left),
-        ],
-    ]
-
-    t3 = Table(table3_data, colWidths=[46, 88, 92, 98, 88, 92])
-    t3.setStyle(TableStyle([
-        ('LINEABOVE', (0, 0), (-1, 0), 1.0, colors.black),
-        ('LINEBELOW', (0, 0), (-1, 0), 0.5, colors.black),
-        ('LINEBELOW', (0, -1), (-1, -1), 1.0, colors.black),
-        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('TOPPADDING', (0, 0), (-1, -1), 2.0),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 2.0),
-    ]))
-    story.append(t3)
-    story.append(Paragraph("<i>Nota.</i> Trazabilidad metodológica del co-pilotaje IA. Se evidencia el ciclo iterativo de formulación, diagnóstico empírico, verificación en código y reflexión crítica.", t_note))
-    story.append(Spacer(1, 4))
-
-    story.append(Paragraph("XI. CONCLUSIONES", sec_h1))
+    story.append(Paragraph("X. CONCLUSIONES", sec_h1))
     story.append(Paragraph(
         "1. <i>Viabilidad de la Arquitectura Híbrida:</i> La combinación de un scoring determinista, redes profundas PyTorch y SLM local supera con holgura a las líneas base tradicionales, alcanzando un 85.2% de Win Rate en oro y PF de 7.29 en sintéticos sin incurrir en sobreajuste.",
         body_p
@@ -856,7 +749,7 @@ def build_ieee_pdf(filename: str = "quantum_hito3.pdf") -> str:
         body_p
     ))
     story.append(Paragraph(
-        "3. <i>Impacto del Co-Pilotaje IA:</i> La colaboración con modelos de IA potencia drásticamente la capacidad de depuración y diseño formal, siempre que esté respaldada por verificación empírica rigurosa y pruebas automatizadas.",
+        "3. <i>Evolución Metodológica y Reproducibilidad:</i> El repositorio público oficial consolida un prototipo funcional completamente testeado, validado y desplegado bajo prácticas profesionales de ingeniería de software e inteligencia artificial.",
         body_p
     ))
     story.append(Spacer(1, 3))
@@ -869,6 +762,14 @@ def build_ieee_pdf(filename: str = "quantum_hito3.pdf") -> str:
     story.append(Paragraph("[5] M. Wortsman et al., 'Model soups: averaging weights of multiple fine-tuned models improves accuracy without increasing inference time,' in <i>Proc. ICML</i>, 2022.", ref_style))
     story.append(Paragraph("[6] R. S. Sutton and A. G. Barto, <i>Reinforcement Learning: An Introduction</i>, 2nd ed. MIT Press, 2018.", ref_style))
     story.append(Paragraph("[7] MetaQuotes Software Corp., 'MetaTrader 5 Python API Reference Guide,' 2024. [Online]. Disponible en: https://www.mql5.com/en/docs/python_metatrader5", ref_style))
+    story.append(Spacer(1, 4))
+
+    story.append(HRFlowable(width="100%", thickness=0.5, color=colors.black, spaceBefore=4, spaceAfter=4))
+    story.append(Paragraph(
+        "<b>DECLARACIÓN DE DISPONIBILIDAD DE BITÁCORA IA (CRITERIO 8):</b><br/>"
+        "La Bitácora Integral de Co-Pilotaje con Inteligencia Artificial, que documenta el registro cronológico completo de interacciones, prompts, diagnósticos de fallas, verificación de pruebas y reflexión metacognitiva, ha sido editada como documento anexo independiente en el archivo <code>quantum_bitacora_ia.pdf</code> y en el repositorio público oficial: <u>https://github.com/dilson123S/quantum/blob/main/BITACORA_IA.md</u>.",
+        note_box_style
+    ))
 
     doc.build(story, canvasmaker=IEEENumberedCanvas)
     return filename
