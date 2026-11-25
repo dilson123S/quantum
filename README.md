@@ -4,6 +4,14 @@ A professional, institutional-grade algorithmic trading bot connected to **MetaT
 
 ---
 
+## 🎓 Entregables Académicos Oficiales (Hito 3 · Entrega Final)
+* **Investigador / Autor:** Nilson Rivera Gutiérrez (Código: `T00078156`)
+* 📄 **Informe Técnico en Formato IEEE (PDF):** [`quantum_hito3.pdf`](quantum_hito3.pdf) *(Copia en docs: [`docs/quantum_hito3.pdf`](docs/quantum_hito3.pdf))*
+* 📓 **Bitácora Integral de Co-Pilotaje con IA:** [`BITACORA_IA.md`](BITACORA_IA.md) *(Copia en docs: [`docs/BITACORA_IA.md`](docs/BITACORA_IA.md))*
+* 📄 **Informe Hito 2 (Formato APA 7ma):** [`quantum_hito2.pdf`](quantum_hito2.pdf)
+
+---
+
 ## Architecture Overview
 
 ```
