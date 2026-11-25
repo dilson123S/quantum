@@ -1,0 +1,54 @@
+{
+  "experiment_id": "fleet-oos-btc-h1-cost120-v1-20260923T010347Z",
+  "created_at": "2026-09-23T01:03:47.518224+00:00",
+  "purpose": "OOS holdout evaluation; do not tune parameters after viewing this result",
+  "is_oos_evaluation": true,
+  "period": "1Y",
+  "symbols": null,
+  "evaluation_start": "2026-06-01",
+  "entry_timeframe": "H1",
+  "setup_timeframe": "H4",
+  "higher_timeframe": "D1",
+  "config_sha256": {
+    "data\\experiments\\oos_cost120_btc_h1\\settings.yaml": "5b88f48cda1d7ea137220d83c3fbc3c6088bbe86baceb7b0eb068b1f50583e46",
+    "data\\experiments\\oos_cost120_btc_h1\\symbols.yaml": "bf42133e9139d8c713b259eb5f700a828fdc456f99eaabf943db489f2d71a00f",
+    "data\\experiments\\oos_cost120_btc_h1\\risk.yaml": "1c52d51b717090be9c5c4fdd9ff0ecef09c366bc563d4b4f2139ede35b00c1f3"
+  },
+  "input_sha256": {
+    "BTCUSD:H1": "104f0f1fc8aa4643260cd0f73514863fa1ba6a3698f32d6c6e67804447f8e04a",
+    "BTCUSD:H4": "4bcc52e44533614b2011db6c2266a7b91a44b5292f2dd145392155a9c8c24e73",
+    "BTCUSD:D1": "718bc87795dae179cace2e7828a87d5def0d2132c03863eec85958f0ae8209b5"
+  },
+  "instrument_specs": {
+    "BTCUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 0.01,
+      "volume_min": 0.01,
+      "volume_max": 10.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 8.4,
+    "slippage_points": 1.2,
+    "gap_slippage_points": 2.4,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 17,
+    "total_profit_money": 451.4,
+    "total_profit_r": 4.46,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260922_200347.csv",
+  "report_sha256": "2fafb31a969addc575465c84d518e365bf0b18a96ad46e032856e6647a467876",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260922_200347.csv",
+  "pending_events_sha256": "e41129c94f7bbc31350613a115ec9cc210a198ca75c95b7e0bf2304f26348738"
+}

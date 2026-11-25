@@ -1,0 +1,88 @@
+bot:
+  name: QuantTradingBot-DerivSynthetic
+  magic_number: 26099901
+  mode: demo
+  server: Deriv-Demo
+  journal_path: data/journal_deriv.db
+  comment_tag: DERIV-SYN
+
+market:
+  symbols:
+    - Boom 500 Index
+    - Crash 500 Index
+    - Boom 1000 Index
+    - Crash 1000 Index
+    - Volatility 100 Index
+
+timeframes:
+  entry: M5
+  setup: M15
+  higher: H1
+
+strategies:
+  spike_sniper:
+    enabled: true
+    max_holding_bars: 16
+    target_rr: 2.0
+    min_rr: 1.40
+    sl_buffer_atr: 1.5
+    touch_atr: 1.00
+    close_near_atr: 1.35
+    boom_rsi_oversold: 48.0
+    crash_rsi_overbought: 52.0
+    min_wick_ratio: 0.15
+  
+  volatility_trend:
+    enabled: true
+    ema_fast: 20
+    ema_medium: 50
+    ema_slow: 200
+    atr_period: 14
+    sl_buffer_atr: 0.70
+    target_rr: 2.20
+    partial_rr: 1.35
+    min_rr: 1.40
+    enable_trend_pullback: true
+    enable_trap_reversal: true
+    enable_squeeze_expansion: true
+    enable_pullback_sweep: true
+    enable_mean_reversion: false
+    enable_breakout: false
+
+portfolio:
+  volatility_weight: 25
+  boom_crash_weight: 75
+  volatility_max_positions: 2
+  boom_crash_max_positions: 6
+
+risk:
+  mode: percent
+  risk_percent: 0.75
+  risk_money: 25.0
+  max_daily_loss: 5.0
+  max_drawdown: 12.0
+  max_open_positions: 8
+  max_positions_per_symbol: 4
+  break_even_at_r: 1.0
+  partial_take_at_r: 1.5
+  partial_close_percent: 50.0
+
+pyramiding:
+  enabled: true
+  max_layers: 2
+  risk_per_layer_percent: 0.375
+  require_m5_confirmation: true
+  require_risk_free_base: true
+  allow_deep_retest_stage2: true
+
+execution:
+  slippage_points: 2.0
+  time_decay_exit_enabled: true
+
+system_one:
+  enabled: true
+  provider: nanojev # PyTorch Neural Engine
+  shadow_mode: false # ACTIVE: Block setups where NanoJev detects traps or contradictory macro thesis
+  device: cpu
+  min_evidence_score: 3
+  min_confidence: 0.60

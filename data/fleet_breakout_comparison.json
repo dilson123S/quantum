@@ -1,0 +1,266 @@
+{
+  "volatilities": {
+    "Volatility 75 Index": {
+      "WITH_BREAKOUT": {
+        "trades": 506,
+        "wins": 222,
+        "losses": 284,
+        "win_rate_pct": 43.87,
+        "profit_factor": 0.89,
+        "net_usd": -2319.46,
+        "max_drawdown_pct": 32.19,
+        "max_loss_streak": 11,
+        "expectancy_r": -0.061,
+        "annualized_sharpe": -2.45
+      },
+      "NO_BREAKOUT": {
+        "trades": 194,
+        "wins": 86,
+        "losses": 108,
+        "win_rate_pct": 44.33,
+        "profit_factor": 1.01,
+        "net_usd": 60.94,
+        "max_drawdown_pct": 11.17,
+        "max_loss_streak": 8,
+        "expectancy_r": 0.004,
+        "annualized_sharpe": 0.1
+      }
+    },
+    "Volatility 100 Index": {
+      "WITH_BREAKOUT": {
+        "trades": 510,
+        "wins": 238,
+        "losses": 272,
+        "win_rate_pct": 46.67,
+        "profit_factor": 0.93,
+        "net_usd": -1452.22,
+        "max_drawdown_pct": 20.92,
+        "max_loss_streak": 8,
+        "expectancy_r": -0.038,
+        "annualized_sharpe": -1.55
+      },
+      "NO_BREAKOUT": {
+        "trades": 193,
+        "wins": 95,
+        "losses": 98,
+        "win_rate_pct": 49.22,
+        "profit_factor": 1.17,
+        "net_usd": 1322.32,
+        "max_drawdown_pct": 7.15,
+        "max_loss_streak": 6,
+        "expectancy_r": 0.091,
+        "annualized_sharpe": 2.25
+      }
+    },
+    "Volatility 50 Index": {
+      "WITH_BREAKOUT": {
+        "trades": 508,
+        "wins": 241,
+        "losses": 267,
+        "win_rate_pct": 47.44,
+        "profit_factor": 0.92,
+        "net_usd": -1524.36,
+        "max_drawdown_pct": 25.4,
+        "max_loss_streak": 8,
+        "expectancy_r": -0.04,
+        "annualized_sharpe": -1.9
+      },
+      "NO_BREAKOUT": {
+        "trades": 222,
+        "wins": 96,
+        "losses": 126,
+        "win_rate_pct": 43.24,
+        "profit_factor": 0.87,
+        "net_usd": -1308.46,
+        "max_drawdown_pct": 18.71,
+        "max_loss_streak": 7,
+        "expectancy_r": -0.079,
+        "annualized_sharpe": -2.57
+      }
+    },
+    "Volatility 25 Index": {
+      "WITH_BREAKOUT": {
+        "trades": 486,
+        "wins": 230,
+        "losses": 256,
+        "win_rate_pct": 47.33,
+        "profit_factor": 0.95,
+        "net_usd": -969.01,
+        "max_drawdown_pct": 29.76,
+        "max_loss_streak": 9,
+        "expectancy_r": -0.027,
+        "annualized_sharpe": -1.01
+      },
+      "NO_BREAKOUT": {
+        "trades": 215,
+        "wins": 87,
+        "losses": 128,
+        "win_rate_pct": 40.47,
+        "profit_factor": 0.77,
+        "net_usd": -2294.23,
+        "max_drawdown_pct": 34.96,
+        "max_loss_streak": 11,
+        "expectancy_r": -0.143,
+        "annualized_sharpe": -3.68
+      }
+    },
+    "Volatility 10 Index": {
+      "WITH_BREAKOUT": {
+        "trades": 491,
+        "wins": 216,
+        "losses": 275,
+        "win_rate_pct": 43.99,
+        "profit_factor": 0.82,
+        "net_usd": -3619.32,
+        "max_drawdown_pct": 41.92,
+        "max_loss_streak": 9,
+        "expectancy_r": -0.098,
+        "annualized_sharpe": -4.12
+      },
+      "NO_BREAKOUT": {
+        "trades": 222,
+        "wins": 86,
+        "losses": 136,
+        "win_rate_pct": 38.74,
+        "profit_factor": 0.74,
+        "net_usd": -2847.4,
+        "max_drawdown_pct": 32.96,
+        "max_loss_streak": 12,
+        "expectancy_r": -0.171,
+        "annualized_sharpe": -4.72
+      }
+    }
+  },
+  "boom_crash": {
+    "Crash 1000 Index": {
+      "WITH_BREAKOUT": {
+        "trades": 895,
+        "wins": 366,
+        "losses": 529,
+        "win_rate_pct": 40.89,
+        "profit_factor": 0.69,
+        "net_usd": -16023.53,
+        "max_drawdown_pct": 159.61,
+        "max_loss_streak": 12,
+        "expectancy_r": -0.238,
+        "annualized_sharpe": -11.78
+      },
+      "NO_BREAKOUT": {
+        "trades": 204,
+        "wins": 155,
+        "losses": 49,
+        "win_rate_pct": 75.98,
+        "profit_factor": 4.13,
+        "net_usd": 9640.56,
+        "max_drawdown_pct": 2.07,
+        "max_loss_streak": 4,
+        "expectancy_r": 0.631,
+        "annualized_sharpe": 20.49
+      }
+    },
+    "Boom 1000 Index": {
+      "WITH_BREAKOUT": {
+        "trades": 901,
+        "wins": 385,
+        "losses": 516,
+        "win_rate_pct": 42.73,
+        "profit_factor": 1.05,
+        "net_usd": 2312.03,
+        "max_drawdown_pct": 15.4,
+        "max_loss_streak": 12,
+        "expectancy_r": 0.034,
+        "annualized_sharpe": 1.6
+      },
+      "NO_BREAKOUT": {
+        "trades": 206,
+        "wins": 120,
+        "losses": 86,
+        "win_rate_pct": 58.25,
+        "profit_factor": 1.61,
+        "net_usd": 4097.44,
+        "max_drawdown_pct": 4.09,
+        "max_loss_streak": 5,
+        "expectancy_r": 0.265,
+        "annualized_sharpe": 6.8
+      }
+    },
+    "Crash 500 Index": {
+      "WITH_BREAKOUT": {
+        "trades": 812,
+        "wins": 309,
+        "losses": 503,
+        "win_rate_pct": 38.05,
+        "profit_factor": 0.58,
+        "net_usd": -20902.2,
+        "max_drawdown_pct": 208.99,
+        "max_loss_streak": 13,
+        "expectancy_r": -0.343,
+        "annualized_sharpe": -17.03
+      },
+      "NO_BREAKOUT": {
+        "trades": 297,
+        "wins": 163,
+        "losses": 134,
+        "win_rate_pct": 54.88,
+        "profit_factor": 1.34,
+        "net_usd": 2973.5,
+        "max_drawdown_pct": 8.49,
+        "max_loss_streak": 7,
+        "expectancy_r": 0.133,
+        "annualized_sharpe": 4.97
+      }
+    },
+    "Boom 500 Index": {
+      "WITH_BREAKOUT": {
+        "trades": 855,
+        "wins": 348,
+        "losses": 507,
+        "win_rate_pct": 40.7,
+        "profit_factor": 0.8,
+        "net_usd": -9116.5,
+        "max_drawdown_pct": 102.43,
+        "max_loss_streak": 10,
+        "expectancy_r": -0.142,
+        "annualized_sharpe": -6.34
+      },
+      "NO_BREAKOUT": {
+        "trades": 282,
+        "wins": 149,
+        "losses": 133,
+        "win_rate_pct": 52.84,
+        "profit_factor": 1.19,
+        "net_usd": 1869.6,
+        "max_drawdown_pct": 12.36,
+        "max_loss_streak": 5,
+        "expectancy_r": 0.089,
+        "annualized_sharpe": 3.03
+      }
+    }
+  },
+  "fleet_totals": {
+    "WITH_BREAKOUT": {
+      "trades": 5964,
+      "wins": 2555,
+      "losses": 3409,
+      "win_rate_pct": 42.84,
+      "profit_factor": 0.82,
+      "net_usd": -53614.57,
+      "max_drawdown_pct": 109.32,
+      "max_loss_streak": 13,
+      "expectancy_r": -0.12,
+      "annualized_sharpe": -14.78
+    },
+    "NO_BREAKOUT": {
+      "trades": 2035,
+      "wins": 1037,
+      "losses": 998,
+      "win_rate_pct": 50.96,
+      "profit_factor": 1.18,
+      "net_usd": 13514.27,
+      "max_drawdown_pct": 13.32,
+      "max_loss_streak": 12,
+      "expectancy_r": 0.089,
+      "annualized_sharpe": 7.02
+    }
+  }
+}

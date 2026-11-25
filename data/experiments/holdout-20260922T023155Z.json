@@ -1,0 +1,54 @@
+{
+  "experiment_id": "holdout-20260922T023155Z",
+  "created_at": "2026-09-22T02:31:55.686658+00:00",
+  "purpose": "OOS holdout evaluation; do not tune parameters after viewing this result",
+  "is_oos_evaluation": true,
+  "period": "4M",
+  "symbols": "XAUUSD",
+  "evaluation_start": "2026-06-01",
+  "entry_timeframe": "H1",
+  "setup_timeframe": "H4",
+  "higher_timeframe": "D1",
+  "config_sha256": {
+    "config\\bot_a_gold\\settings.yaml": "1dfcf9d7d65c9eb2cb8786d3534be3131198c28cebb41fc1b0d1d3c646657148",
+    "config\\bot_a_gold\\symbols.yaml": "3ab4b0d04d158a4341739412c4c6f27f63ed9e203c7e5deb5eff69b1e1c3a6b4",
+    "config\\bot_a_gold\\risk.yaml": "3f8f10f132246628b3bb8a8a357733084c6823d644d0b0173adf8b21d7bf545c"
+  },
+  "input_sha256": {
+    "XAUUSD:H1": "45ad4dc34794e057d7bbc0bc5ce9a7ffe591571d18a85c6f39abd676ebb1ad87",
+    "XAUUSD:H4": "cc8b914860dc71360dc91b42b0efd990f16a5a90236b0c7a42bce8d95b1ac321",
+    "XAUUSD:D1": "da911e4ce6ff951ac61eca68abb0b56744c263463272c0ed657d2ae7788d9826"
+  },
+  "instrument_specs": {
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 1,
+    "total_profit_money": -13.74,
+    "total_profit_r": -0.07,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260921_213155.csv",
+  "report_sha256": "e23834bcae514379f3c003a66abbb9908c9173c8a2e70da7fd3bc912b30d52fa",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260921_213155.csv",
+  "pending_events_sha256": "0a46e5a6269569b4784d29f16e19c5c088b82089ea680a956b95195b770bc5bd"
+}

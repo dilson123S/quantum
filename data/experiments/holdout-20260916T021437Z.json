@@ -1,0 +1,54 @@
+{
+  "experiment_id": "holdout-20260916T021437Z",
+  "created_at": "2026-09-16T02:14:37.203911+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "1Y",
+  "symbols": "XAUUSD",
+  "evaluation_start": null,
+  "entry_timeframe": "H1",
+  "setup_timeframe": "H4",
+  "higher_timeframe": "D1",
+  "config_sha256": {
+    "config\\demo_gold\\settings.yaml": "0b7a6ae1a7ccefab2d8fda32b0fa904a9f88ee5866ca003dfee57f70ff48a95d",
+    "config\\demo_gold\\symbols.yaml": "110fe4b9b22ea26004594f9c3d62013fd2deb6f34c839e8fdd06f62069a6dd86",
+    "config\\demo_gold\\risk.yaml": "d2d9dd0ddfa804e537725d067d3fd4f7dc18cebe898a886c285a3e422934265e"
+  },
+  "input_sha256": {
+    "XAUUSD:H1": "9c8231ea9afa079d54af1456686ce91a167dd087a7671ea55625c5c33eb9d8c2",
+    "XAUUSD:H4": "1bd7fc33ed00fd89d1b2adb113fffc4272e6a87c73584c407be603cbd09e3ace",
+    "XAUUSD:D1": "58b8544576226fb481bdbeb531fa12935473ca4b8a80266745281931f7199c39"
+  },
+  "instrument_specs": {
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 70,
+    "total_profit_money": 1605.31,
+    "total_profit_r": 15.23,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260915_211437.csv",
+  "report_sha256": "ce9fc1f814a9167219018b3202d618048d986242a3495695d928a0f467ab6e59",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260915_211437.csv",
+  "pending_events_sha256": "e59c173cbe47ab1bd6aa5c1836a06355f4c145488bf422a94d2396f78a6fc931"
+}

@@ -1,0 +1,54 @@
+{
+  "experiment_id": "fleet-btc-h1-current-profile-20260923T003417Z",
+  "created_at": "2026-09-23T00:34:17.811309+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "2Y",
+  "symbols": "BTCUSD",
+  "evaluation_start": null,
+  "entry_timeframe": "H1",
+  "setup_timeframe": "H4",
+  "higher_timeframe": "D1",
+  "config_sha256": {
+    "config\\demo_btc\\settings.yaml": "09bde6d08383806b12efbc0c8c26879266279f844bdd947ec3993653a216d4d7",
+    "config\\demo_btc\\symbols.yaml": "bf42133e9139d8c713b259eb5f700a828fdc456f99eaabf943db489f2d71a00f",
+    "config\\demo_btc\\risk.yaml": "1c52d51b717090be9c5c4fdd9ff0ecef09c366bc563d4b4f2139ede35b00c1f3"
+  },
+  "input_sha256": {
+    "BTCUSD:H1": "bc4928de1b51ff8cea09f252b016f5cc7f0b3a53254ff81ab112f81363cba73d",
+    "BTCUSD:H4": "2eb4eb908fc23ee5e94d0ff89c67f03518029e184daa544368eee4f5f0b72b6a",
+    "BTCUSD:D1": "4e9abf5e0961ced201b5d827821d6836182a57aedc9824d74bc449b1512550fd"
+  },
+  "instrument_specs": {
+    "BTCUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 0.01,
+      "volume_min": 0.01,
+      "volume_max": 10.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 92,
+    "total_profit_money": 981.29,
+    "total_profit_r": 10.32,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260922_193417.csv",
+  "report_sha256": "73f13c1cac9aa20548a547184dc13e2ccf05d4b6e857d946531922a14dbc1d7a",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260922_193417.csv",
+  "pending_events_sha256": "0cfc9e87b87c4d5926de43d9beb9c6b17e303eb5c2f96fcf8cd0c330cc7be181"
+}

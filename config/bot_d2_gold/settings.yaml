@@ -1,0 +1,143 @@
+backtest:
+  commission_per_lot_round_turn: 7.0
+  gap_slippage_points: 2.0
+  intra_bar_policy: stop_first
+  slippage_points: 1.0
+bot:
+  allow_live_trading: false
+  journal_path: data/journal_bot_d2.db
+  magic_number: 26082524
+  max_clock_skew_seconds: 20.0
+  mode: demo
+  name: QuantTradingBot-GoldDemoD2
+  comment_tag: BOT-D2
+decision_context:
+  enabled: true
+  equal_level_tolerance_atr: 0.15
+  fib_zone_atr: 0.15
+  history_bars: 650
+  shadow_mode: true
+  smc_max_age_bars: 40
+  smc_min_gap_atr: 0.1
+  sweep_min_penetration_atr: 0.05
+filters:
+  correlation_filter: true
+  max_spread: true
+  max_spread_atr_percent: 10
+  news_blackout_after: 30
+  news_blackout_before: 30
+  news_filter: true
+  session_filter: true
+  timezone: UTC
+  trading_end: '03:00'
+  trading_start: 07:00
+liquidity_guard:
+  block_asia_daily_breakouts: true
+  enabled: true
+  max_pending_hours: 2.0
+  pdx_proximity_atr: 0.6
+  require_smc_in_zone: true
+market:
+  symbols:
+  - XAUUSD
+ml:
+  allow_active_filter: false
+  enabled: true
+  min_confidence: 0.65
+  model_path: data/ml_model.joblib
+  retrain_weeks: 4
+  shadow_mode: true
+  training_months: 6
+momentum:
+  macd_fast: 12
+  macd_signal: 9
+  macd_slow: 26
+  rsi_bear_max: 50
+  rsi_bear_strong: 45
+  rsi_bull_min: 50
+  rsi_bull_strong: 55
+  rsi_period: 14
+regime_filter:
+  block_low_volatility: true
+  block_ranging: true
+  enabled: true
+  max_range_bb_width_ratio: 1.05
+  min_adx: 20
+  min_bb_width_ratio: 0.9
+  shadow_mode: false
+score:
+  min_structure: 0.0
+  min_trend: 0.0
+  minimum: 70.0
+  momentum_weight: 15.0
+  structure_weight: 30.0
+  trend_weight: 25.0
+  volatility_weight: 15.0
+  volume_weight: 15.0
+smc_filter:
+  enabled: true
+  require_fvg_or_order_block: false
+  require_sweep: false
+  shadow_mode: false
+structure:
+  bos_close_confirmation: true
+  bos_min_distance_atr: 0.1
+  max_swing_age: 100
+  swing_confirmation: 2
+  swing_lookback: 3
+  use_bos: true
+  use_choch: true
+sweep_reversal:
+  enabled: true
+  min_penetration_atr: 0.05
+  min_rr: 2.0
+  sl_buffer_atr: 0.25
+  target_opposite_level: true
+telemetry:
+  log_rejected_score_candidates: true
+  target_daily_trades: 0
+timeframes:
+  entry: H1
+  higher: D1
+  setup: H4
+trade:
+  break_even_r: 0.8
+  breakout_buffer_points: 5
+  breakout_expiry_bars: 6
+  entry_mode: breakout
+  min_risk_reward: 1.0
+  min_trailing_distance_atr: 0.8
+  partial_close: true
+  partial_percent: 50
+  partial_r: 0.5
+  risk_reward: 1.3
+  stagnation_exit_bars: 5
+  stagnation_min_progress_r: 0.3
+  trailing: hybrid
+  trailing_activation_r: 0.8
+  trailing_struct_buffer_atr: 0.3
+trend:
+  adx_min: 20
+  adx_period: 14
+  adx_strong: 25
+  ema_fast: 20
+  ema_medium: 50
+  ema_slow: 200
+validation:
+  status: DEMO_APPROVED
+  summary: Validated on IS (2024-2025) and OOS (2026) with Bootstrap P(R>0)=84.2%
+    and P99 Tail Risk 7.93R
+volatility:
+  atr_avg_period: 50
+  atr_period: 14
+  max_atr_ratio: 2.5
+  min_atr_ratio: 0.8
+  sl_multiplier: 2.0
+  sl_buffer_atr: 0.25
+  max_atr_distance_multiplier: 3.5
+volume:
+  min_ratio: 1.2
+  period: 20
+  strong_ratio: 1.5
+  use_obv: true
+  volume_mode: tick

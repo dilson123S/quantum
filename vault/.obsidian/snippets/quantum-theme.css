@@ -1,0 +1,265 @@
+/* ==========================================================================
+   QUANTUM TRADING TERMINAL THEME FOR OBSIDIAN
+   Cyberpunk / Quantitative Trading Aesthetic with Deep Slate & Neon Accents
+   ========================================================================== */
+
+:root {
+  --font-monospace: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --accent-cyan: #38bdf8;
+  --accent-emerald: #34d399;
+  --accent-amber: #fbbf24;
+  --accent-purple: #c084fc;
+  --accent-rose: #fb7185;
+  --accent-indigo: #818cf8;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --border-card: rgba(56, 189, 248, 0.25);
+  --border-glow: 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   Metric & Stat Cards (Quantum Cockpit)
+   -------------------------------------------------------------------------- */
+.quantum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.quantum-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  padding: 14px 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quantum-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.2);
+}
+
+.quantum-card-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.quantum-card-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: var(--font-monospace);
+  color: #f8fafc;
+}
+
+.quantum-card-value.green { color: var(--accent-emerald); text-shadow: 0 0 10px rgba(52, 211, 153, 0.3); }
+.quantum-card-value.cyan  { color: var(--accent-cyan); text-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
+.quantum-card-value.amber { color: var(--accent-amber); text-shadow: 0 0 10px rgba(251, 191, 36, 0.3); }
+.quantum-card-value.purple{ color: var(--accent-purple); text-shadow: 0 0 10px rgba(192, 132, 252, 0.3); }
+
+.quantum-card-sub {
+  font-size: 0.72rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Custom Callouts with Glowing Borders
+   -------------------------------------------------------------------------- */
+.callout {
+  border-radius: 10px !important;
+  border-width: 1px 1px 1px 4px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+  margin: 16px 0 !important;
+}
+
+.callout[data-callout="success"] {
+  --callout-color: 52, 211, 153;
+  border-left-color: var(--accent-emerald) !important;
+  border-top-color: rgba(52, 211, 153, 0.2) !important;
+  border-right-color: rgba(52, 211, 153, 0.2) !important;
+  border-bottom-color: rgba(52, 211, 153, 0.2) !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+
+.callout[data-callout="tip"] {
+  --callout-color: 56, 189, 248;
+  border-left-color: var(--accent-cyan) !important;
+  border-top-color: rgba(56, 189, 248, 0.2) !important;
+  border-right-color: rgba(56, 189, 248, 0.2) !important;
+  border-bottom-color: rgba(56, 189, 248, 0.2) !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+}
+
+.callout[data-callout="note"] {
+  --callout-color: 192, 132, 252;
+  border-left-color: var(--accent-purple) !important;
+  border-top-color: rgba(192, 132, 252, 0.2) !important;
+  border-right-color: rgba(192, 132, 252, 0.2) !important;
+  border-bottom-color: rgba(192, 132, 252, 0.2) !important;
+  background: rgba(192, 132, 252, 0.08) !important;
+}
+
+.callout[data-callout="important"] {
+  --callout-color: 251, 191, 36;
+  border-left-color: var(--accent-amber) !important;
+  border-top-color: rgba(251, 191, 36, 0.2) !important;
+  border-right-color: rgba(251, 191, 36, 0.2) !important;
+  border-bottom-color: rgba(251, 191, 36, 0.2) !important;
+  background: rgba(251, 191, 36, 0.08) !important;
+}
+
+.callout[data-callout="info"] {
+  --callout-color: 129, 140, 248;
+  border-left-color: var(--accent-indigo) !important;
+  border-top-color: rgba(129, 140, 248, 0.2) !important;
+  border-right-color: rgba(129, 140, 248, 0.2) !important;
+  border-bottom-color: rgba(129, 140, 248, 0.2) !important;
+  background: rgba(129, 140, 248, 0.08) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Trading Tables Styling (Dataview & Standard Markdown)
+   -------------------------------------------------------------------------- */
+table {
+  border-collapse: separate !important;
+  border-spacing: 0;
+  width: 100%;
+  margin: 16px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  background: rgba(15, 23, 42, 0.75) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+th {
+  background: rgba(30, 41, 59, 0.95) !important;
+  color: #38bdf8 !important;
+  font-family: var(--font-monospace) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 12px 16px !important;
+  border-bottom: 2px solid rgba(56, 189, 248, 0.4) !important;
+}
+
+td {
+  padding: 11px 16px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+tr:last-child td {
+  border-bottom: none !important;
+}
+
+tr:hover td {
+  background: rgba(56, 189, 248, 0.08) !important;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Pill Badges & Tags
+   -------------------------------------------------------------------------- */
+.tag {
+  background: rgba(56, 189, 248, 0.14) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  border-radius: 16px !important;
+  padding: 3px 10px !important;
+  font-weight: 600;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.02em;
+}
+
+.tag[href*="win"] {
+  background: rgba(52, 211, 153, 0.16) !important;
+  color: #34d399 !important;
+  border-color: rgba(52, 211, 153, 0.35) !important;
+}
+
+.tag[href*="bot_a"] {
+  background: rgba(56, 189, 248, 0.16) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+}
+
+.tag[href*="bot_b"] {
+  background: rgba(129, 140, 248, 0.16) !important;
+  color: #818cf8 !important;
+  border-color: rgba(129, 140, 248, 0.35) !important;
+}
+
+.tag[href*="bot_c"] {
+  background: rgba(251, 191, 36, 0.16) !important;
+  color: #fbbf24 !important;
+  border-color: rgba(251, 191, 36, 0.35) !important;
+}
+
+.tag[href*="bot_d"] {
+  background: rgba(244, 114, 182, 0.16) !important;
+  color: #f472b6 !important;
+  border-color: rgba(244, 114, 182, 0.35) !important;
+}
+
+.tag[href*="smc"] {
+  background: rgba(192, 132, 252, 0.16) !important;
+  color: #c084fc !important;
+  border-color: rgba(192, 132, 252, 0.35) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Mermaid Flowcharts
+   -------------------------------------------------------------------------- */
+.mermaid {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  margin: 18px 0 !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
+}
+
+.mermaid svg {
+  max-width: 100% !important;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Links & Headers
+   -------------------------------------------------------------------------- */
+a.internal-link {
+  color: var(--accent-cyan) !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed rgba(56, 189, 248, 0.4);
+  transition: all 0.15s ease;
+}
+
+a.internal-link:hover {
+  color: #ffffff !important;
+  border-bottom-color: var(--accent-cyan);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  border-bottom: 2px solid rgba(56, 189, 248, 0.25);
+  padding-bottom: 8px;
+  color: #f8fafc;
+}
+
+h2 {
+  color: #38bdf8;
+  margin-top: 24px;
+}

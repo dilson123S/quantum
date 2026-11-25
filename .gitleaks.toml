@@ -1,0 +1,6 @@
+[allowlist]
+description = "DevSecOps allowlist for local environment and test files"
+paths = [
+    '''\.env$''',
+    '''\.env\.example$'''
+]

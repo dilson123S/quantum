@@ -1,0 +1,105 @@
+{
+  "experiment_id": "expanded-m15-oos-v1-20260822T202508Z",
+  "created_at": "2026-08-22T20:25:08.454729+00:00",
+  "purpose": "holdout evaluation; do not tune parameters after viewing this result",
+  "period": "6M",
+  "symbols": "EURUSD,GBPUSD,USDJPY,XAUUSD,AUDUSD,USDCAD,USDCHF",
+  "evaluation_start": "2026-05-01",
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "config\\settings.yaml": "464c31c67c6a01000ddd35cee497b6590cd44bcc2fcf50600c7646d1166d6ba0",
+    "config\\symbols.yaml": "b7a26a7b3125173e34440e1bd4cf6f328601605efc2c65a626dbdc285c812831",
+    "config\\risk.yaml": "86608ae1eed49f576e24e52f53bcddbdccb12c890b97d64528f1d7ec5642bff6"
+  },
+  "input_sha256": {
+    "EURUSD:M15": "cfade5b54a0ff8fdece9761345663ad40a7231ce2bf47773c2a1552510a6739f",
+    "EURUSD:H1": "2db60a2d3b50e068564f8dacf4ed48aed7152b86e7479c7c9b5c8f8cbdee5e52",
+    "EURUSD:H4": "fa3e36d6d1e389845c3a81b504e24ce4ac59e3fe453c55753168508ef8860b53",
+    "GBPUSD:M15": "095f9f068747d3370827634b1258f8a8085d401a6fb02ca76355b10197f215f8",
+    "GBPUSD:H1": "48c7132a2c949d1d172798139d0094f3d179bcfd92724cc65df870e2c7a2f3df",
+    "GBPUSD:H4": "4686106da29d9c0d88606440dfd22e97e165e276cc8bee4562394ecd906d6c00",
+    "USDJPY:M15": "87e3bdad97644cb8973d7d628a12264404e94fb352f1644668900421731cff91",
+    "USDJPY:H1": "cf55b5c56b30cdd1e036deed4d07f4475aa44df93310c743f29f14b8243e761a",
+    "USDJPY:H4": "8ab77299e2c83ab86eea9d0f0d3624e6f03b5b20a33e5e6d46f99f237a6ca2b1",
+    "XAUUSD:M15": "2c4d98c88e7f5093b8e38ce1629b5227f7b3c6134aff33feb6f42612dc13eeb5",
+    "XAUUSD:H1": "f19ea8e135fbcb3bf19376ab944d02270553df5c2a2f6893291a07473b4e37f8",
+    "XAUUSD:H4": "2a3a2541bfe4f0a9c531ec2b660e84702e905961cc0dcc7d00b7810ba2b38fd0",
+    "AUDUSD:M15": "6b41f0f613b8b67c7d13a22710c7d7d96f0a647d943cb9d67d59217eeb1cf4bf",
+    "AUDUSD:H1": "55d706d120ebb439e671f0b7db00ab34bab77e32db866d6aa7d86fa5557bb487",
+    "AUDUSD:H4": "85f5c4b645d49e5cc87290f9d21d13546030d2080b069897098fc0e935ece8ca",
+    "USDCAD:M15": "8571f5a3c116b91937f9744e6bc0401cde76b4086ac8abd1b84ef8f5fcd3010a",
+    "USDCAD:H1": "1fa5e77f08973365b76646c74bf7e624575dc0d2ccee3b42991daf62291e798d",
+    "USDCAD:H4": "0bda26857cd843888038f142c111aab9ff80f399ffbb9a9864ae01c7b2fd36aa",
+    "USDCHF:M15": "73484deb5d7136f0b43e95a59298748984291686e3d84b381bfaecb09ccfe228",
+    "USDCHF:H1": "0b6fa308cfd62e6dd8b4f385a94f186d99322b895d9b4610a0705dfaa83b879d",
+    "USDCHF:H4": "19781819c4df2466b79a923fe6fe969b755a7a6ed380f664dcf2c92a8a5c476e"
+  },
+  "instrument_specs": {
+    "EURUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "GBPUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6289466401670483,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    },
+    "AUDUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDCAD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 0.7261162221625194,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDCHF": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.2475983731317213,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "report_csv": "data\\backtest_20260822_152508.csv",
+  "report_sha256": "018b5561bd58d3a81a528dab1b974d5649b49124949131ae75dec0c1499c6c01"
+}

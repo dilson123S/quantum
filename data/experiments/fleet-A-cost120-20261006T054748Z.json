@@ -1,0 +1,56 @@
+{
+  "experiment_id": "fleet-A-cost120-20261006T054748Z",
+  "created_at": "2026-10-06T05:47:48.829780+00:00",
+  "purpose": "in-sample / exploratory fleet profile comparison; holdout excluded",
+  "is_oos_evaluation": false,
+  "period": "2Y",
+  "evaluation_start": null,
+  "data_cutoff_exclusive": "2026-06-01T00:00:00+00:00",
+  "bot": "BOT-A",
+  "symbol": "XAUUSD",
+  "initial_balance_per_bot": 10000.0,
+  "config_sha256": {
+    "config/bot_a_gold/settings.yaml": "d199ee877f218144b642229f8c97cab0b863ac10ecd444f1fe1d62f2776ebfae",
+    "config/bot_a_gold/symbols.yaml": "2b3387636222bcd9af491756beb2a76e50ea53aa0e70d11ce16b72c1225722ea",
+    "config/bot_a_gold/risk.yaml": "3f8f10f132246628b3bb8a8a357733084c6823d644d0b0173adf8b21d7bf545c"
+  },
+  "input_sha256": {
+    "XAUUSD:H1": "b6b7f2145742733981a5ec2e20c2b4bef97d6a1312ef361f9da042edec5449c5",
+    "XAUUSD:H4": "6a25151d8163adc758a491a5ffeec96cc9a9525aff96e52214dc3ed1a5f9e39d",
+    "XAUUSD:D1": "1ccef56310239ad15a1e04f18b751715b4d2294e025f922755144bc5637a7b2c"
+  },
+  "instrument_specs": {
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 10.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 8.4,
+    "slippage_points": 1.2,
+    "gap_slippage_points": 2.4,
+    "intra_bar_policy": "stop_first"
+  },
+  "stress_multiplier_applied_to_commission_and_slippage": 1.2,
+  "summary_metrics": {
+    "total_trades": 192,
+    "winning_trades": 83,
+    "losing_trades": 101,
+    "win_rate_pct": 43.2,
+    "total_profit_money": 9789.51,
+    "total_profit_r": 35.7375,
+    "avg_profit_r": 0.1861,
+    "profit_factor": 1.6135,
+    "max_drawdown_pct": 18.2587,
+    "bootstrap_p05_r": 15.4861,
+    "bootstrap_probability_positive": 0.9978,
+    "bootstrap_sufficient_sample": true,
+    "ml_applied": false
+  },
+  "report_csv": "data\\backtest_20261006_004748.csv",
+  "pending_events_csv": "data\\pending_events_20261006_004748.csv"
+}

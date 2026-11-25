@@ -1,0 +1,182 @@
+{
+  "dataset_rows": 11869,
+  "positive_samples": 6508,
+  "negative_samples": 5361,
+  "features_used": [
+    "ema20_slope",
+    "ema50_slope",
+    "price_vs_ema200",
+    "adx_norm",
+    "rsi_norm",
+    "macd_hist_slope",
+    "atr_ratio_val",
+    "volume_ratio_val",
+    "obv_trend",
+    "spread_norm",
+    "hour_sin",
+    "hour_cos",
+    "day_of_week",
+    "structure_score_norm",
+    "trend_score_norm"
+  ],
+  "n_features": 15,
+  "data_start": "2026-07-07T11:30:00+00:00",
+  "data_end": "2026-08-20T17:30:00+00:00",
+  "n_folds": 5,
+  "purge_bars": 20,
+  "validation_protocol": "expanding purged temporal folds grouped by timestamp across symbols",
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "train_size": 1585,
+      "val_size": 2036,
+      "train_end": "2026-07-14T16:00:00+00:00",
+      "validation_start": "2026-07-14T21:15:00+00:00",
+      "validation_end": "2026-07-22T05:45:00+00:00",
+      "accuracy": 0.5108,
+      "precision": 0.5641,
+      "recall": 0.6061,
+      "f1": 0.5843,
+      "auc_roc": 0.5267
+    },
+    {
+      "fold": 2,
+      "train_size": 3621,
+      "val_size": 2040,
+      "train_end": "2026-07-22T00:45:00+00:00",
+      "validation_start": "2026-07-22T06:00:00+00:00",
+      "validation_end": "2026-07-29T14:30:00+00:00",
+      "accuracy": 0.5578,
+      "precision": 0.5939,
+      "recall": 0.5042,
+      "f1": 0.5454,
+      "auc_roc": 0.5854
+    },
+    {
+      "fold": 3,
+      "train_size": 5661,
+      "val_size": 2040,
+      "train_end": "2026-07-29T09:30:00+00:00",
+      "validation_start": "2026-07-29T14:45:00+00:00",
+      "validation_end": "2026-08-05T23:15:00+00:00",
+      "accuracy": 0.5456,
+      "precision": 0.6145,
+      "recall": 0.5354,
+      "f1": 0.5722,
+      "auc_roc": 0.5543
+    },
+    {
+      "fold": 4,
+      "train_size": 7701,
+      "val_size": 2036,
+      "train_end": "2026-08-05T18:15:00+00:00",
+      "validation_start": "2026-08-05T23:30:00+00:00",
+      "validation_end": "2026-08-13T08:00:00+00:00",
+      "accuracy": 0.5766,
+      "precision": 0.592,
+      "recall": 0.623,
+      "f1": 0.6071,
+      "auc_roc": 0.5808
+    },
+    {
+      "fold": 5,
+      "train_size": 9737,
+      "val_size": 2052,
+      "train_end": "2026-08-13T03:00:00+00:00",
+      "validation_start": "2026-08-13T08:15:00+00:00",
+      "validation_end": "2026-08-20T17:30:00+00:00",
+      "accuracy": 0.5434,
+      "precision": 0.6173,
+      "recall": 0.5349,
+      "f1": 0.5731,
+      "auc_roc": 0.557
+    }
+  ],
+  "invalid_folds": [],
+  "min_auc_threshold": 0.55,
+  "min_fold_auc_threshold": 0.45,
+  "xgb_params": {
+    "n_estimators": 200,
+    "max_depth": 4,
+    "min_child_weight": 5,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "learning_rate": 0.05,
+    "gamma": 1.0,
+    "reg_alpha": 0.1,
+    "reg_lambda": 1.0,
+    "scale_pos_weight": 0.8237553779963123,
+    "eval_metric": "logloss",
+    "random_state": 42,
+    "verbosity": 0
+  },
+  "avg_auc_roc": 0.5608,
+  "avg_accuracy": 0.5468,
+  "avg_precision": 0.5964,
+  "avg_f1": 0.5764,
+  "min_fold_auc_roc": 0.5267,
+  "model_accepted": true,
+  "feature_importance": [
+    {
+      "feature": "hour_cos",
+      "importance": 0.1667
+    },
+    {
+      "feature": "ema50_slope",
+      "importance": 0.0951
+    },
+    {
+      "feature": "hour_sin",
+      "importance": 0.0919
+    },
+    {
+      "feature": "adx_norm",
+      "importance": 0.0881
+    },
+    {
+      "feature": "price_vs_ema200",
+      "importance": 0.0857
+    },
+    {
+      "feature": "atr_ratio_val",
+      "importance": 0.0835
+    },
+    {
+      "feature": "day_of_week",
+      "importance": 0.0788
+    },
+    {
+      "feature": "ema20_slope",
+      "importance": 0.0742
+    },
+    {
+      "feature": "rsi_norm",
+      "importance": 0.0726
+    },
+    {
+      "feature": "macd_hist_slope",
+      "importance": 0.0684
+    },
+    {
+      "feature": "volume_ratio_val",
+      "importance": 0.0624
+    },
+    {
+      "feature": "obv_trend",
+      "importance": 0.0329
+    },
+    {
+      "feature": "spread_norm",
+      "importance": 0.0
+    },
+    {
+      "feature": "structure_score_norm",
+      "importance": 0.0
+    },
+    {
+      "feature": "trend_score_norm",
+      "importance": 0.0
+    }
+  ],
+  "status": "ACCEPTED_SHADOW_ONLY"
+}

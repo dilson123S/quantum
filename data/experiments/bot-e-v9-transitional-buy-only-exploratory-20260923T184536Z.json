@@ -1,0 +1,54 @@
+{
+  "experiment_id": "bot-e-v9-transitional-buy-only-exploratory-20260923T184536Z",
+  "created_at": "2026-09-23T18:45:36.840069+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "1Y",
+  "symbols": null,
+  "evaluation_start": null,
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "data\\experiments\\bot_e_v9_transitional_buy_only\\settings.yaml": "9fbcdccbc77ea842ca5f73f44fba07779d9cc13073bb88e4e949b43b8c5edad6",
+    "data\\experiments\\bot_e_v9_transitional_buy_only\\symbols.yaml": "7d777c4eddb4c260e494c5682b57f2edfd0821665a1157bdc61ecf48196e0290",
+    "data\\experiments\\bot_e_v9_transitional_buy_only\\risk.yaml": "76a5d077ef049adbb7d8ef93edd0470b2353dff047c7ad1aba4a651d89c8f70e"
+  },
+  "input_sha256": {
+    "USDJPY:M15": "0203e8fb78b65b99d8ccbeacf2d3fe4ba8ca405bf7539f1776dfc4d16c15cc12",
+    "USDJPY:H1": "c45f5a4b578c8b83bea5ed377717b292e75776d7c7374d00a3875f7840f6fd11",
+    "USDJPY:H4": "eed6cbd251c54c2f49cbb67866b0f794efc408231032e27164103ac6878a481f"
+  },
+  "instrument_specs": {
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6317079487811196,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 137,
+    "total_profit_money": 26.11,
+    "total_profit_r": 4.21,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260923_134536.csv",
+  "report_sha256": "50dade9856234c54017b44df693cda58ebc740287b5e39e65cd3dba1a42feb2a",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260923_134536.csv",
+  "pending_events_sha256": "ee2cbb7be7d113c5974d7f5e4a1d4144d1cc6b1ea8e22a755ccd6368c50ccb9e"
+}

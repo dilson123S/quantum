@@ -1,0 +1,54 @@
+{
+  "experiment_id": "holdout-20260922T011421Z",
+  "created_at": "2026-09-22T01:14:21.533735+00:00",
+  "purpose": "OOS holdout evaluation; do not tune parameters after viewing this result",
+  "is_oos_evaluation": true,
+  "period": "6M",
+  "symbols": "XAUUSD",
+  "evaluation_start": "2026-06-01",
+  "entry_timeframe": "H1",
+  "setup_timeframe": "H4",
+  "higher_timeframe": "D1",
+  "config_sha256": {
+    "config\\bot_a_gold\\settings.yaml": "4dfa3a647ec4f4fe9aed9c30b0ce5d524e7d038d3a8e13d8d1ca98f8c6a2092e",
+    "config\\bot_a_gold\\symbols.yaml": "3ab4b0d04d158a4341739412c4c6f27f63ed9e203c7e5deb5eff69b1e1c3a6b4",
+    "config\\bot_a_gold\\risk.yaml": "3f8f10f132246628b3bb8a8a357733084c6823d644d0b0173adf8b21d7bf545c"
+  },
+  "input_sha256": {
+    "XAUUSD:H1": "7e4af7ab29d1c9b8a71d87460476e4835b182136bfdcd8a339bef3c7d8dd7e9f",
+    "XAUUSD:H4": "b1852f6be8e635fe4086dbab3200cf99e337166a8d17c680f5f94b6188deb2ce",
+    "XAUUSD:D1": "242c8f3d8811ab2332f917f4df0ce0f477acd05d57e92e39ad00f5aafdd62db9"
+  },
+  "instrument_specs": {
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 15,
+    "total_profit_money": -47.47,
+    "total_profit_r": -0.17,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260921_201421.csv",
+  "report_sha256": "76c695ffb8707f8046cea404e639a6e00f4d4387fd4d29b1c63186d092105ca1",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260921_201421.csv",
+  "pending_events_sha256": "3d59ddb958759ef4a552fa8c3e5fbd5d13a9d361333387470785fa64421ef9e6"
+}

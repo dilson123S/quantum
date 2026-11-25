@@ -1,0 +1,56 @@
+{
+  "experiment_id": "fleet-A-base-20260923T001834Z",
+  "created_at": "2026-09-23T00:18:34.935873+00:00",
+  "purpose": "in-sample / exploratory fleet profile comparison; holdout excluded",
+  "is_oos_evaluation": false,
+  "period": "2Y",
+  "evaluation_start": null,
+  "data_cutoff_exclusive": "2026-06-01T00:00:00+00:00",
+  "bot": "BOT-A",
+  "symbol": "XAUUSD",
+  "initial_balance_per_bot": 10000.0,
+  "config_sha256": {
+    "config/bot_a_gold/settings.yaml": "d199ee877f218144b642229f8c97cab0b863ac10ecd444f1fe1d62f2776ebfae",
+    "config/bot_a_gold/symbols.yaml": "2b3387636222bcd9af491756beb2a76e50ea53aa0e70d11ce16b72c1225722ea",
+    "config/bot_a_gold/risk.yaml": "3f8f10f132246628b3bb8a8a357733084c6823d644d0b0173adf8b21d7bf545c"
+  },
+  "input_sha256": {
+    "XAUUSD:H1": "f5ff17f2ffe1f4c7ad9b8589679b1070b941ad7478499167bc7bcf9ea873fd40",
+    "XAUUSD:H4": "4394fc907b540405861abfe5c0911f2c93a8f3ea4cc3b47f1fa3a8a4e49f4375",
+    "XAUUSD:D1": "81daa8d7d0dd09fe67cddeb205a7e9ae7b8ed7bd71451d7bc341399056d71aa6"
+  },
+  "instrument_specs": {
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "stress_multiplier_applied_to_commission_and_slippage": 1.0,
+  "summary_metrics": {
+    "total_trades": 151,
+    "winning_trades": 68,
+    "losing_trades": 76,
+    "win_rate_pct": 45.0,
+    "total_profit_money": 6986.36,
+    "total_profit_r": 27.3671,
+    "avg_profit_r": 0.1812,
+    "profit_factor": 1.861,
+    "max_drawdown_pct": 8.7617,
+    "bootstrap_p05_r": 12.8576,
+    "bootstrap_probability_positive": 0.999,
+    "bootstrap_sufficient_sample": true,
+    "ml_applied": false
+  },
+  "report_csv": "data\\backtest_20260922_191834.csv",
+  "pending_events_csv": "data\\pending_events_20260922_191834.csv"
+}

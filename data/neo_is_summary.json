@@ -1,0 +1,466 @@
+{
+  "portfolio_baseline_oos": {
+    "total_trades": 511,
+    "wins": 247,
+    "losses": 264,
+    "win_rate_pct": 48.3,
+    "profit_factor": 2.04,
+    "net_r": 215.8,
+    "net_cash_usd": 16186.22,
+    "max_drawdown_usd": 940.91,
+    "max_drawdown_pct": 3.6,
+    "avg_trade_usd": 31.68
+  },
+  "portfolio_neo_oos": {
+    "total_trades": 438,
+    "wins": 218,
+    "losses": 220,
+    "win_rate_pct": 49.8,
+    "profit_factor": 2.24,
+    "net_r": 202.95,
+    "net_cash_usd": 15102.91,
+    "max_drawdown_usd": 600.75,
+    "max_drawdown_pct": 2.4,
+    "avg_trade_usd": 34.48
+  },
+  "portfolio_tier_a_oos": {
+    "total_trades": 404,
+    "wins": 202,
+    "losses": 202,
+    "win_rate_pct": 50.0,
+    "profit_factor": 2.3,
+    "net_r": 200.82,
+    "net_cash_usd": 15023.97,
+    "max_drawdown_usd": 600.75,
+    "max_drawdown_pct": 2.4,
+    "avg_trade_usd": 37.19
+  },
+  "portfolio_tier_b_oos": {
+    "total_trades": 34,
+    "wins": 16,
+    "losses": 18,
+    "win_rate_pct": 47.1,
+    "profit_factor": 1.12,
+    "net_r": 2.13,
+    "net_cash_usd": 78.94,
+    "max_drawdown_usd": 124.87,
+    "max_drawdown_pct": 1.2,
+    "avg_trade_usd": 2.32
+  },
+  "walk_forward_metrics": {
+    "wfe": 1.7,
+    "alpha_retention_pct": 96.9,
+    "is_pf": 1.32,
+    "oos_pf": 2.24,
+    "is_net_usd": 15586.76,
+    "oos_net_usd": 15102.91,
+    "is_wr": 46.2,
+    "oos_wr": 49.8
+  },
+  "efficacy": {
+    "total_filtered": 109,
+    "losses_saved": 62,
+    "wins_missed": 47,
+    "precision_pct": 56.88073394495413
+  },
+  "loss_autopsy": {
+    "total_losses": 220,
+    "total_loss_usd": -12226.13,
+    "by_tier": {
+      "TIER_A_ALPHA": 202,
+      "TIER_B_SURGICAL": 18
+    },
+    "by_model": {
+      "CRASH_SPIKE_SNIPER_SUPPLY": 50,
+      "BOOM_SPIKE_SNIPER_DEMAND": 115,
+      "INSTITUTIONAL_TREND_PULLBACK": 20,
+      "VOLATILITY_SQUEEZE_EXPANSION": 12,
+      "VOLATILITY_SQUEEZE_EXPANSION-L2": 3,
+      "PULLBACK_LIQUIDITY_SWEEP": 19,
+      "INSTITUTIONAL_TREND_PULLBACK-L2": 1
+    },
+    "by_symbol": {
+      "Crash 1000 Index": 15,
+      "Boom 1000 Index": 41,
+      "Crash 500 Index": 35,
+      "Boom 500 Index": 74,
+      "Volatility 75 Index": 26,
+      "Volatility 100 Index": 29
+    },
+    "holding_duration": {
+      "avg_bars": 7.1,
+      "max_bars": 24,
+      "min_bars": 2
+    }
+  },
+  "symbols": [
+    {
+      "symbol": "Crash 1000 Index",
+      "category": "boom_crash",
+      "period_start": "2026-09-01 02:50",
+      "period_end": "2026-10-05 20:05",
+      "base_metrics": {
+        "total_trades": 53,
+        "wins": 37,
+        "losses": 16,
+        "win_rate_pct": 69.8,
+        "profit_factor": 9.1,
+        "net_r": 65.87,
+        "net_cash_usd": 4940.25,
+        "max_drawdown_usd": 116.25,
+        "max_drawdown_pct": 0.8,
+        "avg_trade_usd": 93.21
+      },
+      "neo_metrics": {
+        "total_trades": 47,
+        "wins": 32,
+        "losses": 15,
+        "win_rate_pct": 68.1,
+        "profit_factor": 8.37,
+        "net_r": 56.35,
+        "net_cash_usd": 4226.25,
+        "max_drawdown_usd": 116.25,
+        "max_drawdown_pct": 0.8,
+        "avg_trade_usd": 89.92
+      },
+      "tier_a_metrics": {
+        "total_trades": 47,
+        "wins": 32,
+        "losses": 15,
+        "win_rate_pct": 68.1,
+        "profit_factor": 8.37,
+        "net_r": 56.35,
+        "net_cash_usd": 4226.25,
+        "max_drawdown_usd": 116.25,
+        "max_drawdown_pct": 0.8,
+        "avg_trade_usd": 89.92
+      },
+      "tier_b_metrics": {
+        "total_trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate_pct": 0.0,
+        "profit_factor": 0.0,
+        "net_r": 0.0,
+        "net_cash_usd": 0.0,
+        "max_drawdown_usd": 0.0,
+        "max_drawdown_pct": 0.0,
+        "avg_trade_usd": 0.0,
+        "profit_r_sum": 0.0,
+        "loss_r_sum": 0.0
+      },
+      "tier_c_filtered": {
+        "total": 7,
+        "losses_saved": 2,
+        "wins_missed": 5,
+        "precision_pct": 28.6
+      }
+    },
+    {
+      "symbol": "Boom 1000 Index",
+      "category": "boom_crash",
+      "period_start": "2026-09-01 02:50",
+      "period_end": "2026-10-05 20:05",
+      "base_metrics": {
+        "total_trades": 83,
+        "wins": 35,
+        "losses": 48,
+        "win_rate_pct": 42.2,
+        "profit_factor": 1.73,
+        "net_r": 29.0,
+        "net_cash_usd": 2175.0,
+        "max_drawdown_usd": 666.75,
+        "max_drawdown_pct": 5.2,
+        "avg_trade_usd": 26.2
+      },
+      "neo_metrics": {
+        "total_trades": 73,
+        "wins": 32,
+        "losses": 41,
+        "win_rate_pct": 43.8,
+        "profit_factor": 1.78,
+        "net_r": 27.53,
+        "net_cash_usd": 2064.75,
+        "max_drawdown_usd": 600.75,
+        "max_drawdown_pct": 4.8,
+        "avg_trade_usd": 28.28
+      },
+      "tier_a_metrics": {
+        "total_trades": 73,
+        "wins": 32,
+        "losses": 41,
+        "win_rate_pct": 43.8,
+        "profit_factor": 1.78,
+        "net_r": 27.53,
+        "net_cash_usd": 2064.75,
+        "max_drawdown_usd": 600.75,
+        "max_drawdown_pct": 4.8,
+        "avg_trade_usd": 28.28
+      },
+      "tier_b_metrics": {
+        "total_trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate_pct": 0.0,
+        "profit_factor": 0.0,
+        "net_r": 0.0,
+        "net_cash_usd": 0.0,
+        "max_drawdown_usd": 0.0,
+        "max_drawdown_pct": 0.0,
+        "avg_trade_usd": 0.0,
+        "profit_r_sum": 0.0,
+        "loss_r_sum": 0.0
+      },
+      "tier_c_filtered": {
+        "total": 10,
+        "losses_saved": 6,
+        "wins_missed": 4,
+        "precision_pct": 60.0
+      }
+    },
+    {
+      "symbol": "Crash 500 Index",
+      "category": "boom_crash",
+      "period_start": "2026-09-01 02:50",
+      "period_end": "2026-10-05 20:05",
+      "base_metrics": {
+        "total_trades": 86,
+        "wins": 48,
+        "losses": 38,
+        "win_rate_pct": 55.8,
+        "profit_factor": 3.99,
+        "net_r": 68.48,
+        "net_cash_usd": 5136.0,
+        "max_drawdown_usd": 165.75,
+        "max_drawdown_pct": 1.1,
+        "avg_trade_usd": 59.72
+      },
+      "neo_metrics": {
+        "total_trades": 80,
+        "wins": 45,
+        "losses": 35,
+        "win_rate_pct": 56.2,
+        "profit_factor": 3.97,
+        "net_r": 63.9,
+        "net_cash_usd": 4792.5,
+        "max_drawdown_usd": 165.75,
+        "max_drawdown_pct": 1.1,
+        "avg_trade_usd": 59.91
+      },
+      "tier_a_metrics": {
+        "total_trades": 80,
+        "wins": 45,
+        "losses": 35,
+        "win_rate_pct": 56.2,
+        "profit_factor": 3.97,
+        "net_r": 63.9,
+        "net_cash_usd": 4792.5,
+        "max_drawdown_usd": 165.75,
+        "max_drawdown_pct": 1.1,
+        "avg_trade_usd": 59.91
+      },
+      "tier_b_metrics": {
+        "total_trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate_pct": 0.0,
+        "profit_factor": 0.0,
+        "net_r": 0.0,
+        "net_cash_usd": 0.0,
+        "max_drawdown_usd": 0.0,
+        "max_drawdown_pct": 0.0,
+        "avg_trade_usd": 0.0,
+        "profit_r_sum": 0.0,
+        "loss_r_sum": 0.0
+      },
+      "tier_c_filtered": {
+        "total": 12,
+        "losses_saved": 6,
+        "wins_missed": 6,
+        "precision_pct": 50.0
+      }
+    },
+    {
+      "symbol": "Boom 500 Index",
+      "category": "boom_crash",
+      "period_start": "2026-09-01 07:25",
+      "period_end": "2026-10-06 00:40",
+      "base_metrics": {
+        "total_trades": 133,
+        "wins": 59,
+        "losses": 74,
+        "win_rate_pct": 44.4,
+        "profit_factor": 1.8,
+        "net_r": 47.46,
+        "net_cash_usd": 3484.5,
+        "max_drawdown_usd": 555.75,
+        "max_drawdown_pct": 4.0,
+        "avg_trade_usd": 26.2
+      },
+      "neo_metrics": {
+        "total_trades": 131,
+        "wins": 57,
+        "losses": 74,
+        "win_rate_pct": 43.5,
+        "profit_factor": 1.73,
+        "net_r": 43.43,
+        "net_cash_usd": 3182.25,
+        "max_drawdown_usd": 555.75,
+        "max_drawdown_pct": 4.1,
+        "avg_trade_usd": 24.29
+      },
+      "tier_a_metrics": {
+        "total_trades": 131,
+        "wins": 57,
+        "losses": 74,
+        "win_rate_pct": 43.5,
+        "profit_factor": 1.73,
+        "net_r": 43.43,
+        "net_cash_usd": 3182.25,
+        "max_drawdown_usd": 555.75,
+        "max_drawdown_pct": 4.1,
+        "avg_trade_usd": 24.29
+      },
+      "tier_b_metrics": {
+        "total_trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate_pct": 0.0,
+        "profit_factor": 0.0,
+        "net_r": 0.0,
+        "net_cash_usd": 0.0,
+        "max_drawdown_usd": 0.0,
+        "max_drawdown_pct": 0.0,
+        "avg_trade_usd": 0.0,
+        "profit_r_sum": 0.0,
+        "loss_r_sum": 0.0
+      },
+      "tier_c_filtered": {
+        "total": 14,
+        "losses_saved": 3,
+        "wins_missed": 11,
+        "precision_pct": 21.4
+      }
+    },
+    {
+      "symbol": "Volatility 75 Index",
+      "category": "volatility",
+      "period_start": "2026-09-01 07:25",
+      "period_end": "2026-10-06 00:40",
+      "base_metrics": {
+        "total_trades": 73,
+        "wins": 29,
+        "losses": 44,
+        "win_rate_pct": 39.7,
+        "profit_factor": 0.99,
+        "net_r": -1.78,
+        "net_cash_usd": -42.42,
+        "max_drawdown_usd": 715.52,
+        "max_drawdown_pct": 7.1,
+        "avg_trade_usd": -0.58
+      },
+      "neo_metrics": {
+        "total_trades": 47,
+        "wins": 21,
+        "losses": 26,
+        "win_rate_pct": 44.7,
+        "profit_factor": 1.26,
+        "net_r": 4.02,
+        "net_cash_usd": 332.06,
+        "max_drawdown_usd": 288.0,
+        "max_drawdown_pct": 2.8,
+        "avg_trade_usd": 7.07
+      },
+      "tier_a_metrics": {
+        "total_trades": 31,
+        "wins": 14,
+        "losses": 17,
+        "win_rate_pct": 45.2,
+        "profit_factor": 1.33,
+        "net_r": 3.41,
+        "net_cash_usd": 309.74,
+        "max_drawdown_usd": 276.37,
+        "max_drawdown_pct": 2.7,
+        "avg_trade_usd": 9.99
+      },
+      "tier_b_metrics": {
+        "total_trades": 16,
+        "wins": 7,
+        "losses": 9,
+        "win_rate_pct": 43.8,
+        "profit_factor": 1.07,
+        "net_r": 0.61,
+        "net_cash_usd": 22.32,
+        "max_drawdown_usd": 124.87,
+        "max_drawdown_pct": 1.2,
+        "avg_trade_usd": 1.4
+      },
+      "tier_c_filtered": {
+        "total": 32,
+        "losses_saved": 23,
+        "wins_missed": 9,
+        "precision_pct": 71.9
+      }
+    },
+    {
+      "symbol": "Volatility 100 Index",
+      "category": "volatility",
+      "period_start": "2026-09-01 02:50",
+      "period_end": "2026-10-05 20:05",
+      "base_metrics": {
+        "total_trades": 83,
+        "wins": 39,
+        "losses": 44,
+        "win_rate_pct": 47.0,
+        "profit_factor": 1.16,
+        "net_r": 6.77,
+        "net_cash_usd": 492.89,
+        "max_drawdown_usd": 462.75,
+        "max_drawdown_pct": 4.3,
+        "avg_trade_usd": 5.94
+      },
+      "neo_metrics": {
+        "total_trades": 60,
+        "wins": 31,
+        "losses": 29,
+        "win_rate_pct": 51.7,
+        "profit_factor": 1.28,
+        "net_r": 7.72,
+        "net_cash_usd": 505.1,
+        "max_drawdown_usd": 270.0,
+        "max_drawdown_pct": 2.5,
+        "avg_trade_usd": 8.42
+      },
+      "tier_a_metrics": {
+        "total_trades": 42,
+        "wins": 22,
+        "losses": 20,
+        "win_rate_pct": 52.4,
+        "profit_factor": 1.31,
+        "net_r": 6.2,
+        "net_cash_usd": 448.48,
+        "max_drawdown_usd": 301.88,
+        "max_drawdown_pct": 2.9,
+        "avg_trade_usd": 10.68
+      },
+      "tier_b_metrics": {
+        "total_trades": 18,
+        "wins": 9,
+        "losses": 9,
+        "win_rate_pct": 50.0,
+        "profit_factor": 1.17,
+        "net_r": 1.52,
+        "net_cash_usd": 56.62,
+        "max_drawdown_usd": 75.0,
+        "max_drawdown_pct": 0.7,
+        "avg_trade_usd": 3.15
+      },
+      "tier_c_filtered": {
+        "total": 34,
+        "losses_saved": 22,
+        "wins_missed": 12,
+        "precision_pct": 64.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+bot:
+  name: QuantTradingBot-GoldDemo
+  magic_number: 26082499
+  mode: demo
+  allow_live_trading: false
+  journal_path: data/journal_demo.db
+  max_clock_skew_seconds: 20.0
+validation:
+  status: DEMO_APPROVED
+  summary: Validated on IS (2024-2025) and OOS (2026) with Bootstrap P(R>0)=84.2% and P99 Tail Risk 7.93R
+market:
+  symbols:
+  - XAUUSD
+timeframes:
+  higher: D1
+  setup: H4
+  entry: H1
+score:
+  minimum: 75.0
+  min_structure: 0.0
+  min_trend: 0.0
+  structure_weight: 30.0
+  trend_weight: 25.0
+  momentum_weight: 15.0
+  volume_weight: 15.0
+  volatility_weight: 15.0
+structure:
+  swing_lookback: 3
+  swing_confirmation: 2
+  bos_min_distance_atr: 0.1
+  bos_close_confirmation: true
+  use_choch: true
+  use_bos: true
+  max_swing_age: 100
+trend:
+  ema_fast: 20
+  ema_medium: 50
+  ema_slow: 200
+  adx_period: 14
+  adx_min: 20
+  adx_strong: 25
+momentum:
+  rsi_period: 14
+  rsi_bull_min: 50
+  rsi_bull_strong: 55
+  rsi_bear_max: 50
+  rsi_bear_strong: 45
+  macd_fast: 12
+  macd_slow: 26
+  macd_signal: 9
+volume:
+  period: 20
+  min_ratio: 1.2
+  strong_ratio: 1.5
+  use_obv: true
+  volume_mode: tick
+volatility:
+  atr_period: 14
+  atr_avg_period: 50
+  min_atr_ratio: 0.8
+  max_atr_ratio: 2.5
+  sl_multiplier: 1.5
+trade:
+  risk_reward: 2.0
+  break_even_r: 1.2
+  partial_close: true
+  partial_r: 1.5
+  partial_percent: 50
+  trailing: hybrid
+  trailing_activation_r: 1.0
+  trailing_struct_buffer_atr: 0.3
+  min_trailing_distance_atr: 0.8
+  entry_mode: breakout
+  breakout_buffer_points: 5
+  breakout_expiry_bars: 4
+filters:
+  max_spread: true
+  session_filter: true
+  news_filter: true
+  correlation_filter: true
+  trading_start: "07:00"
+  trading_end: "18:00"
+  timezone: UTC
+  max_spread_atr_percent: 10
+  news_blackout_before: 30
+  news_blackout_after: 30
+telemetry:
+  log_rejected_score_candidates: true
+  target_daily_trades: 0
+ml:
+  enabled: true
+  shadow_mode: true
+  allow_active_filter: false
+  model_path: data/ml_model.joblib
+  min_confidence: 0.65
+  retrain_weeks: 4
+  training_months: 6
+decision_context:
+  enabled: true
+  shadow_mode: true
+  history_bars: 650
+  equal_level_tolerance_atr: 0.15
+  fib_zone_atr: 0.15
+  smc_max_age_bars: 40
+  smc_min_gap_atr: 0.10
+  sweep_min_penetration_atr: 0.05
+regime_filter:
+  enabled: true
+  shadow_mode: false
+  min_adx: 20
+  min_bb_width_ratio: 0.90
+  max_range_bb_width_ratio: 1.05
+  block_ranging: true
+  block_low_volatility: true
+smc_filter:
+  enabled: true
+  shadow_mode: false
+  require_sweep: false
+  require_fvg_or_order_block: false
+sweep_reversal:
+  enabled: true
+  min_penetration_atr: 0.05
+  min_rr: 2.0
+  sl_buffer_atr: 0.10
+  target_opposite_level: true
+backtest:
+  commission_per_lot_round_turn: 7.0
+  slippage_points: 1.0
+  gap_slippage_points: 2.0
+  intra_bar_policy: stop_first
+liquidity_guard:
+  enabled: true
+  pdx_proximity_atr: 0.6        # Fix 1: bloquear si precio está a <0.6 ATR del PDH/PDL sin sweep confirmado
+  block_asia_daily_breakouts: true  # Fix 2: no breakouts de niveles diarios en sesión Asia
+  require_smc_in_zone: true     # Fix 3: FVG/OB solo cuenta si in_zone=True
+  max_pending_hours: 2.0        # Fix 4: cancelar pendientes que llevan más de 2h sin llenarse

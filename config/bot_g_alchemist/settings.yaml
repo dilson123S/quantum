@@ -1,0 +1,186 @@
+bot:
+  name: QuantTradingBot-AlchemistG
+  magic_number: 26082517
+  mode: demo
+  allow_live_trading: false
+  journal_path: data/journal_bot_g.db
+  comment_tag: BOT-G
+  max_clock_skew_seconds: 20.0
+
+market:
+  symbols:
+  - XAUUSD
+
+timeframes:
+  entry: M15
+  setup: H1
+  higher: H4
+  daily: D1
+  weekly: W1
+  monthly: MN1
+
+alchemist:
+  enabled: true
+  london_sweep_enabled: true
+  new_york_crt_enabled: false
+  min_confluences: 2
+
+
+
+  min_confluences_after_loss: 3
+  max_poi_distance_atr: 0.50
+  stop_buffer_atr: 0.25
+  minimum_rr: 1.50
+  target_rr: 2.00
+  require_fresh_msnr: false
+  london_open_hour: 8
+  london_close_hour: 10
+  new_york_crt_hour: 9
+  avoid_mondays: true
+  avoid_asian_session: true
+  require_htf_alignment: true
+  max_stop_atr: 3.50
+
+trade:
+  risk_reward: 2.0
+  break_even_r: 1.0
+  partial_close: true
+  partial_r: 1.5
+  partial_percent: 50
+  trailing: 'off'
+  entry_mode: pullback
+  breakout_buffer_points: 0
+  breakout_expiry_bars: 4
+  stagnation_exit_bars: 0
+  stagnation_min_progress_r: 0.3
+
+risk:
+  mode: percent
+  risk_percent: 1.0
+  risk_money: 100.0
+  max_daily_loss: 8.0
+  max_drawdown: 12.0
+  max_consecutive_losses: 3
+  max_open_positions: 4
+  max_positions_per_symbol: 1
+  max_correlated_positions: 2
+  max_risk_per_trade: 1.0
+  max_correlation: 0.8
+  max_portfolio_risk_percent: 4.0
+  max_daily_trades: 4
+  min_trade_volume: 0.01
+
+filters:
+  max_spread: true
+  max_spread_atr_percent: 15
+  session_filter: true
+  news_filter: false
+  correlation_filter: false
+  timezone: UTC
+  trading_start: '07:00'
+  trading_end: '17:00'
+
+score:
+  minimum: 0
+  min_structure: 0
+  min_trend: 0
+  structure_weight: 0
+  trend_weight: 0
+  momentum_weight: 0
+  volume_weight: 0
+  volatility_weight: 0
+
+structure:
+  swing_lookback: 3
+  swing_confirmation: 2
+  bos_min_distance_atr: 0.1
+  bos_close_confirmation: true
+  use_choch: true
+  use_bos: true
+  max_swing_age: 100
+
+trend:
+  ema_fast: 20
+  ema_medium: 50
+  ema_slow: 200
+  adx_period: 14
+  adx_min: 20
+  adx_strong: 25
+
+momentum:
+  rsi_period: 14
+  rsi_bull_min: 50
+  rsi_bull_strong: 55
+  rsi_bear_max: 50
+  rsi_bear_strong: 45
+  macd_fast: 12
+  macd_slow: 26
+  macd_signal: 9
+
+volume:
+  period: 20
+  min_ratio: 1.0
+  strong_ratio: 1.5
+  use_obv: true
+  volume_mode: tick
+
+volatility:
+  atr_period: 14
+  atr_avg_period: 50
+  min_atr_ratio: 0.5
+  max_atr_ratio: 3.0
+  sl_multiplier: 1.5
+
+liquidity_guard:
+  enabled: false
+
+regime_filter:
+  enabled: false
+
+smc_filter:
+  enabled: false
+
+ml:
+  enabled: false
+
+kronos:
+  enabled: true
+  model_name: NeoQuasar/Kronos-small
+  tokenizer_name: NeoQuasar/Kronos-Tokenizer-base
+  device: cpu
+  lookback_bars: 200
+  forecast_horizon: 12
+  temperature: 0.7
+  top_p: 0.9
+  sample_count: 2
+  min_confidence: 0.60
+  shadow_mode: true
+
+asian_breakdown:
+  enabled: false
+
+sweep_reversal:
+  enabled: false
+
+decision_context:
+  enabled: false
+
+backtest:
+  commission_per_lot_round_turn: 7.0
+  slippage_points: 1.0
+  gap_slippage_points: 2.0
+  intra_bar_policy: stop_first
+
+validation:
+  status: DEMO_APPROVED
+  summary: "Validated on Out-of-Sample holdout (2026-07 to 2026-09) with PF 1.99, +7.91R, 52.9% WR and MaxDD 3.3%"
+  experiment_id: "bot_g_alchemist_manifest.json"
+
+
+jev:
+  enabled: true
+  provider: kev
+  shadow_mode: false
+  model: quantum
+  timeout_seconds: 4.0
+  device: cuda

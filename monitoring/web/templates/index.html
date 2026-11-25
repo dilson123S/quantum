@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b12">
+    <title>AI TRADING LAB — QuantTradingBot Learning Performance Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css?v=14.6">
+
+<style>
+.proximity-pulse-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 10px #22c55e;
+    animation: pulse 1.5s infinite;
+}
+.proximity-badge-glow {
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    color: #22c55e;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.15);
+}
+.proximity-meta-pill {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: #94a3b8;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 5px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.proximity-hero-card {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+.proximity-hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #22c55e;
+    box-shadow: 0 0 10px #22c55e;
+}
+.proximity-hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.proximity-hero-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.proximity-hero-title h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #f8fafc;
+    margin: 0;
+}
+.proximity-dir-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.proximity-dir-tag.buy {
+    background: rgba(34, 197, 94, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(34, 197, 94, 0.4);
+}
+.proximity-dir-tag.sell {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+.proximity-dir-tag.wait, .proximity-dir-tag.smc {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+}
+.proximity-bar-wrap {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    height: 12px;
+    overflow: hidden;
+    position: relative;
+    margin: 8px 0 14px 0;
+}
+.proximity-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981 0%, #22c55e 70%, #4ade80 100%);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+    transition: width 0.6s ease;
+}
+.proximity-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.proximity-metric-item {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 8px 10px;
+}
+.proximity-metric-item span {
+    display: block;
+    font-size: 8.5px;
+    font-family: var(--mono);
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.proximity-metric-item strong {
+    display: block;
+    font-size: 13px;
+    font-family: var(--mono);
+    color: #f1f5f9;
+    margin-top: 2px;
+}
+.proximity-detail-banner {
+    background: rgba(34, 197, 94, 0.07);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.proximity-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 10px;
+}
+.proximity-card {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    padding: 12px 14px;
+    position: relative;
+    transition: transform 0.2s, border-color 0.2s;
+}
+.proximity-card:hover {
+    border-color: rgba(56, 189, 248, 0.35);
+    transform: translateY(-1px);
+}
+.proximity-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.proximity-card-rank {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+}
+.proximity-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.proximity-placeholder {
+    padding: 30px;
+    text-align: center;
+    color: #94a3b8;
+    font-family: var(--mono);
+    font-size: 12px;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 8px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+</style>
+
+</head>
+<body>
+    <div class="app-shell">
+        <!-- 1. LEFT SIDEBAR: INSTITUTIONAL NAVIGATION -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+                <div>
+                    <div class="brand-name">AI TRADING <span>LAB</span></div>
+                    <div class="brand-sub" style="color:#38bdf8">QuantTradingBot · ADAPTIVE</div>
+                </div>
+            </div>
+
+            <!-- RESUMEN -->
+            <div class="nav-category">
+                <div class="nav-cat-title">RESUMEN</div>
+                <nav class="side-nav">
+                    <button class="side-nav-item active" id="tab-dashboard" onclick="switchView('dashboard')">
+                        <span><i class="fa-solid fa-house"></i> Dashboard Principal</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- TRADING EN VIVO -->
+            <div class="nav-category">
+                <div class="nav-cat-title">TRADING EN VIVO</div>
+                <nav class="side-nav">
+                    <button class="side-nav-item" id="tab-active-trades" onclick="switchView('active-trades')">
+                        <span><i class="fa-solid fa-chart-line"></i> Operaciones Activas</span>
+                        <span class="nav-counter" id="badge-active-count">0</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-charts" onclick="switchView('charts')">
+                        <span><i class="fa-solid fa-chart-candlestick"></i> Gráficos en Tiempo Real</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-history" onclick="switchView('history')">
+                        <span><i class="fa-solid fa-list-check"></i> Historial de Trades</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- APRENDIZAJE ADAPTATIVO -->
+            <div class="nav-category">
+                <div class="nav-cat-title">APRENDIZAJE ADAPTATIVO</div>
+                <nav class="side-nav">
+                    <button class="side-nav-item" id="tab-learning-lab" onclick="switchView('learning-lab')">
+                        <span><i class="fa-solid fa-brain" style="color:#a78bfa"></i> Learning Lab</span>
+                        <span class="nav-badge-pill">NUEVO</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-autopsy" onclick="switchView('autopsy')">
+                        <span><i class="fa-solid fa-microscope"></i> Autopsia de Trades</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-context-memory" onclick="switchView('context-memory')">
+                        <span><i class="fa-solid fa-database"></i> Memoria Contextual</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-patterns" onclick="switchView('patterns')">
+                        <span><i class="fa-solid fa-dna"></i> Patrones Aprendidos</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-adaptive-rules" onclick="switchView('adaptive-rules')">
+                        <span><i class="fa-solid fa-sliders"></i> Reglas Adaptativas</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- VALIDACIÓN & AUDITORÍA -->
+            <div class="nav-category">
+                <div class="nav-cat-title">VALIDACIÓN &amp; AUDITORÍA</div>
+                <nav class="side-nav">
+                    <button class="side-nav-item" id="tab-shadow-live" onclick="switchView('shadow-live')">
+                        <span><i class="fa-solid fa-code-compare"></i> Shadow Live</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-stats-validation" onclick="switchView('stats-validation')">
+                        <span><i class="fa-solid fa-square-root-variable"></i> Validación Estadística</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-oos-gate" onclick="switchView('oos-gate')">
+                        <span><i class="fa-solid fa-shield-halved"></i> Out-of-Sample Gate</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-signals" onclick="switchView('signals')">
+                        <span><i class="fa-solid fa-tower-broadcast"></i> Auditoría de Señales</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-audit-trail" onclick="switchView('audit-trail')">
+                        <span><i class="fa-solid fa-receipt"></i> Audit Trail</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- CONFIGURACIÓN -->
+            <div class="nav-category">
+                <div class="nav-cat-title">CONFIGURACIÓN</div>
+                <nav class="side-nav">
+                    <button class="side-nav-item" id="tab-params" onclick="switchView('settings', 'params')">
+                        <span><i class="fa-solid fa-gear"></i> Parámetros</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-risk" onclick="switchView('settings', 'risk')">
+                        <span><i class="fa-solid fa-shield-virus"></i> Gestión de Riesgo</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-mt5" onclick="switchView('settings', 'mt5')">
+                        <span><i class="fa-solid fa-network-wired"></i> Conexión MT5</span>
+                    </button>
+                    <button class="side-nav-item" id="tab-system" onclick="switchView('settings', 'system')">
+                        <span><i class="fa-solid fa-server"></i> Sistema</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- BOTTOM STATUS WIDGETS -->
+            <div class="sidebar-status-widgets">
+                <div class="service-status-pill">
+                    <div class="service-dot"></div>
+                    <div class="service-info">
+                        <div class="service-title">SISTEMA OPERATIVO</div>
+                        <div class="service-sub" id="side-status-title">Verificando procesos</div>
+                    </div>
+                </div>
+                <div class="service-status-pill">
+                    <div class="service-dot" style="background:#38bdf8;box-shadow:0 0 8px rgba(56,189,248,0.5)"></div>
+                    <div class="service-info">
+                            <div class="service-title">FLOTA GLOBAL: FOREX + SINTÉTICOS</div>
+                        <div class="service-sub">17 Bots: Oro, USDJPY y Deriv 24/7 (PyTorch NanoJev)</div>
+                        <div class="service-sub">Estado detectado por proceso · Configuración por perfil</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 2. MAIN SHELL & TOP BAR -->
+        <main class="main-shell">
+            <header class="topbar">
+                <div class="topbar-branding-left">
+                    <div class="brand-mark" style="width:34px;height:34px;border-color:rgba(167,139,250,0.3);background:rgba(167,139,250,0.08)">
+                        <i class="fa-solid fa-brain" style="color:#a78bfa;font-size:16px"></i>
+                    </div>
+                    <div>
+                        <div style="font:800 13px var(--mono);color:#f8fafc;letter-spacing:0.04em">AI TRADING LAB</div>
+                        <div style="font:700 8px var(--mono);color:#38bdf8;letter-spacing:0.12em">ADAPTIVE INTELLIGENCE</div>
+                    </div>
+                </div>
+
+                <div class="topbar-center-title">
+                    <h2 id="topbar-view-title"><i class="fa-solid fa-house" style="color:#38bdf8"></i> DASHBOARD PRINCIPAL — CENTRO DE MANDO</h2>
+                    <span>Supervisión en tiempo real · Telemetría MT5, Score Radar y Copiloto Inteligente</span>
+                </div>
+
+                <div class="topbar-meta-right">
+                    <div class="badge-live-sync" id="ws-pill">
+                        <span id="ws-indicator" style="width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399"></span>
+                        <span id="ws-status">EN VIVO</span>
+                        <small id="topbar-connection-status" style="color:#94a3b8;font-size:7.5px;margin-left:4px">MT5 pendiente</small>
+                    </div>
+
+                    <div class="clock-utc-box">
+                        <div class="clock-time" id="utc-clock">—</div>
+                        <div class="clock-date" id="utc-date">—</div>
+                    </div>
+
+                    <div class="build-badge">
+                        <div>v14.3</div>
+                        <span>BUILD</span>
+                    </div>
+
+                    <!-- Mode Selectors and Controls -->
+                    <span id="account-login" style="display:none">#DEMO</span>
+                    <span id="account-server" style="display:none">Deriv-Demo</span>
+                    <span id="side-mode" style="display:none">DEMO</span>
+                    <span id="side-risk-state" style="display:none">NORMAL</span>
+                    <span id="side-exec-type" style="display:none">MT5 REAL</span>
+                    <span id="health-exec-mode" style="display:none">MT5 DEMO ORDERS</span>
+                    <span id="health-ws" style="display:none">En Vivo</span>
+                    <span id="last-update" style="display:none">—</span>
+                    
+                    <div class="mode-switch-group" style="display:flex;gap:4px">
+                        <button id="btn-mode-paper" onclick="setBotMode('paper')" class="btn btn-ghost" style="padding:4px 8px;font-size:8.5px;font-family:var(--mono)">PAPER</button>
+                        <button id="btn-mode-demo" onclick="setBotMode('demo')" class="btn btn-primary active" style="padding:4px 8px;font-size:8.5px;font-family:var(--mono)">DEMO</button>
+                    </div>
+                    
+                    <button id="btn-toggle-pause" onclick="togglePauseBot()" class="btn btn-ghost" style="padding:4px 8px;font-size:9px">
+                        <i id="pause-icon" class="fa-solid fa-pause"></i> <span id="pause-text">Pausar</span>
+                    </button>
+                    <button onclick="emergencyCloseAll()" class="btn btn-danger" style="padding:6px 10px;font-size:10px" title="Kill Switch de emergencia">
+                        <i class="fa-solid fa-power-off"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- =========================================================================
+                 VIEW 1: DASHBOARD PRINCIPAL (CON TODAS LAS FUNCIONES VIVAS)
+                 ========================================================================= -->
+            <section id="view-dashboard" class="app-view active">
+
+                <!-- Mode Alert Banner -->
+                <div id="mode-alert-banner" class="mode-banner mode-banner-demo" style="margin-top:12px">
+                    <div class="mode-banner-icon" id="banner-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="mode-banner-content">
+                        <div class="mode-banner-title-row">
+                            <strong id="banner-mode-title">MODO DEMO · CUENTA MT5</strong>
+                            <span class="mode-banner-pill" id="banner-mode-tag">CUENTA DEMO MT5</span>
+                        </div>
+                        <p id="banner-mode-desc">Conectando con MT5 demo. Los resultados se cuentan desde el inicio de la ejecución actual; el historial de generaciones anteriores está excluido.</p>
+                    </div>
+                </div>
+
+                <!-- Top Real Account Live KPIs -->
+                <div class="lab-kpi-grid-6" style="margin-top:14px">
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>P&amp;L HOY (FLOTA)</span><i class="fa-solid fa-calendar-day" style="color:#34d399"></i></div>
+                        <div class="kpi-main-val" id="kpi-pnl" style="color:#34d399">—</div>
+                        <div class="kpi-sub-row"><span id="kpi-trades-count" style="color:#94a3b8">Esperando MT5</span></div>
+                    </div>
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>P&amp;L ACUMULADO (FLOTA)</span><i class="fa-solid fa-trophy" style="color:#38bdf8"></i></div>
+                        <div class="kpi-main-val" id="kpi-cumulative-pnl" style="color:#38bdf8">—</div>
+                        <div class="kpi-sub-row"><span id="kpi-cumulative-sub" style="color:#94a3b8">Ejecución actual</span></div>
+                    </div>
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>BALANCE DEMO</span><i class="fa-solid fa-wallet" style="color:#818cf8"></i></div>
+                        <div class="kpi-main-val" id="kpi-balance">—</div>
+                        <div class="kpi-sub-row"><span>IC Markets</span><strong style="color:#38bdf8">Raw Spread</strong></div>
+                    </div>
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>EQUITY FLOTANTE</span><i class="fa-solid fa-chart-line" style="color:#34d399"></i></div>
+                        <div class="kpi-main-val" id="kpi-equity">—</div>
+                        <div class="kpi-sub-row"><span>Margen libre:</span><strong id="kpi-margin-free" style="color:#34d399">—</strong></div>
+                    </div>
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>DRAWDOWN MÁX</span><i class="fa-solid fa-shield-heart" style="color:#34d399"></i></div>
+                        <div class="kpi-main-val" id="kpi-drawdown" style="color:#34d399">—</div>
+                            <div class="kpi-sub-row"><span>Límite por perfil:</span><strong id="kpi-max-dd-summary" style="color:#64748b">—</strong></div>
+                    </div>
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>WIN RATE / EXPECTANCY (FLOTA)</span><i class="fa-solid fa-scale-balanced" style="color:#f59e0b"></i></div>
+                        <div class="kpi-main-val" id="kpi-winrate" style="color:#f59e0b">—</div>
+                        <div class="kpi-sub-row"><span>Expectancy:</span><strong id="kpi-expectancy" style="color:#34d399">—</strong></div>
+                    </div>
+                </div>
+
+                <!-- Panel de Flota Multi-Bot A–E -->
+                <section class="section-block" style="margin-top:14px;margin-bottom:14px">
+                    <div class="panel setup-panel" style="padding:14px 18px">
+                        <div class="panel-head compact" style="margin-bottom:12px">
+                            <div style="display:flex;align-items:center;gap:10px">
+                                <div class="brand-mark" style="width:30px;height:30px;background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.4)">
+                                    <i class="fa-solid fa-network-wired" style="color:#38bdf8;font-size:14px"></i>
+                                </div>
+                                <div>
+                                    <div class="panel-kicker" style="color:#38bdf8">FLOTA MULTI-BOT EN EJECUCIÓN SIMULTÁNEA</div>
+                                    <h2 id="fleet-panel-title" style="font:800 13px var(--mono);margin:0;color:#f8fafc">Perfiles demo con configuración independiente</h2>
+                                </div>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:8px">
+                                <span class="status-chip" style="background:rgba(52,211,153,0.12);color:#34d399;border:1px solid rgba(52,211,153,0.3)">
+                                    <i class="fa-solid fa-circle-check"></i> <span id="fleet-status-count">Verificando bots</span>
+                                </span>
+                                <span class="status-chip" id="fleet-drift-guard-status" style="background:rgba(56,189,248,0.12);color:#38bdf8;border:1px solid rgba(56,189,248,0.3)">
+                                    <i class="fa-solid fa-shield-halved"></i> Guardias según perfil
+                                </span>
+                            </div>
+                        </div>
+
+                <!-- Fleet cards grid -->
+                        <script>
+                        window.setFleetFilter = window.setFleetFilter || function(cat) {
+                            if (typeof window._setFleetFilterImpl === 'function') {
+                                window._setFleetFilterImpl(cat);
+                            } else {
+                                window._pendingFleetFilter = cat;
+                            }
+                        };
+                        </script>
+                        <!-- Fleet category filter bar -->
+                        <div class="fleet-filter-bar" style="display:flex;align-items:center;gap:8px;margin-bottom:12px;background:rgba(15,23,42,0.6);padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06)">
+                            <span style="font-family:var(--mono);font-size:9.5px;color:#94a3b8;margin-right:4px"><i class="fa-solid fa-filter"></i> FILTRAR FLOTA:</span>
+                            <button class="btn btn-ghost active" onclick="setFleetFilter('all')" id="btn-fleet-all" style="padding:4px 10px;font-size:9.5px;font-family:var(--mono);border-radius:4px">
+                                Todos (<span id="count-fleet-all">—</span>)
+                            </button>
+                            <button class="btn btn-ghost" onclick="setFleetFilter('deriv')" id="btn-fleet-deriv" style="padding:4px 10px;font-size:9.5px;font-family:var(--mono);color:#22c55e;border-radius:4px">
+                                <i class="fa-solid fa-bolt"></i> Sintéticos Deriv (<span id="count-fleet-deriv">6</span>)
+                            </button>
+                            <button class="btn btn-ghost" onclick="setFleetFilter('forex')" id="btn-fleet-forex" style="padding:4px 10px;font-size:9.5px;font-family:var(--mono);color:#38bdf8;border-radius:4px">
+                                <i class="fa-solid fa-coins"></i> Forex &amp; Oro (<span id="count-fleet-forex">11</span>)
+                            </button>
+                        </div>
+
+                        <div id="fleet-cards-container" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:10px">
+                            <!-- Rendered dynamically by loadBotFleet() -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Row 1: Equity Chart (Left) + Par en Operación Setup Threshold (Right) -->
+                <div style="display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:12px">
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-chart-area" style="color:#38bdf8"></i> Curva de Equity &amp; Drawdown Flotante</h3>
+                            <div style="font-family:var(--mono);font-size:9px">
+                                Equity: <b id="chart-equity-now" style="color:#34d399">—</b> · Balance: <b id="chart-balance-now" style="color:#4f8cff">—</b>
+                            </div>
+                        </div>
+                        <div style="position:relative;height:230px;width:100%">
+                            <canvas id="equityChart"></canvas>
+                        </div>
+                    </article>
+
+                    <!-- Setup Threshold Panel (From Original Dashboard) -->
+                    <article class="panel setup-panel">
+                        <div class="panel-head compact">
+                            <div>
+                                <div class="panel-kicker">PAR EN OPERACIÓN</div>
+                                <h2 style="font:800 14px var(--mono);margin:0;color:#f8fafc">Flota Actual · 17 Bots (Forex, Oro & Sintéticos Deriv)</h2>
+                            </div>
+                            <span class="status-chip" id="setup-mode-tag">FLOTA DEMO</span>
+                        </div>
+
+                        <div class="threshold-main">
+                            <div class="threshold-ring"><div><b id="setup-min-score">70</b><span>/100</span></div></div>
+                            <div>
+                                <span class="muted-label" style="font-size:8px;color:#94a3b8">UMBRAL MÍNIMO DE ENTRADA</span>
+                                <strong id="setup-entry-title" style="display:block;font-size:11px;color:#f1f5f9">Señal Operable (MT5)</strong>
+                                <small id="setup-entry-desc" style="font-size:8px;color:#64748b">El radar del dashboard es orientativo; no es telemetría de decisión del bot.</small>
+                            </div>
+                        </div>
+
+                        <div class="threshold-grid">
+                            <div class="metric-box"><span>ESTRUCTURA</span><strong id="setup-struct-min">0 / 30</strong><small>BOS / Swings H1</small></div>
+                            <div class="metric-box"><span>TENDENCIA</span><strong id="setup-trend-min">0 / 25</strong><small>EMAs / ADX H4</small></div>
+                            <div class="metric-box"><span>SESIÓN CONFIGURADA (UTC)</span><strong style="color:#34d399" id="setup-session">—</strong><small id="setup-session-detail">Por perfil</small></div>
+                            <div class="metric-box"><span>FILTRO NOTICIAS</span><strong style="color:#38bdf8" id="setup-news-pill">Por perfil</strong><small id="setup-news-window">Ventana por perfil</small></div>
+                        </div>
+
+                        <div class="guard-row">
+                            <span><i class="fa-solid fa-lock"></i> Gestión de salida por perfil:</span>
+                            <b id="setup-exit-guard" style="color:#34d399">Reglas por perfil</b>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Panel de Estrategia Ofensiva & Blindaje Institucional -->
+                <section class="section-block" style="margin-bottom:14px">
+                    <div class="panel setup-panel" style="padding:14px 18px">
+                        <div class="panel-head compact" style="margin-bottom:10px">
+                            <div style="display:flex;align-items:center;gap:10px">
+                                <div class="brand-mark" style="width:28px;height:28px;background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.3)">
+                                    <i class="fa-solid fa-shield-halved" style="color:#a78bfa;font-size:13px"></i>
+                                </div>
+                                <div>
+                                    <div class="panel-kicker" style="color:#a78bfa">CONFIGURACIÓN DE LA FLOTA ACTUAL</div>
+                            <h2 style="font:800 13px var(--mono);margin:0;color:#f8fafc">Parámetros de la Flota Global (Forex + Sintéticos)</h2>
+                                </div>
+                            </div>
+                            <span class="status-chip" style="background:rgba(56,189,248,0.12);color:#38bdf8;border:1px solid rgba(56,189,248,0.3)">CONFIGURACIÓN ACTUAL</span>
+                        </div>
+
+                        <div class="threshold-grid" style="grid-template-columns:repeat(4, 1fr);gap:10px">
+                            <div class="metric-box"><span>RIESGO / TRADE</span><strong id="fleet-risk-summary">—</strong><small>Valor por perfil</small></div>
+                            <div class="metric-box"><span>GESTIÓN DE SALIDA</span><strong id="fleet-management-summary">—</strong><small>BE / parcial / estancamiento</small></div>
+                            <div class="metric-box"><span>FILTROS</span><strong id="fleet-guards-summary">—</strong><small>Noticias / sesión / liquidez</small></div>
+                            <div class="metric-box"><span>SÍMBOLOS / LÍMITE</span><strong id="fleet-symbol-summary">—</strong><small>Según configuración cargada</small></div>
+                        </div>
+
+                        <div class="guard-row" style="margin-top:10px;background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.18)">
+                            <span><i class="fa-solid fa-circle-info" style="color:#38bdf8"></i> Estado de señal:</span>
+                            <b style="color:#c4b5fd">El radar de mercado es un cálculo del dashboard; no representa telemetría interna ni confirma que un bot haya enviado una orden.</b>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <!-- =========================================================================
+                     RADAR DE PROXIMIDAD DE ENTRADA: ¿QUÉ BOT ESTÁ MÁS PRÓXIMO A UN TRADE?
+                     ========================================================================= -->
+                <section class="section-block" id="trade-proximity-section" style="margin-bottom:20px">
+                    <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
+                        <div>
+                            <div class="panel-kicker" style="color:#22c55e;display:flex;align-items:center;gap:6px">
+                                <span class="proximity-pulse-dot"></span>
+                                TELEMETRÍA EN VIVO · FLOTA UNIFICADA (DERIV SINTÉTICOS + FOREX / ORO)
+                            </div>
+                            <h2 style="font-size:18px;margin-top:2px"><i class="fa-solid fa-crosshairs" style="color:#22c55e"></i> Radar de Proximidad: ¿Qué Bot está más próximo a operar?</h2>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px">
+                            <span id="proximity-top-badge" class="proximity-badge-glow">
+                                <i class="fa-solid fa-spinner fa-spin"></i> ESCANEANDO FLOTA...
+                            </span>
+                            <span id="proximity-updated-at" class="proximity-meta-pill">
+                                Sincronizando...
+                            </span>
+                        </div>
+                    </div>
+                    <small style="display:block;color:#94a3b8;margin-top:-4px;margin-bottom:14px">
+                        Monitoreo continuo de distancias a zonas institucionales, régimen macro H1 (EMA-50), filtros de sobre-extensión y decisiones neuronales de PyTorch NanoJev.
+                    </small>
+
+                    <!-- Hero Spotlight: The #1 Closest Trade Candidate -->
+                    <div id="proximity-hero-container">
+                        <div class="proximity-placeholder">
+                            <i class="fa-solid fa-circle-notch fa-spin"></i> Evaluando proximidad de entrada de los 9 pares...
+                        </div>
+                    </div>
+
+                    <!-- Ranking Cards Grid (The rest of the fleet) -->
+                    <div style="margin-top:16px">
+                        <div style="font-family:var(--mono);font-size:10px;color:#94a3b8;letter-spacing:0.08em;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
+                            <span><i class="fa-solid fa-list-ol" style="color:#38bdf8"></i> RANKING DE PREPARACIÓN DE ENTRADA (RESTO DE LA FLOTA)</span>
+                            <span id="proximity-fleet-count" style="color:#64748b">—</span>
+                        </div>
+                        <div id="proximity-ranking-grid" class="proximity-grid-container">
+                            <!-- Rendered by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+<!-- Estado del Par Operado (XAUUSD) -->
+                <section class="section-block" style="margin-bottom:16px">
+                    <div class="section-head">
+                        <div>
+                            <div class="panel-kicker" style="color:#38bdf8">MONITOR DE MERCADO EN VIVO · FLOTA PARALELA</div>
+                            <h2>Radar Orientativo Multi-Activo · Deriv Sintéticos, Oro y USDJPY</h2>
+                        </div>
+                        <small style="display:block;color:#94a3b8;margin-top:5px">Cálculo compartido del dashboard. No confirma la decisión interna, señal ni envío de orden de cada proceso.</small>
+                        <div class="section-badge-right" id="symbols-mode-badge">
+                            <i class="fa-solid fa-bolt"></i> MODO DEMO: cuenta MT5 de la flota
+                        </div>
+                    </div>
+                    <div id="symbols-overview-grid" class="symbol-grid"></div>
+                </section>
+
+                <!-- Radar de 5 Confirmaciones -->
+                <section class="section-block" style="margin-bottom:16px">
+                    <div class="section-head">
+                        <div>
+                            <div class="panel-kicker" style="color:#a78bfa">EVALUACIÓN MULTI-FACTOR POR AGENTE</div>
+                            <h2>Pre-check de mercado calculado por perfil</h2>
+                        </div>
+                    </div>
+                    <small style="display:block;color:#94a3b8;margin-top:-10px;margin-bottom:8px">Estimación del dashboard para el símbolo, marco temporal y configuración de cada perfil; no sustituye las señales internas ni confirma órdenes.</small>
+                    <div id="overview-radar-grid" class="radar-preview-grid"></div>
+                </section>
+
+                <!-- Row 3: Copiloto Inteligente de Trading (Radar de Zonas Clave & Diagnóstico en vivo) -->
+                <section class="section-block" id="copilot-section" style="margin-bottom:12px">
+                    <div class="section-head">
+                        <div>
+                            <div class="panel-kicker">COPILOTO INTELIGENTE DE TRADING</div>
+                            <h2>Radar de Zonas Clave &amp; Alertas de Retroceso</h2>
+                        </div>
+                        <div class="copilot-semaphore" id="copilot-semaphore-badge">
+                            <span class="semaphore-dot"></span>
+                            <span class="semaphore-label">ANALIZANDO...</span>
+                        </div>
+                    </div>
+
+                    <div class="copilot-layout">
+                        <!-- Left: Key Level Ladder -->
+                        <article class="panel copilot-radar-panel">
+                            <div class="panel-head compact">
+                                <div>
+                                    <div class="panel-kicker">MAPA DE NIVELES</div>
+                                    <h2>Soportes y Resistencias Activos</h2>
+                                </div>
+                                <div class="live-tag"><span></span> EN VIVO</div>
+                            </div>
+                            <div id="copilot-level-ladder" class="level-ladder">
+                                <div class="ladder-placeholder">Esperando datos del mercado...</div>
+                            </div>
+                        </article>
+
+                        <!-- Right: Trade Diagnosis -->
+                        <article class="panel copilot-diagnosis-panel">
+                            <div class="panel-head compact">
+                                <div>
+                                    <div class="panel-kicker">DIAGNÓSTICO DEL TRADE ACTIVO</div>
+                                    <h2>Copiloto en Lenguaje Natural</h2>
+                                </div>
+                                <i class="fa-solid fa-robot" style="color:#60a5fa;font-size:1.2rem"></i>
+                            </div>
+                            <div id="copilot-diagnosis-content" class="diagnosis-content">
+                                <div class="diagnosis-placeholder">
+                                    <i class="fa-solid fa-satellite-dish"></i>
+                                    <span>Sin posiciones activas. El copiloto se activará cuando haya un trade abierto.</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Row 4: Posiciones Activas en MT5 -->
+                <article class="lab-card-panel">
+                    <div class="card-header-clean">
+                        <h3><i class="fa-solid fa-bolt" style="color:#34d399"></i> Posiciones Abiertas en MT5 (Terminal Vivo)</h3>
+                        <button class="text-action" onclick="switchView('active-trades')" style="color:#38bdf8;background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:9px">Ver terminal completo &rarr;</button>
+                    </div>
+                    <div id="overview-positions"></div>
+                </article>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 2: OPERACIONES ACTIVAS (TERMINAL COMPLETO MT5)
+                 ========================================================================= -->
+            <section id="view-active-trades" class="app-view" style="display:none">
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">📈 Posiciones y Órdenes Pendientes en MetaTrader 5</h2>
+                        <div class="view-sub-text">Gestión activa de Stop Loss, Take Profit, Break-Even, Trailing Stop y órdenes Stop de Breakout.</div>
+                    </div>
+                    <div style="display:flex;gap:8px;align-items:center">
+                        <div class="big-counter"><b id="active-count-title">0</b><span style="font-size:10px;color:#94a3b8">/ 8 posiciones</span></div>
+                        <button class="btn btn-danger" onclick="emergencyCloseAll()"><i class="fa-solid fa-power-off"></i> Kill Switch (Cerrar Todo)</button>
+                    </div>
+                </div>
+
+                <div id="active-trades-notice" class="trades-mode-notice" style="margin-bottom:12px">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span id="active-trades-notice-text">Modo DEMO 24/7 activo: Las posiciones y órdenes pendientes mostradas corresponden a ejecuciones directas en tu terminal MT5 de IC Markets.</span>
+                </div>
+
+                <article class="panel table-panel">
+                    <div class="table-toolbar">
+                        <span>MONITOR DE POSICIONES MT5</span>
+                        <button class="text-action" onclick="handleLiveSnapshot(window.__lastSnapshot || {})"><i class="fa-solid fa-rotate"></i> Actualizar</button>
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticket</th>
+                                    <th>Símbolo</th>
+                                    <th>Dirección</th>
+                                    <th>Lote</th>
+                                    <th>Entrada</th>
+                                    <th>Actual</th>
+                                    <th>SL</th>
+                                    <th>TP</th>
+                                    <th>Flotante ($)</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="active-positions-tbody"></tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 3: GRÁFICOS EN TIEMPO REAL
+                 ========================================================================= -->
+            <!-- =========================================================================
+                 VIEW 3: GRÁFICOS EN TIEMPO REAL
+                 ========================================================================= -->
+            <section id="view-charts" class="app-view" style="display:none">
+                <div class="view-header-row" style="flex-wrap:wrap;gap:12px">
+                    <div>
+                        <h2 class="view-title-main">📊 Gráficos en Tiempo Real — Feed MT5</h2>
+                        <div class="view-sub-text">Velas japonesas interactivas en vivo con EMAs (20, 50, 200), niveles SMC de soporte/resistencia y órdenes en ejecución.</div>
+                    </div>
+                    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                        <select id="chart-symbol-select" class="form-select" onchange="changeChartAsset()" style="background:#0c1520;color:#38bdf8;border:1px solid rgba(56,189,248,0.3);border-radius:4px;padding:5px 12px;font-family:var(--mono);font-size:12px;font-weight:700">
+                            <option value="XAUUSD" selected>XAUUSD (Oro)</option>
+                            <option value="BTCUSD">BTCUSD (Bitcoin)</option>
+                        </select>
+                        <select id="chart-tf-select" class="form-select" onchange="changeChartAsset()" style="background:#0c1520;color:#94a3b8;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:5px 10px;font-family:var(--mono);font-size:11px">
+                            <option value="M5">M5</option>
+                            <option value="M15">M15</option>
+                            <option value="H1" selected>H1</option>
+                            <option value="H4">H4</option>
+                        </select>
+
+                        <!-- Botones de alternancia de indicadores -->
+                        <div style="display:flex;gap:6px;align-items:center;background:#090d16;padding:3px 6px;border-radius:4px;border:1px solid rgba(255,255,255,0.06)">
+                            <button id="toggle-ema20-btn" class="btn btn-xs" onclick="toggleChartIndicator('ema20')" style="background:rgba(56,189,248,0.2);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);font-family:var(--mono);font-size:10px;padding:3px 7px;border-radius:3px;cursor:pointer">
+                                <i class="fa-solid fa-check"></i> EMA 20
+                            </button>
+                            <button id="toggle-ema50-btn" class="btn btn-xs" onclick="toggleChartIndicator('ema50')" style="background:rgba(168,85,247,0.2);color:#a855f7;border:1px solid rgba(168,85,247,0.4);font-family:var(--mono);font-size:10px;padding:3px 7px;border-radius:3px;cursor:pointer">
+                                <i class="fa-solid fa-check"></i> EMA 50
+                            </button>
+                            <button id="toggle-ema200-btn" class="btn btn-xs" onclick="toggleChartIndicator('ema200')" style="background:rgba(245,158,11,0.2);color:#f59e0b;border:1px solid rgba(245,158,11,0.4);font-family:var(--mono);font-size:10px;padding:3px 7px;border-radius:3px;cursor:pointer">
+                                <i class="fa-solid fa-check"></i> EMA 200
+                            </button>
+                            <button id="toggle-sr-btn" class="btn btn-xs" onclick="toggleChartIndicator('sr')" style="background:rgba(16,185,129,0.2);color:#34d399;border:1px solid rgba(16,185,129,0.4);font-family:var(--mono);font-size:10px;padding:3px 7px;border-radius:3px;cursor:pointer">
+                                <i class="fa-solid fa-check"></i> S/R Niveles
+                            </button>
+                            <button id="toggle-trade-btn" class="btn btn-xs" onclick="toggleChartIndicator('tradeLevels')" style="background:rgba(59,130,246,0.2);color:#60a5fa;border:1px solid rgba(59,130,246,0.4);font-family:var(--mono);font-size:10px;padding:3px 7px;border-radius:3px;cursor:pointer">
+                                <i class="fa-solid fa-check"></i> SL/TP
+                            </button>
+                        </div>
+
+                        <button class="btn btn-ghost" onclick="loadCandlesData()" style="padding:4px 10px;font-size:11px"><i class="fa-solid fa-rotate"></i> Recargar</button>
+                    </div>
+                </div>
+
+                <article class="lab-card-panel" style="padding:16px">
+                    <!-- Panel de Indicadores y Métricas en Tiempo Real -->
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:var(--mono);font-size:11px;background:#0c1322;padding:10px 14px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:12px">
+                        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap" id="chart-levels-bar">
+                            <span id="chart-level-entry"><b style="color:#f8fafc">PRECIO:</b> <span id="chart-val-price" style="font-weight:700;color:#38bdf8">--</span></span>
+                            <span id="chart-chip-ema20"><b style="color:#38bdf8">EMA 20:</b> <span id="chart-val-ema20" style="color:#e2e8f0">--</span></span>
+                            <span id="chart-chip-ema50"><b style="color:#a855f7">EMA 50:</b> <span id="chart-val-ema50" style="color:#e2e8f0">--</span></span>
+                            <span id="chart-chip-ema200"><b style="color:#f59e0b">EMA 200:</b> <span id="chart-val-ema200" style="color:#e2e8f0">--</span></span>
+                            <span id="chart-chip-rsi"><b style="color:#cbd5e1">RSI(14):</b> <span id="chart-val-rsi" style="color:#e2e8f0">--</span></span>
+                            <span id="chart-chip-adx"><b style="color:#cbd5e1">ADX:</b> <span id="chart-val-adx" style="color:#e2e8f0">--</span></span>
+                            <span id="chart-chip-atr"><b style="color:#cbd5e1">ATR:</b> <span id="chart-val-atr" style="color:#e2e8f0">--</span></span>
+                        </div>
+                        <div style="display:flex;gap:12px;align-items:center">
+                            <span id="chart-chip-trend" style="font-size:10px;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,0.05);color:#94a3b8;border:1px solid rgba(255,255,255,0.1)">TENDENCIA: --</span>
+                            <span id="chart-level-spread" style="color:#94a3b8;font-size:10px">SPREAD: <span id="chart-val-spread">--</span> pts</span>
+                        </div>
+                    </div>
+
+                    <!-- Sub-barra con Soportes/Resistencias detectados y Operación Activa -->
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:var(--mono);font-size:10px;padding:4px 8px;background:rgba(0,0,0,0.25);border-radius:4px;flex-wrap:wrap;gap:10px">
+                        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+                            <span><i class="fa-solid fa-arrows-down-to-line" style="color:#10b981"></i> <b style="color:#34d399">Soportes:</b> <span id="chart-supports-list" style="color:#cbd5e1">Calculando...</span></span>
+                            <span><i class="fa-solid fa-arrows-up-to-line" style="color:#ef4444"></i> <b style="color:#f87171">Resistencias:</b> <span id="chart-resistances-list" style="color:#cbd5e1">Calculando...</span></span>
+                        </div>
+                        <div id="chart-trade-badge-wrap">
+                            <span id="chart-val-trade-badge" style="color:#94a3b8"><i class="fa-solid fa-info-circle"></i> Sin orden activa en mercado</span>
+                        </div>
+                    </div>
+
+                    <!-- Contenedor del Gráfico Interactivo de Velas Japonesas e Indicadores -->
+                    <div id="candlestick-chart-container" style="position:relative;height:520px;width:100%;background:#090d16;border-radius:6px;border:1px solid rgba(255,255,255,0.08);overflow:hidden">
+                        <div id="chart-loading-spinner" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#38bdf8;font-family:var(--mono);font-size:12px;display:flex;align-items:center;gap:8px">
+                            <i class="fa-solid fa-circle-notch fa-spin"></i> Conectando al feed de velas e indicadores MT5...
+                        </div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;margin-top:10px;font-family:var(--mono);font-size:9px;color:#64748b">
+                        <span><i class="fa-solid fa-mouse"></i> Rueda del mouse: Zoom · Arrastrar: Desplazarse · Eje Y: Escalar precio · Líneas punteadas: S/R dinámicos</span>
+                        <span>Feed institucional en vivo MetaTrader 5 (Tick directo + Engine SMC)</span>
+                    </div>
+                </article>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 4: HISTORIAL DE TRADES (CONECTADO A BASE DE DATOS SQLITE)
+                 ========================================================================= -->
+            <section id="view-history" class="app-view" style="display:none">
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">📋 Historial de Operaciones Cerradas</h2>
+                        <div class="view-sub-text">Registro histórico persistido en base de datos SQLite con P&amp;L realizado y múltiplos de riesgo R.</div>
+                    </div>
+                    <button class="btn btn-ghost" onclick="loadTradeHistory()"><i class="fa-solid fa-rotate"></i> Actualizar</button>
+                </div>
+                <article class="panel table-panel">
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Símbolo</th>
+                                    <th>Dirección</th>
+                                    <th>Lote</th>
+                                    <th>Entrada</th>
+                                    <th>Salida</th>
+                                    <th>Score</th>
+                                    <th>P&amp;L ($)</th>
+                                    <th>R</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-trades-tbody"></tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 5: LEARNING LAB (THE MASTER VIEW MATCHING MOCKUP EXACTLY!)
+                 ========================================================================= -->
+            <section id="view-learning-lab" class="app-view" style="display:none">
+                <!-- Master Yellow Status Banner -->
+                <div class="lab-master-banner">
+                    <div class="lab-master-banner-left">
+                        <i class="fa-solid fa-gear lab-master-icon"></i>
+                        <div class="lab-master-texts">
+                            <strong>ESTADO DE APRENDIZAJE REAL</strong>
+                            <span id="lab-verified-rules-text">Reglas que han demostrado mejora real: 0</span>
+                            <div style="font-size:8px;color:#94a3b8;margin-top:2px">
+                                Muestra actual: N=2 (Descriptivo) · Mínimo Operativo: ≥15 · Validación Completa: ≥50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lab-master-banner-right">
+                        <i class="fa-solid fa-triangle-exclamation" style="color:#f59e0b"></i>
+                        <strong>IMPORTANTE:</strong> Los intervalos Bootstrap 95% representan el rango de dispersión estadística.
+                        No constituyen promesa ni garantía de rentabilidad futura.
+                    </div>
+                </div>
+
+                <!-- 6 KPI Row with Sparklines (Dynamically synced to live account & lab) -->
+                <div class="lab-kpi-grid-6">
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>EQUITY ACTUAL</span><i class="fa-solid fa-dollar-sign" style="color:#818cf8"></i></div>
+                        <div class="kpi-main-val" id="lab-kpi-equity">$9,483.37</div>
+                        <div class="kpi-sub-row"><span id="lab-kpi-equity-sub" style="color:#34d399">P&amp;L HOY: +$0.00 (+0.00%)</span></div>
+                        <canvas class="kpi-sparkline" id="sp-equity"></canvas>
+                    </div>
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>TRADES TOTALES</span><i class="fa-solid fa-bars-staggered" style="color:#38bdf8"></i></div>
+                        <div class="kpi-main-val" id="lab-kpi-trades">4</div>
+                        <div class="kpi-sub-row"><span id="lab-kpi-trades-sub">WIN RATE: <strong style="color:#34d399">75.0%</strong></span></div>
+                        <canvas class="kpi-sparkline" id="sp-trades"></canvas>
+                    </div>
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>EXPECTANCY (R)</span><i class="fa-solid fa-scale-balanced" style="color:#34d399"></i></div>
+                        <div class="kpi-main-val" id="lab-kpi-exp" style="color:#34d399">+0.18R</div>
+                        <div class="kpi-sub-row"><span>PF GLOBAL: <strong id="lab-kpi-pf">1.34</strong></span></div>
+                        <canvas class="kpi-sparkline" id="sp-exp"></canvas>
+                    </div>
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>R STABILITY RATIO</span><i class="fa-solid fa-arrows-split-up-and-left" style="color:#a78bfa"></i></div>
+                        <div class="kpi-main-val" id="lab-kpi-stability" style="color:#c4b5fd">0.42</div>
+                        <div class="kpi-sub-row"><span>(E[R] / σ[R])</span></div>
+                        <canvas class="kpi-sparkline" id="sp-stability"></canvas>
+                    </div>
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>DRAWDOWN MÁX</span><i class="fa-solid fa-shield-heart" style="color:#34d399"></i></div>
+                        <div class="kpi-main-val" id="lab-kpi-dd" style="color:#34d399">0.0%</div>
+                        <div class="kpi-sub-row"><span style="color:#34d399">ACTIVO (MT5)</span></div>
+                        <canvas class="kpi-sparkline" id="sp-dd"></canvas>
+                    </div>
+                    <div class="lab-kpi-card">
+                        <div class="kpi-title-row"><span>VALOR INCREMENTAL</span><i class="fa-solid fa-arrow-trend-up" style="color:#38bdf8"></i></div>
+                        <div class="kpi-main-val" id="lab-kpi-incremental" style="color:#38bdf8">+0.08R</div>
+                        <div class="kpi-sub-row"><span id="lab-kpi-incremental-sub">DIR: <strong style="color:#38bdf8">64.3%</strong></span></div>
+                        <canvas class="kpi-sparkline" id="sp-incremental"></canvas>
+                    </div>
+                </div>
+
+                <!-- Middle Row (3 Cards): Head-to-Head, Inferencia Robusta, Costes de Ejecución -->
+                <div class="lab-grid-3">
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-code-compare" style="color:#818cf8"></i> HEAD-TO-HEAD: BASELINE v1.0 vs ADAPTATIVE v1.3</h3>
+                            <span class="badge-mini" style="background:rgba(56,189,248,0.15);color:#38bdf8">DESCRIPTIVO (N=2)</span>
+                        </div>
+
+                        <table class="h2h-table-custom">
+                            <thead>
+                                <tr>
+                                    <th>MÉTRICA</th>
+                                    <th id="h2h-base-ver">BASELINE v1.0 <br><small style="color:#34d399">(OPERANDO EN MT5)</small></th>
+                                    <th id="h2h-adapt-ver">ADAPTATIVE v1.3 <br><small style="color:#818cf8">(SHADOW LIVE)</small></th>
+                                    <th>Δ DIFERENCIA</th>
+                                    <th>VEREDICTO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Profit Factor (PF)</td>
+                                    <td id="h2h-base-pf">1.34</td>
+                                    <td id="h2h-adapt-pf" style="color:#818cf8;font-weight:700">1.57</td>
+                                    <td style="color:#34d399">+0.23</td>
+                                    <td><span style="color:#34d399">🟢 Mejora</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Expectancy (R/trade)</td>
+                                    <td id="h2h-base-exp">+0.18 R</td>
+                                    <td id="h2h-adapt-exp" style="color:#34d399;font-weight:700">+0.26 R</td>
+                                    <td style="color:#34d399">+0.08 R</td>
+                                    <td><span style="color:#34d399">🟢 +44.4%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>R Stability Ratio [E(R)/σ(R)]</td>
+                                    <td id="h2h-base-stability">0.42</td>
+                                    <td id="h2h-adapt-stability" style="color:#818cf8">0.58</td>
+                                    <td style="color:#34d399">+0.16</td>
+                                    <td><span style="color:#34d399">🟢 Mejora</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Win Rate Estricto</td>
+                                    <td id="h2h-base-wr">62.5%</td>
+                                    <td id="h2h-adapt-wr">68.5%</td>
+                                    <td style="color:#34d399">+6.0%</td>
+                                    <td><span style="color:#94a3b8">Secundario</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Max Drawdown</td>
+                                    <td id="h2h-base-dd">3.8%</td>
+                                    <td id="h2h-adapt-dd" style="color:#34d399">3.2%</td>
+                                    <td style="color:#34d399">-0.6%</td>
+                                    <td><span style="color:#34d399">🟢 Menor DD</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Estado Operativo</td>
+                                    <td><span style="color:#34d399;font-weight:700">ACTIVO (MT5)</span></td>
+                                    <td><span style="color:#818cf8;font-weight:700">SHADOW LIVE</span></td>
+                                    <td>—</td>
+                                    <td><span style="color:#94a3b8">No altera MT5</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="shadow-pairs-container" id="paired-opportunities-container">
+                            <div class="chips-placeholder" style="padding:14px;text-align:center;color:#64748b;font-size:9px">Cargando telemetría emparejada Shadow Live...</div>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;font:8px var(--mono);color:#94a3b8;padding-top:4px">
+                            <span style="color:#34d399">ΔR Neto Medio: <strong>+0.40 R</strong></span>
+                            <span>2 / 15 PARES REQUERIDOS</span>
+                        </div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-square-root-variable" style="color:#a78bfa"></i> INFERENCIA ROBUSTA (N=2)</h3>
+                            <span class="badge-mini" style="background:rgba(245,158,11,0.15);color:#f59e0b">DESCRIPTIVO</span>
+                        </div>
+                        <div class="robust-inference-split">
+                            <div class="sub-inference-box">
+                                <div>
+                                    <div class="sub-inf-title">BOOTSTRAP PAREADO (1,000 réplicas)</div>
+                                    <div style="font-size:8px;color:#94a3b8">ΔR Neto Medio:</div>
+                                    <div class="sub-inf-metric" style="color:#38bdf8">+0.40 R</div>
+                                    <div style="font-size:8px;color:#94a3b8">IC 95% (Percentil):</div>
+                                    <div class="sub-inf-pill" id="paired-bootstrap-ci">[+0.360 R, +0.460 R]</div>
+                                </div>
+                                <div>
+                                    <div class="sub-inf-warning" id="paired-ci-warning">
+                                        ⚠️ IC no interpretable como evidencia confirmatoria — N=2
+                                    </div>
+                                    <div style="margin-top:6px;font:700 7.5px var(--mono);color:#64748b">
+                                        PRIORIDAD ESTADÍSTICA:<br>
+                                        <strong style="color:#f59e0b">DESCRIPTIVO (N&lt;5)</strong> — Inferencia no confirmatoria
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sub-inference-box">
+                                <div>
+                                    <div class="sub-inf-title">PRUEBA DE PERMUTACIÓN (Sign-Flipping)</div>
+                                    <div style="font-size:8px;color:#94a3b8">p-value:</div>
+                                    <div class="sub-inf-metric" style="color:#f59e0b" id="paired-permutation-val">0.503</div>
+                                    <div class="sub-inf-pill" id="paired-permutation-label" style="background:rgba(245,158,11,0.15);color:#f59e0b;border-color:rgba(245,158,11,0.3)">
+                                        ⚠️ Permutación: p=0.503 evidencia insuficiente
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="margin-top:6px;font:700 7.5px var(--mono);color:#64748b">
+                                        HIPÓTESIS NULA:<br>
+                                        <strong style="color:#e2e8f0">H0: ΔR = 0</strong> — No se puede rechazar
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-receipt" style="color:#38bdf8"></i> COSTES DE EJECUCIÓN (XAUUSD RAW)</h3>
+                            <span class="badge-mini" style="background:rgba(52,211,153,0.15);color:#34d399">DEDUCIDOS</span>
+                        </div>
+                        <div class="execution-cost-list">
+                            <div class="cost-row">
+                                <span>Spread (entrada)</span>
+                                <strong>1.8 pts / $0.18</strong>
+                            </div>
+                            <div class="cost-row">
+                                <span>Slippage Real</span>
+                                <strong>0.5 - 1.0 pts</strong>
+                            </div>
+                            <div class="cost-row">
+                                <span>Comisión (round-turn)</span>
+                                <strong>$7.00 / lote</strong>
+                            </div>
+                            <div class="cost-row">
+                                <span>Coste Neto Medio</span>
+                                <strong style="color:#f59e0b">0.007 - 0.014 R</strong>
+                            </div>
+                        </div>
+
+                        <div class="contract-note-box">
+                            <div style="font-weight:700;color:#94a3b8;margin-bottom:3px">CONTRATO XAUUSD (MT5):</div>
+                            <div>• 1 punto = $0.01 / tick</div>
+                            <div>• 1 pip = 10 puntos = $0.10</div>
+                            <div>• $1.00 de movimiento = 100 puntos</div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Lower Row (4 Cards): Out-of-Sample, Presupuesto, Valor Incremental, Opportunity Regret -->
+                <div class="lab-grid-4">
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-shield-halved" style="color:#ef4444"></i> OUT-OF-SAMPLE HOLDOUT GATE</h3>
+                            <span class="badge-mini" id="oos-gate-badge" style="background:rgba(239,68,68,0.15);color:#ef4444">LOCKED IN OBSERVATION</span>
+                        </div>
+                        <div style="font:8px var(--mono);margin-bottom:6px;color:#94a3b8">PARTICIÓN DE DATOS (HERMÉTICA)</div>
+                        <div style="display:flex;flex-direction:column;gap:4px;font-size:7.5px;font-family:var(--mono);margin-bottom:8px">
+                            <div style="display:flex;justify-content:space-between;padding:3px 5px;background:rgba(15,23,42,0.6);border-radius:4px">
+                                <span>1. Discovery Set (Sellado) - Priors (N=140)</span>
+                                <span style="color:#34d399">SELLADO</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;padding:3px 5px;background:rgba(15,23,42,0.6);border-radius:4px">
+                                <span>2. In-Sample Validation - Shadow &amp; Calibración</span>
+                                <span style="color:#38bdf8">ACTIVO</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;padding:3px 5px;background:rgba(15,23,42,0.6);border-radius:4px">
+                                <span>3. Out-of-Sample Holdout - Ticks post-congelación</span>
+                                <span style="color:#f59e0b">EN CURSO</span>
+                            </div>
+                        </div>
+
+                        <div style="font:8px var(--mono);margin-bottom:4px;color:#94a3b8">METADATA DE CONGELACIÓN (SINGLE USE)</div>
+                        <div style="font:7.5px var(--mono);color:#64748b;line-height:1.4">
+                            <div>Rule Version: <strong style="color:#f1f5f9">v1.3</strong></div>
+                            <div>Created At: 2026-09-03 10:42:17 UTC</div>
+                            <div>Frozen At: 2026-09-03 10:42:17 UTC</div>
+                            <div>Discovery Cutoff: 2026-09-03 10:42:16 UTC</div>
+                            <div>Holdout Begins At: 2026-09-03 10:42:18 UTC</div>
+                            <div>Holdout ID: <strong style="color:#38bdf8">H-001 (SINGLE USE)</strong></div>
+                        </div>
+
+                        <div style="margin-top:6px;padding:5px;background:rgba(245,158,11,0.06);border:1px dashed rgba(245,158,11,0.3);border-radius:4px;font:7.5px var(--mono);color:#fde68a">
+                            ⚠️ Holdout consumido = CONSUMED. No puede reutilizarse para esta regla.
+                        </div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-chart-pie" style="color:#38bdf8"></i> PRESUPUESTO DE EXPERIMENTACIÓN</h3>
+                        </div>
+                        <div class="donut-chart-box">
+                            <canvas id="experimentationDonutChart"></canvas>
+                            <div class="donut-center-label">
+                                <span>14.3%</span>
+                                <span class="donut-center-sub">Ratio Selección</span>
+                            </div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font:7.5px var(--mono);color:#94a3b8;margin-bottom:6px">
+                            <div>• 27 Generadas</div>
+                            <div>• 14 Probadas</div>
+                            <div style="color:#34d399">• 2 Aceptadas</div>
+                            <div style="color:#f87171">• 10 Rechazadas</div>
+                            <div style="color:#38bdf8">• 2 En Validación</div>
+                        </div>
+                        <div style="font-size:7px;color:#64748b;line-height:1.3;border-top:1px solid rgba(255,255,255,0.04);padding-top:4px">
+                            ⚠️ Penalización por pruebas múltiples activa. Se requiere ΔE ≥ +0.05R neto y validación OOS.
+                        </div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-arrow-trend-up" style="color:#34d399"></i> VALOR INCREMENTAL &amp; DIR</h3>
+                        </div>
+                        <div style="margin-bottom:8px">
+                            <div style="font-size:8px;color:#94a3b8">Incremental Learning Value:</div>
+                            <div style="font:800 15px var(--mono);color:#34d399" id="inc-val-text">+0.08 R / trade</div>
+                        </div>
+                        <div style="margin-bottom:8px">
+                            <div style="font-size:8px;color:#94a3b8">Decision Improvement Rate (DIR):</div>
+                            <div style="font:800 15px var(--mono);color:#38bdf8" id="inc-dir-text">64.3%</div>
+                        </div>
+                        <div style="font:8px var(--mono);color:#94a3b8;margin-bottom:6px">
+                            Decisiones Divergentes (14):<br>
+                            <span style="color:#34d399">■ 9 Mejores</span> &nbsp;
+                            <span style="color:#f87171">■ 3 Peores</span> &nbsp;
+                            <span style="color:#64748b">■ 2 Neutrales</span>
+                        </div>
+                        <div style="border-top:1px solid rgba(255,255,255,0.04);padding-top:4px;font:7px var(--mono);color:#64748b">
+                            <b>JERARQUÍA DE DECISIÓN (Prioridad Estricta):</b><br>
+                            Expectancy → PF → DD → ΔR Dist. → DIR → WR
+                        </div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-brain" style="color:#f59e0b"></i> OPPORTUNITY REGRET &amp; ERRORES</h3>
+                        </div>
+                        <div style="font:7px var(--mono);color:#64748b;margin-bottom:4px">
+                            Opportunity Regret: <code>Regret = max(0, R_base - R_adapt_net)</code>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                            <div>
+                                <span style="font-size:8px;color:#94a3b8">Mean Regret</span>
+                                <div style="font:800 12px var(--mono);color:#34d399" id="inc-regret-text">0.00 R</div>
+                            </div>
+                            <div style="text-align:right">
+                                <span style="font-size:8px;color:#94a3b8">Worst Regret</span>
+                                <div style="font:800 12px var(--mono);color:#f87171" id="inc-worst-regret">-0.82 R</div>
+                            </div>
+                        </div>
+
+                        <div style="font:8px var(--mono);color:#94a3b8;margin-bottom:3px">MEMORIA DE ERRORES ADAPTATIVOS (Top 3)</div>
+                        <div style="display:flex;flex-direction:column;gap:3px;font:7.5px var(--mono)">
+                            <div class="regret-error-item">
+                                <span>EXP-07 Pullback Rígido 8.0 USD</span>
+                                <strong>-0.42 R</strong>
+                            </div>
+                            <div class="regret-error-item">
+                                <span>EXP-09 Micro Stop 0.5x ATR</span>
+                                <strong>-0.68 R</strong>
+                            </div>
+                            <div class="regret-error-item">
+                                <span>EXP-11 Venta RSI &gt; 75</span>
+                                <strong>-0.82 R</strong>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Bottom Row (3 Cards): DAG Evolución, Stepper Ciclo de Vida, Ruta de Madurez -->
+                <div class="lab-grid-bottom">
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-timeline" style="color:#818cf8"></i> EVOLUCIÓN DE LA ESTRATEGIA (DAG)</h3>
+                            <span class="badge-mini" id="lab-tree-count">5 mutaciones</span>
+                        </div>
+                        <div class="dag-nodes-flow">
+                            <div class="dag-node-item">
+                                <div class="dag-node-circle active-green">v1.0</div>
+                                <div class="dag-node-title">BASE</div>
+                                <div class="dag-node-sub">Ruptura (MT5)</div>
+                            </div>
+                            <span style="color:#475569;font-size:10px">→</span>
+                            <div class="dag-node-item">
+                                <div class="dag-node-circle">v1.1</div>
+                                <div class="dag-node-title">BUFFER</div>
+                                <div class="dag-node-sub">+5 pts buffer</div>
+                            </div>
+                            <span style="color:#475569;font-size:10px">→</span>
+                            <div class="dag-node-item">
+                                <div class="dag-node-circle shadow-purple">v1.2</div>
+                                <div class="dag-node-title">TRAILING</div>
+                                <div class="dag-node-sub">+0.25 ATR</div>
+                            </div>
+                            <span style="color:#475569;font-size:10px">→</span>
+                            <div class="dag-node-item">
+                                <div class="dag-node-circle">v1.3</div>
+                                <div class="dag-node-title">PRE-NY</div>
+                                <div class="dag-node-sub">&gt;1.30x Vol</div>
+                            </div>
+                            <span style="color:#475569;font-size:10px">→</span>
+                            <div class="dag-node-item">
+                                <div class="dag-node-circle" style="border-color:#ef4444;color:#f87171">v1.4</div>
+                                <div class="dag-node-title">VETO</div>
+                                <div class="dag-node-sub">&gt;3x ATR</div>
+                            </div>
+                        </div>
+                        <div id="evolution-timeline-container" style="display:none"></div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-arrows-spin" style="color:#38bdf8"></i> CICLO DE VIDA DE REGLAS</h3>
+                        </div>
+                        <div class="stepper-flow-7">
+                            <div class="step-dot-item"><div class="step-dot-circle">1</div><div class="step-dot-title">SHADOW</div><div class="step-dot-sub">Observación</div></div>
+                            <span style="color:#334155;font-size:8px">→</span>
+                            <div class="step-dot-item"><div class="step-dot-circle">2</div><div class="step-dot-title">CANDIDATE</div><div class="step-dot-sub">Evaluación</div></div>
+                            <span style="color:#334155;font-size:8px">→</span>
+                            <div class="step-dot-item"><div class="step-dot-circle">3</div><div class="step-dot-title">VALIDATING</div><div class="step-dot-sub">Simulación</div></div>
+                            <span style="color:#334155;font-size:8px">→</span>
+                            <div class="step-dot-item"><div class="step-dot-circle">4</div><div class="step-dot-title">ACTIVE-CAND.</div><div class="step-dot-sub">Esperando</div></div>
+                            <span style="color:#334155;font-size:8px">→</span>
+                            <div class="step-dot-item"><div class="step-dot-circle current">5</div><div class="step-dot-title" style="color:#38bdf8">SHADOW LIVE</div><div class="step-dot-sub">Comparación</div></div>
+                            <span style="color:#334155;font-size:8px">→</span>
+                            <div class="step-dot-item"><div class="step-dot-circle">6</div><div class="step-dot-title">ACTIVE (MON.)</div><div class="step-dot-sub">≥ 15 trades</div></div>
+                            <span style="color:#334155;font-size:8px">→</span>
+                            <div class="step-dot-item"><div class="step-dot-circle">7</div><div class="step-dot-title">ESTABLISHED</div><div class="step-dot-sub">≥ 50 trades</div></div>
+                        </div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3><i class="fa-solid fa-bars-progress" style="color:#f59e0b"></i> RUTA DE MADUREZ MUESTRAL</h3>
+                        </div>
+                        <div class="roadmap-tiers-list" id="roadmap-container">
+                            <div class="tier-item-row active"><span class="tier-name">TIER 1 (N=0-15)</span><span class="tier-status-tag" style="background:#f59e0b;color:#000;font-weight:700">EN CURSO (2/15)</span></div>
+                            <div class="tier-item-row"><span class="tier-name">TIER 2 (N=15-30)</span><span class="tier-status-tag" style="color:#64748b">PENDIENTE</span></div>
+                            <div class="tier-item-row"><span class="tier-name">TIER 3 (N=30-50)</span><span class="tier-status-tag" style="color:#64748b">PENDIENTE</span></div>
+                            <div class="tier-item-row"><span class="tier-name">TIER 4 (N=50-100+)</span><span class="tier-status-tag" style="color:#64748b">PENDIENTE</span></div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Bottom-most Banner: Evolución Ejecutiva del Bot (N=2) -->
+                <div class="bot-executive-banner">
+                    <div class="bot-exec-head">
+                        <i class="fa-solid fa-brain"></i>
+                        <strong id="exec-conclusion-title">EVOLUCIÓN EJECUTIVA DEL BOT (N=2)</strong>
+                    </div>
+                    <p class="bot-exec-quote" id="exec-conclusion-quote">
+                        «Tengo 2 observaciones emparejadas en Shadow Live. Ambas favorecen provisionalmente la variante adaptativa (ΔR neto medio = +0.40R),
+                        pero no considero que esto constituya evidencia estadística suficiente. La prueba de permutación (p=0.503) no permite rechazar
+                        la hipótesis de ausencia de diferencia. Mantengo la regla bloqueada ante la Puerta Fuera de Muestra (Holdout H-001: N=2/15) sin tocar órdenes reales en MT5.»
+                    </p>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:7.5px;color:#a78bfa">
+                        <span id="exec-audit-tag">AUDITORÍA FORMAL DE APRENDIZAJE · DESCRIPTIVO (N&lt;5)</span>
+                        <span>Holdout de consumo único H-001 · Partición Sellada</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 6: AUTOPSIA DE TRADES (4 PASOS COGNITIVOS + ADN ORO)
+                 ========================================================================= -->
+            <section id="view-autopsy" class="app-view" style="display:none">
+                <section class="section-block" id="learning-section">
+                    <div class="section-head">
+                        <div>
+                            <div class="panel-kicker">AUTOPSIA ESTRUCTURADA &amp; TRAZABILIDAD</div>
+                            <h2>Mente del Bot: Auto-Reflexión y Aprendizaje Continuo (XAUUSD Lab)</h2>
+                        </div>
+                        <div class="section-badge-right" id="learning-status-badge">
+                            <i class="fa-solid fa-scale-balanced" style="color:#60a5fa"></i> <span id="learning-badge-text">APRENDIZAJE ACTIVO</span>
+                        </div>
+                    </div>
+
+                    <div class="learning-layout">
+                        <!-- Left: Cognitive Trade Autopsy in 4 Steps -->
+                        <article class="panel learning-autopsy-panel">
+                            <div class="panel-head compact">
+                                <div>
+                                    <div class="panel-kicker">DIARIO DE AUTO-REFLEXIÓN</div>
+                                    <h2>Autopsia Cognitiva de Trades Recientes</h2>
+                                </div>
+                                <span class="badge-mini" id="autopsy-count-badge">4 analizados</span>
+                            </div>
+
+                            <!-- Selector Chips for recent trades -->
+                            <div id="autopsy-trade-chips" class="autopsy-chips-bar">
+                                <div class="chips-placeholder">Cargando operaciones...</div>
+                            </div>
+
+                            <!-- Active Autopsy Card with 4 distinct steps + Decision Audit Trail -->
+                            <div id="autopsy-detail-card" class="autopsy-detail-card">
+                                <div class="autopsy-placeholder">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <span>Selecciona un trade para ver la autopsia en 4 pasos del bot.</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Right: Neural Memory Bank & Dynamic XAUUSD DNA -->
+                        <article class="panel learning-dna-panel">
+                            <div class="panel-head compact">
+                                <div>
+                                    <div class="panel-kicker">PATRONES APRENDIDOS EN ORO</div>
+                                    <h2>ADN de Comportamiento XAUUSD</h2>
+                                </div>
+                                <i class="fa-solid fa-microchip" style="color:#34d399;font-size:1.1rem"></i>
+                            </div>
+
+                            <div class="dna-metrics-grid">
+                                <div class="dna-card">
+                                    <div class="dna-card-top">
+                                        <span>RETROCESO TÍPICO (PULLBACK)</span>
+                                        <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                                    </div>
+                                    <strong id="dna-pullback-depth">~12.4 USD</strong>
+                                    <small>Magnitud media de corrección antes de continuar</small>
+                                </div>
+
+                                <div class="dna-card">
+                                    <div class="dna-card-top">
+                                        <span>EFICACIA TRAILING VS TP</span>
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </div>
+                                    <strong id="dna-trailing-edge" style="color:#34d399">+0.42 R vs TP estático</strong>
+                                    <small>Ganancia extra del Trailing Stop vs TP estático</small>
+                                </div>
+
+                                <div class="dna-card">
+                                    <div class="dna-card-top">
+                                        <span>RETESTEO DE LIQUIDEZ</span>
+                                        <i class="fa-solid fa-water"></i>
+                                    </div>
+                                    <strong id="dna-retest-freq">68% de las rupturas</strong>
+                                    <small>Rupturas que regresan a probar el nivel roto</small>
+                                </div>
+
+                                <div class="dna-card">
+                                    <div class="dna-card-top">
+                                        <span>SESIONES ÓPTIMAS</span>
+                                        <i class="fa-regular fa-clock"></i>
+                                    </div>
+                                    <strong id="dna-best-session" style="font-size:12px;color:#60a5fa">Londres &amp; NY Open</strong>
+                                    <small>Mayor volumen y menor tasa de falsos quiebres</small>
+                                </div>
+                            </div>
+
+                            <div class="cognitive-synthesis-box" style="margin-top:12px">
+                                <div class="synthesis-head">
+                                    <i class="fa-solid fa-quote-left" style="color:#34d399"></i>
+                                    <span>SÍNTESIS COGNITIVA DEL ALGORITMO</span>
+                                </div>
+                                <p id="dna-cognitive-summary">El Oro muestra alta tendencia direccional con micro-retrocesos rápidos de 8 a 15 USD. La estrategia de Trailing Stop Dinámico ha superado ampliamente a los Take Profits fijos, capturando el 85% de las caídas mayores.</p>
+                            </div>
+
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;font-size:8px;font-family:var(--mono);color:#94a3b8">
+                                <div>Dataset de Reentrenamiento: <strong style="color:#f1f5f9">4 trades registrados</strong></div>
+                                <div>Calibración de Probabilidad: <strong style="color:#34d399">Umbral Activo 65% (Shadow Mode)</strong></div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 7: MEMORIA CONTEXTUAL
+                 ========================================================================= -->
+            <section id="view-context-memory" class="app-view" style="display:none">
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">💾 Memoria Contextual — XAUUSD (Oro)</h2>
+                        <div class="view-sub-text">Comportamiento condicional por Sesión, Volatilidad y Estructura</div>
+                    </div>
+                </div>
+
+                <div class="lab-card-panel" style="margin-bottom:12px">
+                    <div class="card-header-clean">
+                        <h3><i class="fa-solid fa-layer-group" style="color:#38bdf8"></i> MEMORIA CONTEXTUAL MULTIVARIABLE (ORO XAUUSD)</h3>
+                    </div>
+                    <div id="contextual-matrix-container" class="contextual-matrix-box">
+                        <div class="chips-placeholder">Cargando memoria contextual...</div>
+                    </div>
+                </div>
+
+                <div class="lab-card-panel" style="margin-bottom:12px">
+                    <div class="card-header-clean">
+                        <h3><i class="fa-solid fa-wave-square" style="color:#a78bfa"></i> RETROCESOS DINÁMICOS POR RÉGIMEN DE VOLATILIDAD</h3>
+                    </div>
+                    <div id="dynamic-pullback-container" class="dynamic-pullback-box">
+                        <div class="chips-placeholder">Calculando regímenes de volatilidad...</div>
+                    </div>
+                </div>
+
+                <div class="lab-card-panel">
+                    <div class="card-header-clean">
+                        <h3><i class="fa-solid fa-database" style="color:#34d399"></i> REGLAS EN MEMORIA PERSISTENTE</h3>
+                    </div>
+                    <div id="memory-bank-patterns" class="memory-bank-list">
+                        <div class="chips-placeholder">Cargando patrones del Memory Bank...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 8: PATRONES APRENDIDOS
+                 ========================================================================= -->
+            <section id="view-patterns" class="app-view" style="display:none">
+
+                <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.3);color:#fbbf24;padding:10px 14px;border-radius:6px;font-family:var(--mono);font-size:11px;margin-bottom:14px;display:flex;align-items:center;gap:10px">
+                    <i class="fa-solid fa-flask" style="font-size:16px;color:#eab308"></i>
+                    <div>
+                        <b>MÓDULO DE INVESTIGACIÓN (ESPECIFICACIÓN CONCEPTUAL):</b>
+                        Esta vista presenta el diseño teórico del sistema. Los datos operativos reales, telemetría MT5 en vivo y señales de trading activas se monitorean en el <b>Dashboard Principal</b>, <b>Radar de Proximidad</b>, <b>Operaciones Activas</b> e <b>Historial de Trades</b>.
+                    </div>
+                </div>
+
+
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">🧬 Patrones Aprendidos &amp; DNA de XAUUSD</h2>
+                        <div class="view-sub-text">Catálogo de patrones empíricos con intervalo Wilson 95% y lift estadístico</div>
+                    </div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3 style="color:#38bdf8">xauusd_breakout_pullback</h3>
+                            <span class="badge-mini" style="background:rgba(139,92,246,0.15);color:#c4b5fd">SHADOW LIVE</span>
+                        </div>
+                        <p style="font-size:9.5px;color:#e2e8f0;line-height:1.4">
+                            <b>Retroceso previo tras ruptura:</b> En el 68% de las rupturas estructurales en XAUUSD H1, el precio realiza un retesteo profundo antes de expandir.
+                        </p>
+                        <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:6px;font:8.5px var(--mono);margin:8px 0;background:rgba(15,23,42,0.6);padding:8px;border-radius:6px">
+                            <div>N: <strong>14</strong></div>
+                            <div>Win: <strong style="color:#34d399">71.4%</strong></div>
+                            <div>Exp: <strong style="color:#38bdf8">+0.18 R</strong></div>
+                            <div>Lift: <strong style="color:#34d399">+1.15x</strong></div>
+                        </div>
+                        <div style="font-size:8.5px;color:#94a3b8;margin-top:6px">
+                            <b>Qué está aprendiendo:</b> «Después de ciertos breakouts, el precio suele retestear antes de continuar.»<br>
+                            <b style="color:#34d399">Acción propuesta:</b> Ampliar buffer a +5 pts y exigir confirmación de absorción en vela M15.
+                        </div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3 style="color:#f87171">xauusd_parabolic_exhaustion</h3>
+                            <span class="badge-mini" style="background:rgba(239,68,68,0.15);color:#ef4444">VETO DEFENSIVO ACTIVO</span>
+                        </div>
+                        <p style="font-size:9.5px;color:#e2e8f0;line-height:1.4">
+                            <b>Agotamiento parabólico:</b> Entrar en dirección de velas de expansión vertical >3x ATR conlleva una probabilidad de fallo del 64.5%.
+                        </p>
+                        <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:6px;font:8.5px var(--mono);margin:8px 0;background:rgba(15,23,42,0.6);padding:8px;border-radius:6px">
+                            <div>N: <strong>31</strong></div>
+                            <div>Fallo: <strong style="color:#ef4444">64.5%</strong></div>
+                            <div>Exp: <strong style="color:#ef4444">-0.32 R</strong></div>
+                            <div>MAE: <strong>24.5$</strong></div>
+                        </div>
+                        <div style="font-size:8.5px;color:#94a3b8;margin-top:6px">
+                            <b>Qué está aprendiendo:</b> «Comprar el clímax de aceleración en Oro genera liquidación prematura.»<br>
+                            <b style="color:#ef4444">Acción activa:</b> VETO automático en el módulo de entrada (prohibido ejecutar).
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 9: REGLAS ADAPTATIVAS
+                 ========================================================================= -->
+            <section id="view-adaptive-rules" class="app-view" style="display:none">
+
+                <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.3);color:#fbbf24;padding:10px 14px;border-radius:6px;font-family:var(--mono);font-size:11px;margin-bottom:14px;display:flex;align-items:center;gap:10px">
+                    <i class="fa-solid fa-flask" style="font-size:16px;color:#eab308"></i>
+                    <div>
+                        <b>MÓDULO DE INVESTIGACIÓN (ESPECIFICACIÓN CONCEPTUAL):</b>
+                        Esta vista presenta el diseño teórico del sistema. Los datos operativos reales, telemetría MT5 en vivo y señales de trading activas se monitorean en el <b>Dashboard Principal</b>, <b>Radar de Proximidad</b>, <b>Operaciones Activas</b> e <b>Historial de Trades</b>.
+                    </div>
+                </div>
+
+
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">⚙️ Catálogo de Reglas Adaptativas &amp; Versiones</h2>
+                        <div class="view-sub-text">Control inmutable de versiones de estrategia y modificaciones activas</div>
+                    </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px">
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3>v1.0 — Línea Base Institucional</h3>
+                            <span class="badge-mini" style="background:rgba(52,211,153,0.15);color:#34d399">ACTIVE — ESTABLISHED (MT5)</span>
+                        </div>
+                        <p style="font-size:9px;color:#94a3b8;margin:0 0 6px">Estrategia de Ruptura Estructural en XAUUSD H1. SL a 1.2 ATR, TP a 2.5 ATR, Break-Even a +0.5R.</p>
+                        <div style="font:8px var(--mono);color:#38bdf8">Impacto: +0.18 R / trade base</div>
+                    </article>
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3>v1.1 — Buffer de Retesteo en Rupturas (+5.0 pts)</h3>
+                            <span class="badge-mini" style="background:rgba(56,189,248,0.15);color:#38bdf8">CANDIDATE (SIMULACIÓN)</span>
+                        </div>
+                        <p style="font-size:9px;color:#94a3b8;margin:0 0 6px">Ampliación de buffer de entrada a +5 pts para absorber retrocesos de retesteo en rupturas de Oro.</p>
+                        <div style="font:8px var(--mono);color:#38bdf8">Impacto: +0.09 R expectativa simulada</div>
+                    </article>
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3>v1.2 — Colchón de Trailing Stop (+0.25 ATR)</h3>
+                            <span class="badge-mini" style="background:rgba(139,92,246,0.15);color:#c4b5fd">SHADOW LIVE</span>
+                        </div>
+                        <p style="font-size:9px;color:#94a3b8;margin:0 0 6px">Margen de +0.25 ATR al Trailing tras +0.5R para no ser liquidado en pausas de 1 o 2 velas durante tendencias.</p>
+                        <div style="font:8px var(--mono);color:#34d399">Impacto: +0.08 R neta tras costes de spread y slippage</div>
+                    </article>
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3>v1.4 — Veto de Agotamiento Parabólico (&gt;3x ATR)</h3>
+                            <span class="badge-mini" style="background:rgba(239,68,68,0.15);color:#ef4444">VETO DEFENSIVO ACTIVO</span>
+                        </div>
+                        <p style="font-size:9px;color:#94a3b8;margin:0 0 6px">Prohíbe comprar o vender tras velas verticales >3x ATR sin consolidación previa. Evita pérdidas de -1.0R.</p>
+                        <div style="font:8px var(--mono);color:#ef4444">Acción: Bloqueo incondicional de entrada</div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 10: SHADOW LIVE DEDICADO
+                 ========================================================================= -->
+            <section id="view-shadow-live" class="app-view" style="display:none">
+
+                <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.3);color:#fbbf24;padding:10px 14px;border-radius:6px;font-family:var(--mono);font-size:11px;margin-bottom:14px;display:flex;align-items:center;gap:10px">
+                    <i class="fa-solid fa-flask" style="font-size:16px;color:#eab308"></i>
+                    <div>
+                        <b>MÓDULO DE INVESTIGACIÓN (ESPECIFICACIÓN CONCEPTUAL):</b>
+                        Esta vista presenta el diseño teórico del sistema. Los datos operativos reales, telemetría MT5 en vivo y señales de trading activas se monitorean en el <b>Dashboard Principal</b>, <b>Radar de Proximidad</b>, <b>Operaciones Activas</b> e <b>Historial de Trades</b>.
+                    </div>
+                </div>
+
+
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">🔀 Shadow Live Emparejado — Telemetría de Ticks Gemelos</h2>
+                        <div class="view-sub-text">Comparación directa entre Baseline v1.0 y Adaptativa v1.3 sobre idénticos datos de mercado</div>
+                    </div>
+                </div>
+                <article class="lab-card-panel">
+                    <p style="font-size:9.5px;color:#94a3b8;line-height:1.4">
+                        Cada oportunidad de mercado genera <strong>DOS registros emparejados</strong> procesados sobre los mismos ticks reales de IC Markets.
+                        Se deduce el spread exacto observado en entrada, slippage y comisión institucional.
+                    </p>
+                    <div style="font:8.5px var(--mono);color:#f59e0b;margin-top:8px">
+                        Estado actual: <strong>2 / 15 pares emparejados acumulados</strong>. El sistema permanece en modo descriptivo.
+                    </div>
+                </article>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 11: VALIDACIÓN ESTADÍSTICA
+                 ========================================================================= -->
+            <section id="view-stats-validation" class="app-view" style="display:none">
+
+                <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.3);color:#fbbf24;padding:10px 14px;border-radius:6px;font-family:var(--mono);font-size:11px;margin-bottom:14px;display:flex;align-items:center;gap:10px">
+                    <i class="fa-solid fa-flask" style="font-size:16px;color:#eab308"></i>
+                    <div>
+                        <b>MÓDULO DE INVESTIGACIÓN (ESPECIFICACIÓN CONCEPTUAL):</b>
+                        Esta vista presenta el diseño teórico del sistema. Los datos operativos reales, telemetría MT5 en vivo y señales de trading activas se monitorean en el <b>Dashboard Principal</b>, <b>Radar de Proximidad</b>, <b>Operaciones Activas</b> e <b>Historial de Trades</b>.
+                    </div>
+                </div>
+
+
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">📐 Validación Estadística No Paramétrica</h2>
+                        <div class="view-sub-text">Bootstrap 1,000 réplicas · Test de Permutación · Umbrales por tamaño de muestra</div>
+                    </div>
+                </div>
+                <article class="lab-card-panel">
+                    <div class="card-header-clean">
+                        <h3>Matriz de Prioridad Estadística según Tamaño de Muestra (N)</h3>
+                    </div>
+                    <table class="h2h-table-custom">
+                        <thead>
+                            <tr>
+                                <th>Rango Muestral</th>
+                                <th>Nivel de Inferencia</th>
+                                <th>Validez del Intervalo de Confianza</th>
+                                <th>Acción Permitida</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background:rgba(245,158,11,0.06)">
+                                <td><b>N &lt; 5 (Actual: N=2)</b></td>
+                                <td style="color:#f59e0b">DESCRIPTIVO</td>
+                                <td style="color:#ef4444">⚠️ No confirmatorio (remuestreo de muestra diminuta)</td>
+                                <td>Bloqueo total en MT5</td>
+                            </tr>
+                            <tr>
+                                <td><b>5 ≤ N &lt; 15</b></td>
+                                <td>EVIDENCIA PRELIMINAR</td>
+                                <td>Tendencia descriptiva en acumulación</td>
+                                <td>Shadow Live continuo</td>
+                            </tr>
+                            <tr>
+                                <td><b>15 ≤ N &lt; 30</b></td>
+                                <td style="color:#38bdf8">INFERENCIA EXPLORATORIA</td>
+                                <td>Mínimo Operativo de Evidencia alcanzado</td>
+                                <td>Evaluación OOS Gate</td>
+                            </tr>
+                            <tr>
+                                <td><b>30 ≤ N &lt; 50</b></td>
+                                <td style="color:#34d399">INFERENCIA OPERATIVA</td>
+                                <td>Validación formal sustentada</td>
+                                <td>Active (Monitoring)</td>
+                            </tr>
+                            <tr>
+                                <td><b>N ≥ 50</b></td>
+                                <td style="color:#34d399">VALIDACIÓN CONTEXTUAL</td>
+                                <td>Significancia multivariable consolidada</td>
+                                <td>Active (Established)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 12: OUT-OF-SAMPLE GATE
+                 ========================================================================= -->
+            <section id="view-oos-gate" class="app-view" style="display:none">
+
+                <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.3);color:#fbbf24;padding:10px 14px;border-radius:6px;font-family:var(--mono);font-size:11px;margin-bottom:14px;display:flex;align-items:center;gap:10px">
+                    <i class="fa-solid fa-flask" style="font-size:16px;color:#eab308"></i>
+                    <div>
+                        <b>MÓDULO DE INVESTIGACIÓN (ESPECIFICACIÓN CONCEPTUAL):</b>
+                        Esta vista presenta el diseño teórico del sistema. Los datos operativos reales, telemetría MT5 en vivo y señales de trading activas se monitorean en el <b>Dashboard Principal</b>, <b>Radar de Proximidad</b>, <b>Operaciones Activas</b> e <b>Historial de Trades</b>.
+                    </div>
+                </div>
+
+
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">🛡️ Out-of-Sample Holdout Gate &amp; Data Snooping</h2>
+                        <div class="view-sub-text">Particiones herméticas inmutables y política de holdout de consumo único</div>
+                    </div>
+                </div>
+                <article class="lab-card-panel">
+                    <div style="font:8.5px var(--mono);color:#cbd5e1;line-height:1.5">
+                        <p><strong>1. Discovery Set (N=140):</strong> Datos históricos sellados. Prohibido tocar para evaluar la regla en vivo.</p>
+                        <p><strong>2. In-Sample Validation (N=4):</strong> Calibración controlada en Shadow Simulation.</p>
+                        <p><strong>3. Out-of-Sample Holdout H-001 (N=2/15):</strong> Datos posteriores a la congelación inmutable de la regla (2026-09-03 10:42:17 UTC). Un holdout evaluado queda marcado como <code>CONSUMED</code> y no puede reutilizarse para reajustar parámetros.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 13: AUDITORÍA DE SEÑALES (SEÑALES Y FILTROS EN TIEMPO REAL)
+                 ========================================================================= -->
+            <section id="view-signals" class="app-view" style="display:none">
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">📡 Registro de Señales y Filtros en Tiempo Real</h2>
+                        <div class="view-sub-text">Evaluación continua de velas de XAUUSD: desglose de puntajes de confirmación y motivos de aprobación o rechazo.</div>
+                    </div>
+                    <button class="btn btn-ghost" onclick="loadSignalsLog()"><i class="fa-solid fa-rotate"></i> Actualizar</button>
+                </div>
+                <article class="panel table-panel">
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Hora</th>
+                                    <th>Símbolo</th>
+                                    <th>TF</th>
+                                    <th>Dirección</th>
+                                    <th>Score</th>
+                                    <th>Contexto</th>
+                                    <th>Estado</th>
+                                    <th>Motivo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="signals-log-tbody"></tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 14: AUDIT TRAIL
+                 ========================================================================= -->
+            <section id="view-audit-trail" class="app-view" style="display:none">
+
+                <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.3);color:#fbbf24;padding:10px 14px;border-radius:6px;font-family:var(--mono);font-size:11px;margin-bottom:14px;display:flex;align-items:center;gap:10px">
+                    <i class="fa-solid fa-flask" style="font-size:16px;color:#eab308"></i>
+                    <div>
+                        <b>MÓDULO DE INVESTIGACIÓN (ESPECIFICACIÓN CONCEPTUAL):</b>
+                        Esta vista presenta el diseño teórico del sistema. Los datos operativos reales, telemetría MT5 en vivo y señales de trading activas se monitorean en el <b>Dashboard Principal</b>, <b>Radar de Proximidad</b>, <b>Operaciones Activas</b> e <b>Historial de Trades</b>.
+                    </div>
+                </div>
+
+
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">📜 Audit Trail Inmutable</h2>
+                        <div class="view-sub-text">Registro cronológico de todas las decisiones, consultas de memoria y regret</div>
+                    </div>
+                </div>
+                <article class="lab-card-panel">
+                    <div style="font:8px var(--mono);color:#94a3b8;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04)">
+                        <b>2026-09-03 10:08:14 UTC</b> · XAUUSD BUY · Regla: v1.0 Base · Memoria: Breakout Sweep · Adaptación: +0 pts · Confianza: Descriptivo · Resultado: +0.68R · Regret: 0R
+                    </div>
+                    <div style="font:8px var(--mono);color:#94a3b8;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04)">
+                        <b>2026-09-02 14:35:02 UTC</b> · XAUUSD BUY · Regla: v1.0 Base · Memoria: Ruptura Limpia · Adaptación: +0 pts · Confianza: Descriptivo · Resultado: +0.88R · Regret: 0R
+                    </div>
+                </article>
+            </section>
+
+            <!-- =========================================================================
+                 VIEW 15: CONFIGURACIÓN (PARÁMETROS, RIESGO, MT5, SISTEMA)
+                 ========================================================================= -->
+            <section id="view-settings" class="app-view" style="display:none">
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title-main">⚙️ Configuración &amp; Parámetros Institucionales</h2>
+                        <div class="view-sub-text">Diferenciación estricta entre parámetros BASE vs ADAPTATIVO y control de riesgo</div>
+                    </div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3>Parámetros de Estrategia (XAUUSD H1 &amp; H4)</h3>
+                        </div>
+                        <div class="execution-cost-list">
+                            <div class="cost-row"><span>Timeframe Primario</span><strong class="ok">H1 y H4 (Setup en H4/D1)</strong></div>
+                            <div class="cost-row"><span>Riesgo Base por Trade</span><strong class="ok">1.00% (H1) · 1.50% (H4)</strong></div>
+                            <div class="cost-row"><span>Stop Loss Inicial</span><strong>1.2x - 1.5x ATR [BASE]</strong></div>
+                            <div class="cost-row"><span>Break-Even Rápido</span><strong class="ok" style="color:#34d399">+0.80R [ACTIVO]</strong></div>
+                            <div class="cost-row"><span>Toma Parcial Temprana</span><strong class="ok" style="color:#38bdf8">+1.00R (50% asegurado)</strong></div>
+                            <div class="cost-row"><span>Salida por Estancamiento</span><strong style="color:#fbbf24">5 velas H1 / 3 velas H4 (&lt;0.4R)</strong></div>
+                            <div class="cost-row"><span>Trailing Stop Dinámico</span><strong style="color:#a78bfa">Activación +0.90R (Min 0.8 ATR)</strong></div>
+                        </div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3>Gestión de Riesgo &amp; Salud de Conexiones</h3>
+                        </div>
+                        <div class="execution-cost-list">
+                            <div class="cost-row"><span>Pérdida Máxima Diaria</span><strong style="color:#f59e0b">2.0%</strong></div>
+                            <div class="cost-row"><span>Drawdown Máximo Permitido</span><strong style="color:#ef4444">10.0%</strong></div>
+                            <div class="cost-row"><span>Safety Rollback</span><strong style="color:#34d399">3 pérdidas seguidas = PAUSA</strong></div>
+                            <div class="cost-row"><span>Puente MetaTrader 5</span><strong class="ok">Conectado (Offset +3h)</strong></div>
+                            <div class="cost-row"><span>Flujo WebSocket</span><strong class="ok">En Vivo</strong></div>
+                        </div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3>⚔️ Estrategia Ofensiva (Sweep Reversal)</h3>
+                        </div>
+                        <div class="execution-cost-list">
+                            <div class="cost-row"><span>Estado del Módulo</span><strong class="ok">ACTIVO 100% en Oro</strong></div>
+                            <div class="cost-row"><span>Misión Táctica</span><strong style="color:#34d399">Monetizar Falsos Rompimientos</strong></div>
+                            <div class="cost-row"><span>Penetración Mínima</span><strong>0.05 ATR (Perforación confirmada)</strong></div>
+                            <div class="cost-row"><span>R:R Mínimo Requerido</span><strong style="color:#38bdf8">1:2.0 Mínimo</strong></div>
+                            <div class="cost-row"><span>Colchón Stop Loss</span><strong>0.10 ATR tras mecha de absorción</strong></div>
+                            <div class="cost-row"><span>Objetivo de Ganancia</span><strong>Extremo opuesto (PDL / Mínimo Asia)</strong></div>
+                        </div>
+                    </article>
+
+                    <article class="lab-card-panel">
+                        <div class="card-header-clean">
+                            <h3>🛡️ Guardián de Liquidez &amp; Filtros Institucionales</h3>
+                        </div>
+                        <div class="execution-cost-list">
+                            <div class="cost-row"><span>Stop Hunt Zone</span><strong style="color:#f87171">&lt; 0.60 ATR de PDH/PDL (Bloqueo)</strong></div>
+                            <div class="cost-row"><span>Filtro Sesión Asia</span><strong style="color:#fbbf24">Bloqueo de Breakouts Diarios</strong></div>
+                            <div class="cost-row"><span>Confluencia SMC</span><strong style="color:#a78bfa">in_zone=True Estricto (FVG/OB)</strong></div>
+                            <div class="cost-row"><span>Auto-Cancel Pendientes</span><strong style="color:#38bdf8">&gt; 2.0h sin llenar (8h en H4)</strong></div>
+                            <div class="cost-row"><span>Portafolio Configurado</span><strong class="ok">Forex (XAUUSD, USDJPY) + Deriv Sintéticos 24/7</strong></div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        
+                <!-- Telemetry & Pipeline Helpers -->
+                <div style="display:none" aria-hidden="true">
+                    <span id="kpi-open-positions">0</span>
+                    <span id="footer-mode-tag">● MODO DEMO (MT5)</span>
+                    <span id="nav-radar-count">1</span>
+                    <span id="nav-ml-status">—</span>
+                    <span id="side-ml-state">SHADOW</span>
+                    <span id="health-ml-state">ONLINE</span>
+                    <span id="btn-ml-mode-text">Activo</span>
+                    <button id="btn-toggle-ml-mode"></button>
+                    <button id="btn-retrain-ml"></button>
+                    
+                    <span id="ev-trades-total">4</span>
+                    <span id="ev-trades-shadow">4</span>
+                    <span id="ev-trades-shadow-live">2</span>
+                    <span id="ev-trades-active">0</span>
+                    <span id="ev-rules-prop">4</span>
+                    <span id="ev-rules-rej">0</span>
+                    <span id="ev-rules-veto">1</span>
+                    <span id="ev-rules-rollback">0</span>
+
+                    <span id="exp-stat-gen">27</span>
+                    <span id="exp-stat-tested">14</span>
+                    <span id="exp-stat-acc">2</span>
+                    <span id="exp-stat-rej">10</span>
+                    <span id="exp-stat-val">2</span>
+                    <span id="exp-stat-ratio">14.3%</span>
+                    <span id="exp-warning-text"></span>
+                    <div id="rejected-learnings-container"></div>
+                    
+                    <span id="paired-status-badge">DESCRIPTIVO</span>
+                    <span id="paired-footer"></span>
+                    <span id="oos-part-title-text">Holdout H-001</span>
+                    <span id="oos-part-desc-text">Ticks post-congelación</span>
+                    <span id="lab-overall-delta"></span>
+                    
+                    <!-- Intraday Profile Elements -->
+                    <span id="intraday-mode">PAPER</span>
+                    <span id="intraday-journal"></span>
+                    <span id="intraday-target"></span>
+                    <span id="intraday-signals">0</span>
+                    <span id="intraday-rejected">0</span>
+                    <span id="intraday-trades">0</span>
+                    <span id="intraday-pnl">$0.00</span>
+                    <span id="intraday-risk">0.50%</span>
+                    <span id="intraday-daily-loss">2.0%</span>
+                    <span id="intraday-positions">0</span>
+                    <span id="intraday-position-limit">2</span>
+                    <span id="intraday-entry-tf">M5</span>
+                    <span id="intraday-setup-tf">M15</span>
+                    <span id="intraday-higher-tf">H1</span>
+                    <span id="intraday-score-min">75 / 100</span>
+                    <span id="intraday-setup-min">15 / 25</span>
+                    <span id="intraday-ml">SHADOW</span>
+                    <span id="intraday-live-lock">BLOQUEADO</span>
+                    <span id="intraday-magic">26081901</span>
+                    <span id="intraday-experiment"></span>
+                    <span id="intraday-exploratory-r"></span>
+                    <span id="intraday-exploratory-trades"></span>
+                    <span id="intraday-validation-chip"></span>
+                    <div id="intraday-validation-summary"></div>
+                    <div id="intraday-symbols"></div>
+                    <table><tbody id="intraday-signals-tbody"></tbody></table>
+                    <span id="nav-intraday-state"></span>
+
+                    <!-- ML Widgets -->
+                    <span id="ml-dataset-count"></span>
+                    <div id="ml-features-list"></div>
+                    <table><tbody id="ml-folds-tbody"></tbody></table>
+                    <span id="ml-kpi-auc"></span>
+                    <span id="ml-kpi-mode"></span>
+                    <span id="ml-kpi-mode-desc"></span>
+                    <span id="ml-kpi-prec"></span>
+                    <span id="ml-kpi-samples"></span>
+                    <span id="ml-kpi-threshold"></span>
+                    <div id="ml-symbols-grid"></div>
+                    <span id="overview-ml-mode"></span>
+                    <span id="overview-ml-prec"></span>
+
+                    <div id="confirmations-grid"></div>
+                </div>
+
+        </main>
+    </div>
+
+    <div id="toast-container"></div>
+    <script src="/static/js/app.js?v=16.4.0"></script>
+</body>
+</html>

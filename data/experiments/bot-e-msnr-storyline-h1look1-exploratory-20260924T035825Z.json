@@ -1,0 +1,68 @@
+{
+  "experiment_id": "bot-e-msnr-storyline-h1look1-exploratory-20260924T035825Z",
+  "created_at": "2026-09-24T03:58:25.903817+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "2Y",
+  "symbols": null,
+  "evaluation_start": null,
+  "entry_timeframe": "H1",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "confirmation_timeframe": "M30",
+  "gap_timeframe": "H2",
+  "config_sha256": {
+    "config\\bot_e_msnr_storyline\\settings.yaml": "1ebc7063b004413e46796fcf4bb3100eba0a62b1b0045dca1c33e59e2cc6b239",
+    "config\\bot_e_msnr_storyline\\symbols.yaml": "7d777c4eddb4c260e494c5682b57f2edfd0821665a1157bdc61ecf48196e0290",
+    "config\\bot_e_msnr_storyline\\risk.yaml": "8fc104d812edba907144b53119f7ad9ca742762cf5f58b3e83d8f9d7057f8a57"
+  },
+  "code_sha256": {
+    "backtest_runner.py": "86464dc365ad36f427c3616a2d16d18fad3e86f85db60fa9dfd3d4f4ed6b7ba4",
+    "backtest/engine.py": "f6240cd1cc4ef6f5968a8ec13280626ef8557cdb156612b48893395a6feee61e",
+    "strategy/alchemist.py": "b59a7d8a5db3ca0b351b95355cc1dba11b66544b47fddee515056830093b9c77",
+    "strategy/msnr_storyline.py": "5a816ba645cc902dc67a298ecc616f957b9e41498f24de64f0e393a16b8b8078",
+    "core/config_loader.py": "1e6d3bf1156a4f5fc024927b8ae118e54b12393a98675c35a2eb6c8edbb98261",
+    "main.py": "a1396483014a5c563ab326d40f3493dc30b8606edae24ac028f88aa6e8ebdcf1"
+  },
+  "input_sha256": {
+    "USDJPY:H1": "90807e5b89acb33395f6ebd38611e21bce134df423fff262fda4771f21a3284e",
+    "USDJPY:H4": "53bb0cc77dc1a189bbc03a78cd8c56caf83173d6900cef4b8a4664f40d758552",
+    "USDJPY:D1": "11d8540ba2b73807e045882b9b41fef1b58a16b88b9f31ec31f5e6b894aa0453",
+    "USDJPY:W1": "b536446d1d1ed990fe805289b645aa99cb751483f7a7077510a49aefec539dd7",
+    "USDJPY:MN1": "5208b0d73ad23e874cf65bc9552183c65d875c72dcdf0ed62570c49e67e23c22",
+    "USDJPY:M30": "37bfb8fd6d1eb764a100dcfe0e22b6aeb69272bfbf1a1f1666a72998b315f436",
+    "USDJPY:H2": "4e619111693cd4ff7aefc5b1e7d5b09053090875f045b5b95911047a7a453b36"
+  },
+  "instrument_specs": {
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6326951548205043,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 3,
+    "total_profit_money": 1.87,
+    "total_profit_r": 0.3,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260923_225825.csv",
+  "report_sha256": "887ccc0357d1b51da7435e8eb3d4e4df071dea57423fd7d8baddbdd9f77fdb98",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "",
+  "pending_events_sha256": null
+}

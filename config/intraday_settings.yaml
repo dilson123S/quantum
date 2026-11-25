@@ -1,0 +1,122 @@
+# ============================================================
+# PERFIL INTRADÍA LEGADO — no es consumido por el ejecutable
+# ============================================================
+# Objetivo: 5-6 trades/día en demo, riesgo reducido.
+# Entrada en M5, confirmación en M15, sesgo en H1.
+# NO tocar config/settings.yaml (estrategia conservadora).
+# ============================================================
+bot:
+  name: QuantTradingBot-Intraday
+  magic_number: 26081902           # Distinto al conservador (26081901)
+  mode: paper
+  allow_live_trading: false
+
+market:
+  symbols:
+    - EURUSD
+    - GBPUSD
+
+timeframes:
+  higher: H1                       # Sesgo / tendencia mayor en H1
+  setup:  M15                      # Confirmación de estructura en M15
+  entry:  M5                       # Señal de entrada en M5
+
+score:
+  minimum: 65                      # Umbral más permisivo para mayor frecuencia
+  min_structure: 12                # 12/30 — estructura básica M5 confirmada
+  min_trend:     10                # 10/25 — tendencia alineada
+  structure_weight: 30
+  trend_weight:     25
+  momentum_weight:  15
+  volume_weight:    15
+  volatility_weight: 15
+
+# Exige que la tendencia del timeframe de setup (M15) esté alineada
+# con la dirección de la señal M5 antes de operar.
+confirmation:
+  require_setup_trend_alignment: true
+  setup_min_trend_score: 10.0      # Trend score M15 >= 10/25
+
+# Telemetría: registra candidatos rechazados para medir el edge potencial
+telemetry:
+  log_rejected_score_candidates: true
+  target_daily_trades: 5
+
+structure:
+  swing_lookback:        2         # Más reactivo en M5
+  swing_confirmation:    1
+  bos_min_distance_atr:  0.08
+  bos_close_confirmation: true
+  use_choch: true
+  use_bos:   true
+  max_swing_age: 60                # Swings más recientes en intradía
+
+trend:
+  ema_fast:   9                    # EMAs más cortas para M5
+  ema_medium: 21
+  ema_slow:   50
+  adx_period: 14
+  adx_min:    18
+  adx_strong: 22
+
+momentum:
+  rsi_period:       9              # RSI más reactivo
+  rsi_bull_min:     50
+  rsi_bull_strong:  54
+  rsi_bear_max:     50
+  rsi_bear_strong:  46
+  macd_fast:   8
+  macd_slow:   21
+  macd_signal: 5
+
+volume:
+  period:       14
+  min_ratio:    1.1
+  strong_ratio: 1.4
+  use_obv:      true
+  volume_mode:  tick
+
+volatility:
+  atr_period:     10
+  atr_avg_period: 30
+  min_atr_ratio:  0.7
+  max_atr_ratio:  3.0
+  sl_multiplier:  1.2              # SL más ajustado en M5
+
+trade:
+  risk_reward:   1.5               # 1:1.5 — alcanzable en M5
+  break_even_r:  1.0               # BE al 1 R
+  partial_close: true
+  partial_r:     1.0
+  partial_percent: 50
+  trailing:      atr               # Solo trailing ATR en intradía
+  entry_mode:    breakout
+  breakout_buffer_points: 3
+  breakout_expiry_bars:   6        # 30 min en M5
+
+filters:
+  max_spread:           true
+  session_filter:       true
+  news_filter:          false
+  correlation_filter:   true
+  trading_start: '07:00'           # Apertura Londres
+  trading_end:   '17:00'          # Cierre NY
+  timezone: UTC
+  max_spread_atr_percent: 15       # Más permisivo en pares líquidos
+  news_blackout_before: 20
+  news_blackout_after:  20
+
+ml:
+  enabled:             true
+  shadow_mode:         true        # Solo observa, no bloquea
+  allow_active_filter: false
+  model_path:          data/ml_model_intraday.joblib
+  min_confidence:      0.60
+  retrain_weeks:       2
+  training_months:     3
+
+backtest:
+  commission_per_lot_round_turn: 7.0
+  slippage_points:     1.5         # Ligeramente mayor en M5
+  gap_slippage_points: 2.0
+  intra_bar_policy:    stop_first

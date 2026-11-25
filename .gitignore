@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Environment and Secrets
+.env
+.env.*
+!.env.example
+
+# Databases & Backups
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+data/backups/
+
+# ML models, checkpoints and large weights
+*.gguf
+*.pt
+*.pth
+*.safetensors
+*.bin
+ml/quantum-slm/outputs/
+outputs/
+checkpoints/
+
+# Logs & DevSecOps temporary files
+*.log
+logs/
+tmp/
+temp_gitleaks.json
+test_gitleaks.json
+devsecops_audit_report.json
+scratch_*.py
+test_*.pdf
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db
+Desktop.ini

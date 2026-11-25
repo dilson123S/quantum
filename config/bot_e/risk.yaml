@@ -1,0 +1,29 @@
+risk:
+  mode: percent
+  risk_percent: 0.25
+  risk_money: 20.0
+  max_daily_loss: 8.0
+  max_drawdown: 12.0
+  max_consecutive_losses: 3
+  max_open_positions: 1
+  max_positions_per_symbol: 1
+  max_correlated_positions: 1
+  max_risk_per_trade: 0.25
+  max_portfolio_risk_percent: 0.25
+  max_correlation: 0.8
+  max_daily_trades: 4
+risk_by_score:
+  GOOD: 0.25
+  EXCELLENT: 0.25
+  EXCEPTIONAL: 0.25
+min_component_scores:
+  structure: 18
+  trend: 15
+correlation_groups:
+  yen_group:
+  - USDJPY
+consecutive_loss_risk_reduction:
+  '0': 1.0
+  '1': 0.75
+  '2': 0.5
+  '3': 0.0

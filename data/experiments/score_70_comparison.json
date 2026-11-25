@@ -1,0 +1,156 @@
+[
+  {
+    "Escenario": "BOT-B · Base (Score 75% | ML 55%)",
+    "Bloque": "DEJAR CORRER",
+    "Trades": 24,
+    "W/L": "14/10",
+    "WinRate": "58.3%",
+    "NetProfit": "$1,948.50",
+    "Total_R": "+9.1R",
+    "PF": "2.54",
+    "MaxDD": "2.98%"
+  },
+  {
+    "Escenario": "BOT-B · 👉 Score Entrada 70% (ML 55%)",
+    "Bloque": "DEJAR CORRER",
+    "Trades": 24,
+    "W/L": "14/10",
+    "WinRate": "58.3%",
+    "NetProfit": "$1,948.50",
+    "Total_R": "+9.1R",
+    "PF": "2.54",
+    "MaxDD": "2.98%"
+  },
+  {
+    "Escenario": "BOT-B · 👉 Filtro ML al 70% (Score 75%)",
+    "Bloque": "DEJAR CORRER",
+    "Trades": 16,
+    "W/L": "12/4",
+    "WinRate": "75.0%",
+    "NetProfit": "$2,215.27",
+    "Total_R": "+10.2R",
+    "PF": "5.26",
+    "MaxDD": "4.95%"
+  },
+  {
+    "Escenario": "BOT-B · 👉 AMBOS al 70% (Score 70% + ML 70%)",
+    "Bloque": "DEJAR CORRER",
+    "Trades": 16,
+    "W/L": "12/4",
+    "WinRate": "75.0%",
+    "NetProfit": "$2,215.27",
+    "Total_R": "+10.2R",
+    "PF": "5.26",
+    "MaxDD": "4.95%"
+  },
+  {
+    "Escenario": "BOT-A · Base (Score 75% | ML 45%)",
+    "Bloque": "DEJAR CORRER",
+    "Trades": 30,
+    "W/L": "16/14",
+    "WinRate": "53.3%",
+    "NetProfit": "$1,825.83",
+    "Total_R": "+8.6R",
+    "PF": "2.02",
+    "MaxDD": "4.33%"
+  },
+  {
+    "Escenario": "BOT-A · 👉 Score Entrada 70% (ML 45%)",
+    "Bloque": "DEJAR CORRER",
+    "Trades": 30,
+    "W/L": "16/14",
+    "WinRate": "53.3%",
+    "NetProfit": "$1,825.83",
+    "Total_R": "+8.6R",
+    "PF": "2.02",
+    "MaxDD": "4.33%"
+  },
+  {
+    "Escenario": "BOT-C · Base Sniper (Score 75% | ML 65%)",
+    "Bloque": "DEJAR CORRER",
+    "Trades": 20,
+    "W/L": "13/7",
+    "WinRate": "65.0%",
+    "NetProfit": "$2,124.88",
+    "Total_R": "+9.8R",
+    "PF": "3.48",
+    "MaxDD": "3.00%"
+  },
+  {
+    "Escenario": "BOT-C · 👉 Score Entrada 70% (ML 65%)",
+    "Bloque": "DEJAR CORRER",
+    "Trades": 20,
+    "W/L": "13/7",
+    "WinRate": "65.0%",
+    "NetProfit": "$2,124.88",
+    "Total_R": "+9.8R",
+    "PF": "3.48",
+    "MaxDD": "3.00%"
+  },
+  {
+    "Escenario": "CONTROL SIN ML · Score 75% Técnico Puro",
+    "Bloque": "DEJAR CORRER",
+    "Trades": 105,
+    "W/L": "52/53",
+    "WinRate": "49.5%",
+    "NetProfit": "$5,796.52",
+    "Total_R": "+23.8R",
+    "PF": "1.67",
+    "MaxDD": "8.31%"
+  },
+  {
+    "Escenario": "CONTROL SIN ML · 👉 Score 70% Técnico Puro",
+    "Bloque": "DEJAR CORRER",
+    "Trades": 105,
+    "W/L": "52/53",
+    "WinRate": "49.5%",
+    "NetProfit": "$5,796.52",
+    "Total_R": "+23.8R",
+    "PF": "1.67",
+    "MaxDD": "8.31%"
+  },
+  {
+    "Escenario": "BOT-B · Cosecha Actual Base (Score 75% | ML 55%)",
+    "Bloque": "COSECHA ACTUAL",
+    "Trades": 26,
+    "W/L": "17/9",
+    "WinRate": "65.4%",
+    "NetProfit": "$1,404.53",
+    "Total_R": "+6.7R",
+    "PF": "2.98",
+    "MaxDD": "3.68%"
+  },
+  {
+    "Escenario": "BOT-B · Cosecha Actual 👉 Score 70% (ML 55%)",
+    "Bloque": "COSECHA ACTUAL",
+    "Trades": 26,
+    "W/L": "17/9",
+    "WinRate": "65.4%",
+    "NetProfit": "$1,404.53",
+    "Total_R": "+6.7R",
+    "PF": "2.98",
+    "MaxDD": "3.68%"
+  },
+  {
+    "Escenario": "BOT-B · Cosecha Actual 👉 Filtro ML al 70%",
+    "Bloque": "COSECHA ACTUAL",
+    "Trades": 17,
+    "W/L": "12/5",
+    "WinRate": "70.6%",
+    "NetProfit": "$1,700.30",
+    "Total_R": "+7.9R",
+    "PF": "10.67",
+    "MaxDD": "1.68%"
+  },
+  {
+    "Escenario": "BOT-B · Cosecha Actual 👉 AMBOS al 70%",
+    "Bloque": "COSECHA ACTUAL",
+    "Trades": 17,
+    "W/L": "12/5",
+    "WinRate": "70.6%",
+    "NetProfit": "$1,700.30",
+    "Total_R": "+7.9R",
+    "PF": "10.67",
+    "MaxDD": "1.68%"
+  }
+]

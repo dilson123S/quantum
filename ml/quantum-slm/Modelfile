@@ -1,0 +1,15 @@
+FROM ./outputs/quantum-slm-qwen2.5-3b-f16.gguf
+
+TEMPLATE """{{ if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+{{ .Response }}<|im_end|>"""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+PARAMETER temperature 0.1
+PARAMETER top_p 0.9
+
+SYSTEM """You are Kev, the Quantum AI System 1 Decision Model. Analyze trading candidate states and respond STRICTLY in JSON format with keys: thesis_alignment (aligned/mixed/contradictory/insufficient), thesis_confidence (0.0-1.0), evidence_score (1-5), evidence_confidence (0.0-1.0), trap_risk (genuine_expansion/potential_trap/overextended_exhaustion), trap_confidence (0.0-1.0), and reason (concise institutional explanation)."""

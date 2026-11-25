@@ -1,0 +1,2 @@
+symbol,direction,entry_time,exit_time,entry_price,exit_price,sl_price,tp_price,volume,profit_r,profit_money,exit_reason,total_score,classification,structure,trend,momentum,volume_score,volatility,regime_label,smc_sweep_aligned,smc_fvg_aligned,smc_order_block_aligned,shadow_reasons
+XAUUSD,SELL,2026-09-08 15:00:00+00:00,2026-09-08 20:00:00+00:00,4387.83,4390.05,4419.26,4346.99,0.06,-0.0687,-13.74,STAGNATION_EXIT,76.0,GOOD,26.0,23.0,15.0,7.0,5.0,TRANSITIONAL,False,True,True,

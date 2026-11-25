@@ -1,0 +1,134 @@
+[
+  {
+    "Configuraci\u00f3n": "0. Sin ML (Shadow actual \u00b7 Salida Estancamiento)",
+    "Trades (24m)": 160,
+    "Trades/Mes": "6.7",
+    "Win Rate": "51.9%",
+    "W / L": "83 / 77",
+    "Beneficio ($)": "$3,032.40",
+    "Beneficio (R)": "+27.54R",
+    "Profit Factor": "1.80",
+    "Max DD": "4.11%"
+  },
+  {
+    "Configuraci\u00f3n": "1. Sin ML (Shadow \u00b7 Dejar Correr)",
+    "Trades (24m)": 147,
+    "Trades/Mes": "6.1",
+    "Win Rate": "42.2%",
+    "W / L": "62 / 85",
+    "Beneficio ($)": "$2,399.69",
+    "Beneficio (R)": "+22.71R",
+    "Profit Factor": "1.44",
+    "Max DD": "4.44%"
+  },
+  {
+    "Configuraci\u00f3n": "2. ML Activo Conf >= 0.40 (Dejar Correr)",
+    "Trades (24m)": 57,
+    "Trades/Mes": "2.4",
+    "Win Rate": "64.9%",
+    "W / L": "37 / 20",
+    "Beneficio ($)": "$4,398.22",
+    "Beneficio (R)": "+37.57R",
+    "Profit Factor": "4.19",
+    "Max DD": "2.66%"
+  },
+  {
+    "Configuraci\u00f3n": "3. ML Activo Conf >= 0.45 (Dejar Correr)",
+    "Trades (24m)": 49,
+    "Trades/Mes": "2.0",
+    "Win Rate": "71.4%",
+    "W / L": "35 / 14",
+    "Beneficio ($)": "$4,767.36",
+    "Beneficio (R)": "+39.31R",
+    "Profit Factor": "6.49",
+    "Max DD": "1.48%"
+  },
+  {
+    "Configuraci\u00f3n": "4. ML Activo Conf >= 0.48 (Dejar Correr)",
+    "Trades (24m)": 46,
+    "Trades/Mes": "1.9",
+    "Win Rate": "71.7%",
+    "W / L": "33 / 13",
+    "Beneficio ($)": "$4,576.81",
+    "Beneficio (R)": "+38.03R",
+    "Profit Factor": "6.63",
+    "Max DD": "1.48%"
+  },
+  {
+    "Configuraci\u00f3n": "5. ML Activo Conf >= 0.50 (Dejar Correr)",
+    "Trades (24m)": 45,
+    "Trades/Mes": "1.9",
+    "Win Rate": "71.1%",
+    "W / L": "32 / 13",
+    "Beneficio ($)": "$4,410.91",
+    "Beneficio (R)": "+36.72R",
+    "Profit Factor": "6.43",
+    "Max DD": "2.56%"
+  },
+  {
+    "Configuraci\u00f3n": "6. ML Activo Conf >= 0.52 (Dejar Correr)",
+    "Trades (24m)": 44,
+    "Trades/Mes": "1.8",
+    "Win Rate": "75.0%",
+    "W / L": "33 / 11",
+    "Beneficio ($)": "$4,977.60",
+    "Beneficio (R)": "+40.12R",
+    "Profit Factor": "8.16",
+    "Max DD": "2.54%"
+  },
+  {
+    "Configuraci\u00f3n": "7. ML Activo Conf >= 0.55 (Dejar Correr)",
+    "Trades (24m)": 43,
+    "Trades/Mes": "1.8",
+    "Win Rate": "76.7%",
+    "W / L": "33 / 10",
+    "Beneficio ($)": "$5,067.24",
+    "Beneficio (R)": "+40.59R",
+    "Profit Factor": "9.37",
+    "Max DD": "2.54%"
+  },
+  {
+    "Configuraci\u00f3n": "8. ML Activo Conf >= 0.60 (Dejar Correr)",
+    "Trades (24m)": 38,
+    "Trades/Mes": "1.6",
+    "Win Rate": "78.9%",
+    "W / L": "30 / 8",
+    "Beneficio ($)": "$4,907.15",
+    "Beneficio (R)": "+39.76R",
+    "Profit Factor": "13.87",
+    "Max DD": "1.44%"
+  },
+  {
+    "Configuraci\u00f3n": "9. ML Activo Conf >= 0.65 (Dejar Correr Francotirador)",
+    "Trades (24m)": 34,
+    "Trades/Mes": "1.4",
+    "Win Rate": "85.3%",
+    "W / L": "29 / 5",
+    "Beneficio ($)": "$4,988.17",
+    "Beneficio (R)": "+40.44R",
+    "Profit Factor": "19.19",
+    "Max DD": "1.07%"
+  },
+  {
+    "Configuraci\u00f3n": "10. Score 60% + ML Conf >= 0.45 (Dejar Correr)",
+    "Trades (24m)": 49,
+    "Trades/Mes": "2.0",
+    "Win Rate": "71.4%",
+    "W / L": "35 / 14",
+    "Beneficio ($)": "$4,767.36",
+    "Beneficio (R)": "+39.31R",
+    "Profit Factor": "6.49",
+    "Max DD": "1.48%"
+  },
+  {
+    "Configuraci\u00f3n": "11. Score 60% + ML Conf >= 0.50 (Dejar Correr)",
+    "Trades (24m)": 45,
+    "Trades/Mes": "1.9",
+    "Win Rate": "71.1%",
+    "W / L": "32 / 13",
+    "Beneficio ($)": "$4,410.91",
+    "Beneficio (R)": "+36.72R",
+    "Profit Factor": "6.43",
+    "Max DD": "2.56%"
+  }
+]

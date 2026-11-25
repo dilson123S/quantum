@@ -1,0 +1,57 @@
+{
+  "experiment_id": "bot-e-v20-is-q1-2025-20260923T232417Z",
+  "created_at": "2026-09-23T23:24:17.104560+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "3M",
+  "symbols": null,
+  "evaluation_start": null,
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "data\\experiments\\bot_e_v20_alchemist_m15\\settings.yaml": "4d780f19fc9198e34dd21894f8b75c45acf764cbc9dd2503d82f2e39d4a5d76d",
+    "data\\experiments\\bot_e_v20_alchemist_m15\\symbols.yaml": "7d777c4eddb4c260e494c5682b57f2edfd0821665a1157bdc61ecf48196e0290",
+    "data\\experiments\\bot_e_v20_alchemist_m15\\risk.yaml": "76a5d077ef049adbb7d8ef93edd0470b2353dff047c7ad1aba4a651d89c8f70e"
+  },
+  "input_sha256": {
+    "USDJPY:M15": "4a6c938699b42811337d3f129b73eeb67787c52f47cd915926c1b6e065967755",
+    "USDJPY:H1": "dd83f0ed16b84effaeaccdea3948b2aa49063cf054d022584dcec6c69d5469bd",
+    "USDJPY:H4": "a47e8c7533199767b5fdd74e0442dcd8d5813d33ba9c5114d30b375144bb9106",
+    "USDJPY:D1": "c77c5979a1d2d6d2f2886eaec4ab0c65a8bcb586e77635c8781cfbd012b7d158",
+    "USDJPY:W1": "32f1572a408989433988cbde74d1e38a7563905f5498a1a2fb35f824936d9f58",
+    "USDJPY:MN1": "3fc096e97d0d884a422b32240de26cdabca922d40b412bd2419416398c51e688"
+  },
+  "instrument_specs": {
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.631628147876782,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 33,
+    "total_profit_money": 8.86,
+    "total_profit_r": 1.43,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260923_182417.csv",
+  "report_sha256": "0edbc80c5b56766650148c9e29bddfac6f65d3f9b6b00cf888dbb8d612a28a1f",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "",
+  "pending_events_sha256": null
+}

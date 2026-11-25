@@ -1,0 +1,5 @@
+profile,scenario,trades,wins,losses,win_rate_pct,net_usd_per_10000,total_r,profit_factor,max_drawdown_pct,bootstrap_p05_r,bootstrap_probability_positive,acceptance_status,manifest
+BTC-H1,base,17,7,10,41.2,453.09,4.5,2.0726,4.0,-2.16,0.868,insufficient_sample,data/experiments/fleet-oos-btc-h1-v1-20260923T010242Z.json
+BTC-H1,cost_plus_20pct,17,7,10,41.2,451.40,4.5,2.0656,4.0,-2.18,0.866,insufficient_sample,data/experiments/fleet-oos-btc-h1-cost120-v1-20260923T010347Z.json
+BTC-H4,base,5,3,2,60.0,142.81,1.3,3.0812,1.6,-1.14,0.776,insufficient_sample,data/experiments/fleet-oos-btc-h4-v1-20260923T010252Z.json
+BTC-H4,cost_plus_20pct,5,3,2,60.0,142.59,1.3,3.0768,1.6,-1.14,0.776,insufficient_sample,data/experiments/fleet-oos-btc-h4-cost120-v1-20260923T010356Z.json

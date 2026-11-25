@@ -1,0 +1,105 @@
+{
+  "experiment_id": "intraday-v1-exploratory-20260821T191707Z",
+  "created_at": "2026-08-21T19:17:07.408512+00:00",
+  "purpose": "holdout evaluation; do not tune parameters after viewing this result",
+  "period": "1M",
+  "symbols": null,
+  "evaluation_start": null,
+  "entry_timeframe": "M5",
+  "setup_timeframe": "M15",
+  "higher_timeframe": "H1",
+  "config_sha256": {
+    "config/settings.yaml": "bd5371f71b60de81d1db487079c4e6952ec3c377606dcbba9eef62cd724e50e9",
+    "config/symbols.yaml": "b7a26a7b3125173e34440e1bd4cf6f328601605efc2c65a626dbdc285c812831",
+    "config/risk.yaml": "a685a0e2c4ff832e9d9b8136c71c08b940fc3ab77399872eb8ea6e44536cada7"
+  },
+  "input_sha256": {
+    "EURUSD:M5": "3992e1f5476c4fdbca23801ab30ed610f27652af8429e8be243182ea515f0fc1",
+    "EURUSD:M15": "d7f9f5e6b2a8693a56dccd61b70f1628b1b6ff606ab13140cad7b33e5ccaf872",
+    "EURUSD:H1": "8bb5c1da3afb4747a5be3e9bca5b7f0266bfb32a931ab41c245d4e1c3c980038",
+    "GBPUSD:M5": "7b7947dc9d17be5855c1ed2285e295cc3f715c21442cbeac237afec499a8edc9",
+    "GBPUSD:M15": "8b0d58a8727973096d49fedc515362edafa46356726a2b4b2c1c8421b31af2a7",
+    "GBPUSD:H1": "e8cee59af1dc9f540ac02579d9e08a0e3fd44b30f76862dfb722fe788bbecf9b",
+    "USDJPY:M5": "42e01688b748ed55198321adaec17103e1ee399b265820848a608244b01fd9d1",
+    "USDJPY:M15": "a9d6af90b6a610be57195c501f397e5e827e7b511238a31bfa7341a432363df2",
+    "USDJPY:H1": "5bd39759d0fbdcc0406bbb0d28924fb8a967145bd3298831daa954b96ca3c62d",
+    "XAUUSD:M5": "9e681f47cea5072488d0d349a22e21cdb1075583327d17a3eaec6df0f070fe59",
+    "XAUUSD:M15": "218cfdbc0c93330cab9f5bc82c4bac9bfe0ae1d4118f7bd9c00a2fe864581c69",
+    "XAUUSD:H1": "8f2e3c3ffbcc8cc889f2db3efeca395c7cd34536d3083c63b56190d5dba2c9d0",
+    "AUDUSD:M5": "4385c70780de6d3c624f17d542d2c7617c27618723d18246ce0662431b98c1b4",
+    "AUDUSD:M15": "a72cf4fb5a0da27df2dc828e645fc8e3bcebcd710a2d919ccde1bbaad2a30965",
+    "AUDUSD:H1": "9a46fa64071c51503179c77efe699fcfd11310b75c75c1ff2ad81c31cc9484d0",
+    "USDCAD:M5": "b83b13536fbe9f158436b45cfb5f4858007b39d8301594553a466e5bd03b786c",
+    "USDCAD:M15": "a99627f3703e077129032f4f835946e28278f37ff9ed18fe4feb737fd634a4f2",
+    "USDCAD:H1": "0e66b9d9e4f10cd4613b898bbf084bd488227d0752e7be4b38de1cc87c2aef33",
+    "USDCHF:M5": "cad942e64cf5f0c4148559d24df74ba001640aa800c7a8850a417fb30c79db68",
+    "USDCHF:M15": "b93397ffca6f30c9e60dfe5f7c15d6708bacbe4d0f27274769f9039307def4f8",
+    "USDCHF:H1": "6aa09c5671a3efd97caff04a4b6ed2d3a0d7af151a0771288758859836d87197"
+  },
+  "instrument_specs": {
+    "EURUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "GBPUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6287924041877575,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    },
+    "AUDUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDCAD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 0.7264907590375452,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDCHF": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.2482991923504225,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "report_csv": "data\\backtest_20260821_141707.csv",
+  "report_sha256": "28c05851b7fc78faa6f9ef3fd953557687d53c6d026a9195467d44ad3097a133"
+}

@@ -1,0 +1,54 @@
+{
+  "experiment_id": "holdout-20260922T010308Z",
+  "created_at": "2026-09-22T01:03:08.736486+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "1Y",
+  "symbols": "EURUSD",
+  "evaluation_start": null,
+  "entry_timeframe": "H1",
+  "setup_timeframe": "H4",
+  "higher_timeframe": "D1",
+  "config_sha256": {
+    "config\\bot_a_gold\\settings.yaml": "4dfa3a647ec4f4fe9aed9c30b0ce5d524e7d038d3a8e13d8d1ca98f8c6a2092e",
+    "config\\bot_a_gold\\symbols.yaml": "3ab4b0d04d158a4341739412c4c6f27f63ed9e203c7e5deb5eff69b1e1c3a6b4",
+    "config\\bot_a_gold\\risk.yaml": "71c0b22b2a6a3f7f0333b7c894906cc4f7fc13792a47212fd57effedf0216d5f"
+  },
+  "input_sha256": {
+    "EURUSD:H1": "03c722f20f3955c368e904d37004d00c9495cec526223c481df61225148aa59d",
+    "EURUSD:H4": "a9d1b481da58e3b50e8290cf96de32e18379a15a8849af6654c0c0b895c0db15",
+    "EURUSD:D1": "2615664be6ef12ec1c51a98c767f024d0b640050a00ffb2469e27f1acd53e142"
+  },
+  "instrument_specs": {
+    "EURUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 75,
+    "total_profit_money": -1889.48,
+    "total_profit_r": -13.66,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260921_200308.csv",
+  "report_sha256": "5737d067d20b6424d2f32fedc82ac056685b53d0a852c53818e6ae80625708f4",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260921_200308.csv",
+  "pending_events_sha256": "fb0e224dbea31d98e42873e1e63c5cf67ffe087e53e7295b58a7b5ae8a930b13"
+}

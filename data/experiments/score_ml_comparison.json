@@ -1,0 +1,98 @@
+[
+  {
+    "Escenario": "1. Baseline (Score 75%, ML Shadow / Inactivo)",
+    "Trades": 160,
+    "W/L/BE": "83/77/0",
+    "WinRate": "51.9%",
+    "NetProfit": "$3,032.40",
+    "Total_R": "+27.54R",
+    "PF": "1.80",
+    "MaxDD": "4.11%",
+    "StagExits": 79,
+    "P(R>0)": "99.9%"
+  },
+  {
+    "Escenario": "2. Score 60% (ML Shadow / Inactivo)",
+    "Trades": 160,
+    "W/L/BE": "83/77/0",
+    "WinRate": "51.9%",
+    "NetProfit": "$3,032.40",
+    "Total_R": "+27.54R",
+    "PF": "1.80",
+    "MaxDD": "4.11%",
+    "StagExits": 79,
+    "P(R>0)": "99.9%"
+  },
+  {
+    "Escenario": "3. Score 75% + ML ACTIVO (Conf >= 0.65)",
+    "Trades": 37,
+    "W/L/BE": "30/7/0",
+    "WinRate": "81.1%",
+    "NetProfit": "$4,069.51",
+    "Total_R": "+34.31R",
+    "PF": "18.72",
+    "MaxDD": "0.79%",
+    "StagExits": 12,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "4. Score 75% + ML ACTIVO (Conf >= 0.60)",
+    "Trades": 41,
+    "W/L/BE": "32/9/0",
+    "WinRate": "78.0%",
+    "NetProfit": "$3,835.76",
+    "Total_R": "+32.75R",
+    "PF": "14.79",
+    "MaxDD": "1.03%",
+    "StagExits": 17,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "5. Score 60% + ML ACTIVO (Conf >= 0.65)",
+    "Trades": 37,
+    "W/L/BE": "30/7/0",
+    "WinRate": "81.1%",
+    "NetProfit": "$4,069.51",
+    "Total_R": "+34.31R",
+    "PF": "18.72",
+    "MaxDD": "0.79%",
+    "StagExits": 12,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "6. Score 60% + ML ACTIVO (Conf >= 0.60)",
+    "Trades": 41,
+    "W/L/BE": "32/9/0",
+    "WinRate": "78.0%",
+    "NetProfit": "$3,835.76",
+    "Total_R": "+32.75R",
+    "PF": "14.79",
+    "MaxDD": "1.03%",
+    "StagExits": 17,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "7. Score 60% + ML ACTIVO (Conf >= 0.55)",
+    "Trades": 46,
+    "W/L/BE": "35/11/0",
+    "WinRate": "76.1%",
+    "NetProfit": "$4,148.52",
+    "Total_R": "+34.87R",
+    "PF": "9.79",
+    "MaxDD": "1.50%",
+    "StagExits": 18,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "8. Score 60% + Learning Lab Memoria (+5pts buffer & Veto Spike)",
+    "Trades": 158,
+    "W/L/BE": "83/75/0",
+    "WinRate": "52.5%",
+    "NetProfit": "$3,099.14",
+    "Total_R": "+28.10R",
+    "PF": "1.83",
+    "MaxDD": "4.22%",
+    "StagExits": 78,
+    "P(R>0)": "100.0%"
+  }
+]

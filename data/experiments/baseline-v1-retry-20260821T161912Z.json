@@ -1,0 +1,66 @@
+{
+  "experiment_id": "baseline-v1-retry-20260821T161912Z",
+  "created_at": "2026-08-21T16:19:12.739942+00:00",
+  "purpose": "holdout evaluation; do not tune parameters after viewing this result",
+  "period": "3M",
+  "symbols": null,
+  "evaluation_start": "2026-07-01",
+  "entry_timeframe": "M15",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "config/settings.yaml": "cfef91032dfb484431b7e6f787022881bf8913888c9a41285a252ffff26dfafc",
+    "config/symbols.yaml": "b7a26a7b3125173e34440e1bd4cf6f328601605efc2c65a626dbdc285c812831",
+    "config/risk.yaml": "a685a0e2c4ff832e9d9b8136c71c08b940fc3ab77399872eb8ea6e44536cada7"
+  },
+  "input_sha256": {
+    "EURUSD:M15": "4e97a4198945addc832080fbf40ba7e6a973c608598a509042aaa64421dd4755",
+    "EURUSD:H4": "98d7e45097cd84b26a35271917559abbf80b0a16a3c5f8496216b42029924e1b",
+    "GBPUSD:M15": "0c44813fce7e2f9b5415e00e9386a2996aac1d29bf47b567f50942ae8fb5736f",
+    "GBPUSD:H4": "ebd95c755b5899f5cc44e424195e7fb2056fbdd80731a39e1d1f3413313f5b20",
+    "USDJPY:M15": "71654dcff190576923a1980f3e04bf0cd6477c21dd5c7c34c6dbd7f65aef4fd9",
+    "USDJPY:H4": "d94adc550e8bfd7e752ce8346b22cd8b978dfedfc11f04a6cb7d104e507adaca",
+    "XAUUSD:M15": "0f81b75bd8da58a9611bd0957821a849c1d69c14f85f4b2f5f0d381cf28c8a8f",
+    "XAUUSD:H4": "98703070aba2051de856bec409efe5800074bf751e95071f5fc37968e2e16ee4"
+  },
+  "instrument_specs": {
+    "EURUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "GBPUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6290890790135883,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "report_csv": "data\\backtest_20260821_111912.csv"
+}

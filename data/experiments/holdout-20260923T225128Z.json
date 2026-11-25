@@ -1,0 +1,57 @@
+{
+  "experiment_id": "holdout-20260923T225128Z",
+  "created_at": "2026-09-23T22:51:28.003249+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "1M",
+  "symbols": "XAUUSD",
+  "evaluation_start": null,
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "config\\bot_g_alchemist\\settings.yaml": "ca0a8e3c7001c3eacaa763b1635415ec14067b6a23ccc0a289a203a6f113fb1d",
+    "config\\bot_g_alchemist\\symbols.yaml": "06808d4148c595ba5ca35e87ed2f26abe24e9ddb505579866e95195ed4623b12",
+    "config\\bot_g_alchemist\\risk.yaml": "621ddf371a29879bb18fc53d76901196df5fc2079dc0fad376f83ae69ecb410d"
+  },
+  "input_sha256": {
+    "XAUUSD:M15": "e45925146bf68e890909bbb4770dc36dda79a34c0c859a151a2af4027590d6fa",
+    "XAUUSD:H1": "7c972951c2dbaca1199671ff65737840510cc8e7058f99913801339f92ea14b3",
+    "XAUUSD:H4": "c0852a21551cf258cb1ac42a7c72fa9854a285701a9cb5d7f829c86871bc18ae",
+    "XAUUSD:D1": "1bd183e81ef24071a84f8e6d0b08d22a183d75ced4cbb95dc402199396205fff",
+    "XAUUSD:W1": "36c383ca113a0198bc68b77cf1c5e579a9cec3d31fa87d33abd2b0c94f5815ab",
+    "XAUUSD:MN1": "bfe7da953833ad9a12f4d12a9448158c3c57ec3c54463e07e9658430b9a32f79"
+  },
+  "instrument_specs": {
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 23,
+    "total_profit_money": 296.98,
+    "total_profit_r": 3.12,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260923_175127.csv",
+  "report_sha256": "7f674c525e2e7235b83328ab4b5e807c879b39fe8a2f2cb012a0d4e3e137a393",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "",
+  "pending_events_sha256": null
+}

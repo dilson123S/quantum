@@ -1,0 +1,137 @@
+bot:
+  name: Bot E Breakout Expiry 2 Research v36
+  magic_number: 26092663
+  mode: backtest
+  allow_live_trading: false
+  journal_path: data/experiments/bot_e_v36_expiry2/research.db
+  comment_tag: BOT-E-V36
+market:
+  symbols:
+  - USDJPY
+timeframes:
+  higher: H4
+  setup: H1
+  entry: M15
+score:
+  minimum: 75
+  min_structure: 18
+  min_trend: 15
+  structure_weight: 30
+  trend_weight: 25
+  momentum_weight: 15
+  volume_weight: 15
+  volatility_weight: 15
+structure:
+  swing_lookback: 3
+  swing_confirmation: 2
+  bos_min_distance_atr: 0.1
+  bos_close_confirmation: true
+  use_choch: true
+  use_bos: true
+  max_swing_age: 100
+trend:
+  ema_fast: 20
+  ema_medium: 50
+  ema_slow: 200
+  adx_period: 14
+  adx_min: 20
+  adx_strong: 25
+momentum:
+  rsi_period: 14
+  rsi_bull_min: 50
+  rsi_bull_strong: 55
+  rsi_bear_max: 50
+  rsi_bear_strong: 45
+  macd_fast: 12
+  macd_slow: 26
+  macd_signal: 9
+volume:
+  period: 20
+  min_ratio: 1.2
+  strong_ratio: 1.5
+  use_obv: true
+  volume_mode: tick
+volatility:
+  atr_period: 14
+  atr_avg_period: 50
+  min_atr_ratio: 0.8
+  max_atr_ratio: 2.5
+  sl_multiplier: 1.5
+trade:
+  risk_reward: 2.0
+  break_even_r: 1.2
+  partial_close: true
+  partial_r: 1.5
+  partial_percent: 50
+  trailing: hybrid
+  entry_mode: breakout
+  breakout_buffer_points: 5
+  breakout_expiry_bars: 2
+  stagnation_exit_bars: 8
+  stagnation_min_progress_r: 0.3
+filters:
+  max_spread: true
+  session_filter: true
+  news_filter: true
+  correlation_filter: true
+  trading_start: 07:00
+  trading_end: '17:00'
+  timezone: UTC
+  max_spread_atr_percent: 10
+  news_blackout_before: 30
+  news_blackout_after: 30
+telemetry:
+  log_rejected_score_candidates: true
+  target_daily_trades: 0
+decision_context:
+  enabled: true
+  shadow_mode: true
+  history_bars: 650
+  equal_level_tolerance_atr: 0.15
+  fib_zone_atr: 0.15
+  smc_max_age_bars: 40
+  smc_min_gap_atr: 0.1
+  sweep_min_penetration_atr: 0.05
+regime_filter:
+  enabled: true
+  shadow_mode: false
+  allowed_regimes:
+  - TRENDING
+  min_adx: 20
+  min_bb_width_ratio: 0.9
+  max_range_bb_width_ratio: 1.05
+  block_ranging: true
+  block_low_volatility: true
+smc_filter:
+  enabled: true
+  shadow_mode: true
+  require_sweep: false
+  require_fvg_or_order_block: false
+ml:
+  enabled: false
+  shadow_mode: true
+  allow_active_filter: false
+  model_path: data/ml_model.joblib
+  min_confidence: 0.65
+  retrain_weeks: 4
+  training_months: 6
+validation:
+  status: UNVALIDATED
+  summary: Research-only breakout pending lifetime 2 bars, all entry rules unchanged;
+    no demo authorization.
+backtest:
+  commission_per_lot_round_turn: 7.0
+  slippage_points: 1.0
+  gap_slippage_points: 2.0
+  intra_bar_policy: stop_first
+confirmation:
+  require_setup_trend_alignment: true
+  setup_min_trend_score: 15
+asian_breakdown:
+  enabled: false
+  min_rr: 1.8
+  sl_buffer_atr: 0.25
+  target_daily_level: true
+  require_ml_approval: false
+sweep_reversal:
+  enabled: false

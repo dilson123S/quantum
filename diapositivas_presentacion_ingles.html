@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SENA Oral Presentation - Presenting Nathalia Torres</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sena-green: #39A900;
+      --sena-dark: #00324D;
+      --sena-deep: #002235;
+      --sena-accent: #00873E;
+      --surface: #FFFFFF;
+      --surface-subtle: #F8FAFC;
+      --text-heading: #0F172A;
+      --text-body: #334155;
+      --text-muted: #64748B;
+      --border-subtle: #E2E8F0;
+      --shadow-lg: 0 20px 40px rgba(0, 50, 77, 0.18);
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #0B1720;
+      color: var(--text-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Main Presentation Frame (16:9 Aspect Ratio) */
+    .deck-container {
+      width: 100%;
+      max-width: 1120px;
+      aspect-ratio: 16 / 9;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 38px 48px;
+      display: none;
+      flex-direction: column;
+      opacity: 0;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      transform: translateX(30px);
+      background: #FFFFFF;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Top Slide Header */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #F1F5F9;
+      padding-bottom: 12px;
+    }
+
+    .slide-badge-title h3 {
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--sena-green);
+      margin-bottom: 3px;
+    }
+
+    .slide-badge-title h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--sena-dark);
+      letter-spacing: -0.4px;
+    }
+
+    .sena-tag {
+      background: #E8F5E9;
+      color: var(--sena-accent);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Slide Content Layouts */
+    .slide-grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 30px;
+      align-items: center;
+      flex: 1;
+    }
+
+    .slide-img-box {
+      width: 100%;
+      height: 100%;
+      max-height: 380px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 50, 77, 0.12);
+      border: 3px solid #FFFFFF;
+    }
+
+    .slide-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .info-card {
+      background: #F8FAFC;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 22px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: baseline;
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+
+    .info-label {
+      font-weight: 700;
+      color: var(--sena-dark);
+      min-width: 145px;
+    }
+
+    .info-val {
+      color: #1E293B;
+      font-weight: 600;
+    }
+
+    /* Slide 1: Cover Layout */
+    .slide-cover {
+      background: linear-gradient(145deg, #002235 0%, #003855 50%, #006837 100%);
+      color: white;
+      justify-content: center;
+      padding: 45px 65px;
+    }
+
+    .cover-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 36px;
+      align-items: center;
+      height: 100%;
+    }
+
+    .cover-inst {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      font-weight: 800;
+      color: #86EFAC;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .cover-h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 6px;
+      color: #FFFFFF;
+    }
+
+    .cover-sub {
+      font-size: 0.96rem;
+      color: #CBD5E1;
+      margin-bottom: 18px;
+    }
+
+    .meta-box {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 0.82rem;
+    }
+
+    .meta-box div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .meta-box strong {
+      color: #A7F3D0;
+    }
+
+    /* Slide 4: Routine 3-Box Layout */
+    .routine-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      flex: 1;
+      align-items: stretch;
+    }
+
+    .routine-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .routine-box.morn { border-top: 4px solid #F59E0B; }
+    .routine-box.aft { border-top: 4px solid #0284C7; }
+    .routine-box.eve { border-top: 4px solid #8B5CF6; }
+
+    .routine-box h4 {
+      font-size: 0.96rem;
+      color: var(--sena-dark);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .routine-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.85rem;
+    }
+
+    .routine-list li {
+      position: relative;
+      padding-left: 18px;
+      line-height: 1.4;
+      color: var(--text-body);
+    }
+
+    .routine-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: var(--sena-green);
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+
+    /* Bottom Control Bar */
+    .deck-controls {
+      max-width: 1120px;
+      width: 100%;
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-btn {
+      background: var(--sena-green);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: var(--sena-accent);
+      transform: translateY(-1px);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .slide-counter {
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .action-tools {
+      display: flex;
+      gap: 10px;
+    }
+
+    .tool-btn {
+      background: #1E293B;
+      color: #E2E8F0;
+      border: 1px solid #334155;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .tool-btn:hover {
+      background: #334155;
+      color: #FFFFFF;
+    }
+
+    /* Script Drawer below */
+    .script-drawer {
+      max-width: 1120px;
+      width: 100%;
+      margin-top: 14px;
+      background: #1E293B;
+      color: #F8FAFC;
+      border-radius: 12px;
+      padding: 16px 22px;
+      border-left: 4px solid var(--sena-green);
+      display: block;
+    }
+
+    .script-drawer h4 {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #86EFAC;
+      margin-bottom: 6px;
+    }
+
+    .script-text {
+      font-size: 0.96rem;
+      line-height: 1.6;
+      color: #F1F5F9;
+      font-style: italic;
+    }
+
+    .script-trans {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: #94A3B8;
+      border-top: 1px solid #334155;
+      padding-top: 6px;
+    }
+
+    .pronunciation-tip {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      color: #FDE047;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide Deck -->
+  <div class="deck-container" id="deck">
+
+    <!-- SLIDE 1: COVER -->
+    <div class="slide slide-cover active" id="slide-1">
+      <div class="cover-layout">
+        <div>
+          <div class="cover-inst">SERVICIO NACIONAL DE APRENDIZAJE — SENA</div>
+          <h1 class="cover-h1">Presenting My Sister: Nathalia Torres</h1>
+          <p class="cover-sub">Evidence GA2-240202501-AA1-EV02 • Video Presentation</p>
+
+          <div class="meta-box">
+            <div><strong>APPRENTICE:</strong> <span>Geralding Torres Gutierrez</span></div>
+            <div><strong>INSTRUCTORA:</strong> <span>Silvana Tarud (Transversal Inglés)</span></div>
+            <div><strong>PROGRAM:</strong> <span>Gestión Contable y de Información Financiera</span></div>
+            <div><strong>FICHA:</strong> <span>3466233</span></div>
+            <div><strong>CENTER:</strong> <span>Centro de Comercio y Servicios • Reg. Atlántico</span></div>
+            <div><strong>DATE:</strong> <span>April 2026</span></div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+          <div class="slide-img-box" style="max-height: 310px; width: 310px; border-radius: 50%;">
+            <img src="presentation_assets/character_portrait.jpg" alt="Nathalia Torres Portrait">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: PERSONAL INFORMATION -->
+    <div class="slide" id="slide-2">
+      <div class="slide-header">
+        <div class="slide-badge-title">
+          <h3>SLIDE 02 • PERSONAL PROFILE</h3>
+          <h2>Who is She? Meet My Sister Nathalia</h2>
+        </div>
+        <span class="sena-tag">GA2-240202501-AA1-EV02</span>
+      </div>
+
+      <div class="slide-grid-2col">
+        <div class="slide-img-box">
+          <img src="presentation_assets/character_portrait.jpg" alt="Nathalia Torres">
+        </div>
+
+        <div class="info-card">
+          <div class="info-item">
+            <span class="info-label">👤 Full Name:</span>
+            <span class="info-val">Nathalia Torres</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">🎂 Age:</span>
+            <span class="info-val">29 years old</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">📅 Birthday:</span>
+            <span class="info-val">May 13th</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">🇨🇴 Nationality:</span>
+            <span class="info-val">Colombian</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">📍 Residence:</span>
+            <span class="info-val">Barranquilla, Colombia</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">🤝 Relationship:</span>
+            <span class="info-val">She is my beloved older sister</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">✨ Personality:</span>
+            <span class="info-val">Cheerful, passionate, kind, and energetic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: OCCUPATION (TEACHER) -->
+    <div class="slide" id="slide-3">
+      <div class="slide-header">
+        <div class="slide-badge-title">
+          <h3>SLIDE 03 • OCCUPATION & CAREER</h3>
+          <h2>Profession: Elementary School Teacher</h2>
+        </div>
+        <span class="sena-tag">GA2-240202501-AA1-EV02</span>
+      </div>
+
+      <div class="slide-grid-2col">
+        <div class="slide-img-box">
+          <img src="presentation_assets/teacher_classroom.jpg" alt="Teacher in Classroom">
+        </div>
+
+        <div class="info-card">
+          <div class="info-item">
+            <span class="info-label">💼 Profession:</span>
+            <span class="info-val">School Teacher (Educator)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">🏫 Workplace:</span>
+            <span class="info-val">Elementary School in Barranquilla</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">⏰ Schedule:</span>
+            <span class="info-val">Monday to Friday (7:00 AM – 2:30 PM)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">📋 What She Does:</span>
+            <span class="info-val">Teaches children, prepares lessons & activities</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">🌟 Her Passion:</span>
+            <span class="info-val">Inspiring young students with love and patience</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: DAILY ROUTINE -->
+    <div class="slide" id="slide-4">
+      <div class="slide-header">
+        <div class="slide-badge-title">
+          <h3>SLIDE 04 • EVERYDAY HABITS</h3>
+          <h2>Daily Routine (Present Simple)</h2>
+        </div>
+        <span class="sena-tag">GA2-240202501-AA1-EV02</span>
+      </div>
+
+      <div class="routine-grid">
+        <div class="routine-box morn">
+          <h4>🌅 Morning Routine</h4>
+          <ul class="routine-list">
+            <li>Wakes up early at 5:30 AM</li>
+            <li>Takes a fresh shower & gets dressed</li>
+            <li>Drinks a cup of hot Colombian coffee</li>
+            <li>Prepares a healthy breakfast</li>
+            <li>Arrives at school at 6:45 AM</li>
+          </ul>
+        </div>
+
+        <div class="routine-box aft">
+          <h4>🍎 Afternoon Routine</h4>
+          <ul class="routine-list">
+            <li>Finishes teaching classes at 2:30 PM</li>
+            <li>Has a delicious lunch with coworkers</li>
+            <li>Goes to the gym to do her workout</li>
+            <li>Rests and plans tomorrow's classes</li>
+          </ul>
+        </div>
+
+        <div class="routine-box eve">
+          <h4>🌙 Evening Routine</h4>
+          <ul class="routine-list">
+            <li>Returns home around 6:30 PM</li>
+            <li>Cooks dinner and tries new recipes</li>
+            <li>Dances or listens to Latin music</li>
+            <li>Goes to sleep at 10:00 PM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: HOBBIES & FREE TIME -->
+    <div class="slide" id="slide-5">
+      <div class="slide-header">
+        <div class="slide-badge-title">
+          <h3>SLIDE 05 • PASSIONS & INTERESTS</h3>
+          <h2>Hobbies: Dancing, Fitness & Food</h2>
+        </div>
+        <span class="sena-tag">GA2-240202501-AA1-EV02</span>
+      </div>
+
+      <div class="slide-grid-2col">
+        <div class="slide-img-box">
+          <img src="presentation_assets/dancing_fitness_food.jpg" alt="Dancing, Fitness and Food">
+        </div>
+
+        <div class="info-card">
+          <h4 style="color: var(--sena-green); font-size: 0.95rem;">🎉 What Nathalia Loves Doing:</h4>
+          <ul class="routine-list" style="margin-top: 4px;">
+            <li><strong>💃 Dancing (Bailar):</strong> She loves dancing salsa, merengue, and champeta. It fills her with joyful energy!</li>
+            <li><strong>🏋️ Exercising (Ejercitarse):</strong> She works out at the gym to stay strong, healthy, and full of vitality.</li>
+            <li><strong>🥑 Food (Comer):</strong> She enjoys cooking tasty recipes and trying new delicious dishes with her family.</li>
+          </ul>
+
+          <div style="margin-top: 10px; padding: 12px; background: #E8F5E9; border-radius: 8px; text-align: center;">
+            <strong style="color: var(--sena-dark); font-size: 1.05rem;">Thank you very much for your attention!</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Navigation & Tool Bar -->
+  <div class="deck-controls">
+    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+      ◀ Diapositiva Anterior
+    </button>
+
+    <div class="slide-counter" id="counter">
+      Diapositiva 1 de 5
+    </div>
+
+    <div class="action-tools">
+      <button class="tool-btn" onclick="toggleFullscreen()">
+        ⛶ Pantalla Completa
+      </button>
+    </div>
+
+    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+      Siguiente Diapositiva ▶
+    </button>
+  </div>
+
+  <!-- Speech Script Drawer -->
+  <div class="script-drawer" id="scriptDrawer">
+    <h4 id="scriptTitle">🎙️ GUION PARA HABLAR EN EL VIDEO (DIAPOSITIVA 1 - PORTADA):</h4>
+    <p class="script-text" id="scriptText">
+      "Good morning, dear instructor Silvana Tarud and classmates. My name is Geralding Torres Gutierrez. I am an apprentice in Accounting and Financial Information Management, code 3466233, from Centro de Comercio y Servicios, Regional Atlántico. Today, I am going to present a very special person in my life: my sister, Nathalia Torres."
+    </p>
+    <p class="script-trans" id="scriptTrans">
+      <strong>Traducción:</strong> "Buenos días, estimada instructora Silvana Tarud y compañeros. Mi nombre es Geralding Torres Gutierrez. Soy aprendiz de Gestión Contable y de Información Financiera, ficha 3466233, del Centro de Comercio y Servicios, Regional Atlántico. Hoy voy a presentar a una persona muy especial en mi vida: mi hermana, Nathalia Torres."
+    </p>
+    <div class="pronunciation-tip" id="scriptTip">
+      💡 Tip de pronunciación: Recuerda decir "Jér-al-din", "Sil-va-na Ta-rud", "May thirteenth" (13 de mayo) y "Twén-ti-nain" (29).
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 5;
+
+    const scripts = {
+      1: {
+        title: "🎙️ GUION PARA HABLAR EN EL VIDEO (DIAPOSITIVA 1 - PORTADA):",
+        en: '"Good morning, dear instructor Silvana Tarud and classmates. My name is Geralding Torres Gutierrez. I am an apprentice in Accounting and Financial Information Management, code 3466233, from Centro de Comercio y Servicios, Regional Atlántico. Today, I am going to present a very special person in my life: my sister, Nathalia Torres."',
+        es: '"Buenos días, estimada instructora Silvana Tarud y compañeros. Mi nombre es Geralding Torres Gutierrez. Soy aprendiz de Gestión Contable y de Información Financiera, ficha 3466233, del Centro de Comercio y Servicios, Regional Atlántico. Hoy voy a presentar a una persona muy especial en mi vida: mi hermana, Nathalia Torres."',
+        tip: '💡 Tip: Di con seguridad tu nombre ("Geralding"), el nombre de tu instructora ("Silvana Tarud") y el título de tu programa.'
+      },
+      2: {
+        title: "🎙️ GUION PARA HABLAR EN EL VIDEO (DIAPOSITIVA 2 - DATOS PERSONALES):",
+        en: '"Let me introduce my sister, Nathalia Torres. She is 29 years old, and her birthday is on May 13th. She is Colombian, and she currently lives in the city of Barranquilla. She is my older sister, and she has a wonderful personality: she is always cheerful, kind, and full of positive energy."',
+        es: '"Permítanme presentarles a mi hermana, Nathalia Torres. Tiene 29 años y su cumpleaños es el 13 de mayo. Es colombiana y actualmente vive en la ciudad de Barranquilla. Es mi hermana mayor y tiene una personalidad maravillosa: siempre es alegre, amable y llena de energía positiva."',
+        tip: '💡 Tip: En inglés los cumpleaños llevan "on": "Her birthday is on May thirteenth".'
+      },
+      3: {
+        title: "🎙️ GUION PARA HABLAR EN EL VIDEO (DIAPOSITIVA 3 - OCUPACIÓN: PROFESORA):",
+        en: '"Regarding her occupation, Nathalia works as a primary school teacher in Barranquilla. She works from Monday to Friday, from 7:00 AM to 2:30 PM. During her workday, she teaches children, prepares fun educational activities, and grades homework. She truly loves teaching and feels very proud of her students."',
+        es: '"En cuanto a su ocupación, Nathalia trabaja como profesora de primaria en Barranquilla. Trabaja de lunes a viernes, de 7:00 AM a 2:30 PM. Durante su jornada laboral, enseña a los niños, prepara actividades educativas divertidas y califica tareas. Realmente le apasiona enseñar y se siente muy orgullosa de sus estudiantes."',
+        tip: '💡 Tip: Verbos en tercera persona con "s": She works (uorks), She teaches (ti-chis), She loves (lovs).'
+      },
+      4: {
+        title: "🎙️ GUION PARA HABLAR EN EL VIDEO (DIAPOSITIVA 4 - RUTINA DIARIA):",
+        en: '"Now, let\'s talk about her daily routine. In the morning, she wakes up early at 5:30 AM, takes a shower, drinks fresh coffee, and arrives at school at 6:45 AM. In the afternoon, she finishes her classes at 2:30 PM, eats lunch, and goes to the gym to exercise. In the evening, she returns home, prepares dinner, dances for a while, and goes to bed at 10:00 PM."',
+        es: '"Ahora, hablemos de su rutina diaria. En la mañana, se despierta temprano a las 5:30 AM, se baña, toma café fresco y llega al colegio a las 6:45 AM. En la tarde, termina sus clases a las 2:30 PM, almuerza y va al gimnasio a ejercitarse. En la noche, regresa a casa, prepara la cena, baila un rato y se va a la cama a las 10:00 PM."',
+        tip: '💡 Tip: Pronuncia con claridad: "She wakes up" (ueiks ap), "She goes to the gym" (gous tu de yim).'
+      },
+      5: {
+        title: "🎙️ GUION PARA HABLAR EN EL VIDEO (DIAPOSITIVA 5 - HOBBIES Y DESPEDIDA):",
+        en: '"In her free time, Nathalia has three main passions: dancing, exercising, and enjoying delicious food! She loves dancing salsa and Caribbean music. She also exercises regularly at the gym to stay strong and healthy. Finally, she loves cooking and tasting new dishes with family. That concludes my presentation. Thank you very much for your time and attention!"',
+        es: '"En su tiempo libre, Nathalia tiene tres grandes pasiones: ¡bailar, ejercitarse y disfrutar de comida deliciosa! Le encanta bailar salsa y música caribeña. También se ejercita con regularidad en el gimnasio para mantenerse fuerte y saludable. Finalmente, le encanta cocinar y probar nuevos platos con la familia. Con esto concluyo mi presentación. ¡Muchas gracias por su tiempo y atención!"',
+        tip: '💡 Tip: Despídete con una sonrisa mirando a la cámara web: "Thank you very much for your attention!".'
+      }
+    };
+
+    function updateSlide() {
+      document.querySelectorAll('.slide').forEach((s, idx) => {
+        s.classList.toggle('active', idx + 1 === currentSlide);
+      });
+      document.getElementById('counter').innerText = `Diapositiva ${currentSlide} de ${totalSlides}`;
+      document.getElementById('prevBtn').disabled = currentSlide === 1;
+      document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+      // Update script
+      const sc = scripts[currentSlide];
+      document.getElementById('scriptTitle').innerText = sc.title;
+      document.getElementById('scriptText').innerText = sc.en;
+      document.getElementById('scriptTrans').innerHTML = `<strong>Traducción:</strong> ${sc.es}`;
+      document.getElementById('scriptTip').innerText = sc.tip;
+    }
+
+    function changeSlide(direction) {
+      currentSlide = Math.max(1, Math.min(totalSlides, currentSlide + direction));
+      updateSlide();
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Keyboard navigation (Arrow keys)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        changeSlide(1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        changeSlide(-1);
+      }
+    });
+
+    updateSlide();
+  </script>
+</body>
+</html>

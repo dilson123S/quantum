@@ -1,0 +1,53 @@
+{
+  "experiment_id": "fleet-btc-h4-current-profile-20260923T003838Z",
+  "created_at": "2026-09-23T00:38:38.208427+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "2Y",
+  "symbols": "BTCUSD",
+  "evaluation_start": null,
+  "entry_timeframe": "H4",
+  "setup_timeframe": "D1",
+  "higher_timeframe": "D1",
+  "config_sha256": {
+    "config\\demo_btc_h4\\settings.yaml": "82adec4b228864d7f10d580d3c218da0134b8591a0a15c592d677f503aa49e94",
+    "config\\demo_btc_h4\\symbols.yaml": "bf42133e9139d8c713b259eb5f700a828fdc456f99eaabf943db489f2d71a00f",
+    "config\\demo_btc_h4\\risk.yaml": "1c52d51b717090be9c5c4fdd9ff0ecef09c366bc563d4b4f2139ede35b00c1f3"
+  },
+  "input_sha256": {
+    "BTCUSD:H4": "2eb4eb908fc23ee5e94d0ff89c67f03518029e184daa544368eee4f5f0b72b6a",
+    "BTCUSD:D1": "4e9abf5e0961ced201b5d827821d6836182a57aedc9824d74bc449b1512550fd"
+  },
+  "instrument_specs": {
+    "BTCUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 0.01,
+      "volume_min": 0.01,
+      "volume_max": 10.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 28,
+    "total_profit_money": 673.33,
+    "total_profit_r": 7.25,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260922_193838.csv",
+  "report_sha256": "edd3f41680fdbb37e77ab2d3fb4038b9f255e04a26745a605a1ae463e9de0645",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260922_193838.csv",
+  "pending_events_sha256": "555df7e2ed21037f4b0c26c018e06c36f31eff4eb2d2b39844b6965c9aa43de4"
+}

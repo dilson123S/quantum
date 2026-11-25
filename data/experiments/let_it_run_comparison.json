@@ -1,0 +1,122 @@
+[
+  {
+    "Escenario": "A1. Dejar Correr Original (BE 1.2, Parcial 1.5, No StagExit) - Score 75, ML Shadow",
+    "Trades": 147,
+    "W/L/BE": "62/85/0",
+    "WinRate": "42.2%",
+    "NetProfit": "$2,399.69",
+    "Total_R": "+22.71R",
+    "PF": "1.44",
+    "MaxDD": "4.44%",
+    "StagExits": 0,
+    "P(R>0)": "98.1%"
+  },
+  {
+    "Escenario": "A2. Dejar Correr Original (BE 1.2, Parcial 1.5, No StagExit) - Score 75, ML ACTIVO (0.65)",
+    "Trades": 34,
+    "W/L/BE": "29/5/0",
+    "WinRate": "85.3%",
+    "NetProfit": "$4,988.17",
+    "Total_R": "+40.44R",
+    "PF": "19.19",
+    "MaxDD": "1.07%",
+    "StagExits": 0,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "A3. Dejar Correr Original (BE 1.2, Parcial 1.5, No StagExit) - Score 60, ML ACTIVO (0.55)",
+    "Trades": 43,
+    "W/L/BE": "33/10/0",
+    "WinRate": "76.7%",
+    "NetProfit": "$5,067.24",
+    "Total_R": "+40.59R",
+    "PF": "9.37",
+    "MaxDD": "2.54%",
+    "StagExits": 0,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "B1. Dejar Correr + Fast BE (BE 0.8, Parcial 1.0, No StagExit) - Score 75, ML Shadow",
+    "Trades": 147,
+    "W/L/BE": "68/79/0",
+    "WinRate": "46.3%",
+    "NetProfit": "$2,486.90",
+    "Total_R": "+23.05R",
+    "PF": "1.46",
+    "MaxDD": "4.64%",
+    "StagExits": 0,
+    "P(R>0)": "98.2%"
+  },
+  {
+    "Escenario": "B2. Dejar Correr + Fast BE (BE 0.8, Parcial 1.0, No StagExit) - Score 75, ML ACTIVO (0.65)",
+    "Trades": 34,
+    "W/L/BE": "29/5/0",
+    "WinRate": "85.3%",
+    "NetProfit": "$4,583.09",
+    "Total_R": "+37.56R",
+    "PF": "17.72",
+    "MaxDD": "1.08%",
+    "StagExits": 0,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "B3. Dejar Correr + Fast BE (BE 0.8, Parcial 1.0, No StagExit) - Score 60, ML ACTIVO (0.55)",
+    "Trades": 43,
+    "W/L/BE": "34/9/0",
+    "WinRate": "79.1%",
+    "NetProfit": "$4,752.10",
+    "Total_R": "+38.35R",
+    "PF": "9.08",
+    "MaxDD": "2.16%",
+    "StagExits": 0,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "C1. Dejar Correr Puro (Sin Parciales, TP 2.0R, No StagExit) - Score 75, ML Shadow",
+    "Trades": 147,
+    "W/L/BE": "62/85/0",
+    "WinRate": "42.2%",
+    "NetProfit": "$2,515.63",
+    "Total_R": "+23.71R",
+    "PF": "1.46",
+    "MaxDD": "4.56%",
+    "StagExits": 0,
+    "P(R>0)": "98.0%"
+  },
+  {
+    "Escenario": "C2. Dejar Correr Puro (Sin Parciales, TP 2.0R, No StagExit) - Score 75, ML ACTIVO (0.65)",
+    "Trades": 34,
+    "W/L/BE": "29/5/0",
+    "WinRate": "85.3%",
+    "NetProfit": "$5,026.80",
+    "Total_R": "+40.71R",
+    "PF": "19.34",
+    "MaxDD": "1.07%",
+    "StagExits": 0,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "C3. Dejar Correr Puro (Sin Parciales, TP 2.0R, No StagExit) - Score 60, ML ACTIVO (0.55)",
+    "Trades": 43,
+    "W/L/BE": "33/10/0",
+    "WinRate": "76.7%",
+    "NetProfit": "$5,093.58",
+    "Total_R": "+40.78R",
+    "PF": "9.42",
+    "MaxDD": "2.54%",
+    "StagExits": 0,
+    "P(R>0)": "100.0%"
+  },
+  {
+    "Escenario": "D1. Dejar Correr + Learning Lab Memoria - Score 60, ML ACTIVO (0.55)",
+    "Trades": 42,
+    "W/L/BE": "34/8/0",
+    "WinRate": "81.0%",
+    "NetProfit": "$4,777.36",
+    "Total_R": "+38.54R",
+    "PF": "9.67",
+    "MaxDD": "2.16%",
+    "StagExits": 0,
+    "P(R>0)": "100.0%"
+  }
+]

@@ -1,0 +1,87 @@
+{
+  "experiment_id": "holdout-20260922T005219Z",
+  "created_at": "2026-09-22T00:52:19.936371+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "3M",
+  "symbols": "EURUSD,GBPUSD,USDJPY,XAUUSD",
+  "evaluation_start": null,
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "config\\settings.yaml": "a6ac9133a0a53fbe28755a559f55c24a2965d446c575e6fd5c314ae85fe8189c",
+    "config\\symbols.yaml": "c02977110d5ac856889dd1776195675a3d5e51f7d43ff60bb5269e317f268c8f",
+    "config\\risk.yaml": "63ee57edc86b05a6212e9b01313903c7ce33627f22bc910e3f15188404e2e361"
+  },
+  "input_sha256": {
+    "EURUSD:M15": "be5df0c7a3b1e221cfa1af92da39f42ba72e6b65acbade21acfb8133a1e478ae",
+    "EURUSD:H1": "d6b97f61ef1a71118db030d45b20af78f5f9ac8153780a1fae4de78d32640ce7",
+    "EURUSD:H4": "6acab437071227e09e256f5e8eef225d419ebfad6997174d357997e68a8b6c85",
+    "GBPUSD:M15": "a19d5efa12383f242f47728dc745a70abd97eae44c59e14509859f90f47a7420",
+    "GBPUSD:H1": "49d7ff78b60ff631951cafc0c51679ad6c495b0aae8157119f3a29aabbcc5e7e",
+    "GBPUSD:H4": "0a7b0b436bcd6dc5a2a4b2bc66f23498800deef6a915e299bc296fe5609651cb",
+    "USDJPY:M15": "f1f23c1673d710e83c3525dfc39c3367341f3359e3c7c3f33ecd2d1af05d51ca",
+    "USDJPY:H1": "e467a6fe8df7401906cca50b9c775196670e3b78c1368d1977da8dbed3cce682",
+    "USDJPY:H4": "458bdb447370ab294f98a99c77ad69b8744b92b939e93848bad45f899fd6284a",
+    "XAUUSD:M15": "0cf0ee9a2a73e153858941a160b4514bd9864cd2c781b89f432d40d0a7ba51f0",
+    "XAUUSD:H1": "73bbd5fd5e67bc0f561fefb5b5e37ef6810ef08c6b0ed638158b9a3fac1ac314",
+    "XAUUSD:H4": "4dbe4589ed4b0cbb22fbf7612612c9fe8ad0916d303813850fc78c7fd2190436"
+  },
+  "instrument_specs": {
+    "EURUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "GBPUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6356592103841289,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 225,
+    "total_profit_money": -5729.52,
+    "total_profit_r": -34.7,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260921_195219.csv",
+  "report_sha256": "090cf33bf2a26596ade4fb701ab64312f0ca636841806e865446b588c145e3d1",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260921_195219.csv",
+  "pending_events_sha256": "5ab1d750fb45bd2a8fe3e4662b0737c426c7faf02fa750f4890d1b71ad8692f3"
+}

@@ -1,0 +1,64 @@
+{
+  "experiment_id": "bot-e-mtf-selector-candidate-prior-20260924T043442Z",
+  "created_at": "2026-09-24T04:34:42.959137+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "1Y",
+  "symbols": null,
+  "evaluation_start": null,
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "confirmation_timeframe": "M30",
+  "gap_timeframe": "H2",
+  "config_sha256": {
+    "config\\bot_e_mtf_candidate\\settings.yaml": "de32ff35e2918e3876d69122830ff982b722d7d15d0b38f339dbbf7037e98f6b",
+    "config\\bot_e_mtf_candidate\\symbols.yaml": "7d777c4eddb4c260e494c5682b57f2edfd0821665a1157bdc61ecf48196e0290",
+    "config\\bot_e_mtf_candidate\\risk.yaml": "8fc104d812edba907144b53119f7ad9ca742762cf5f58b3e83d8f9d7057f8a57"
+  },
+  "code_sha256": {
+    "backtest_runner.py": "86464dc365ad36f427c3616a2d16d18fad3e86f85db60fa9dfd3d4f4ed6b7ba4",
+    "backtest/engine.py": "f6240cd1cc4ef6f5968a8ec13280626ef8557cdb156612b48893395a6feee61e",
+    "strategy/alchemist.py": "b59a7d8a5db3ca0b351b95355cc1dba11b66544b47fddee515056830093b9c77",
+    "strategy/msnr_storyline.py": "5d95d257a45235da8a0efa274f3de25da64d72b30055036214898a6f79128446",
+    "core/config_loader.py": "3d5f1c12d6a37d0cddae5666dfa06e396495308d531104177d4e0479f53fd010",
+    "main.py": "a1396483014a5c563ab326d40f3493dc30b8606edae24ac028f88aa6e8ebdcf1"
+  },
+  "input_sha256": {
+    "USDJPY:M15": "3417600d7c114abea13487c9da2a8e6193d80d00c928f7c48e0ffc5eda1933fd",
+    "USDJPY:H1": "09502947196063deac7a3d309fd8517f919839fbc2c04b520de15ba1c2f0a5f5",
+    "USDJPY:H4": "c69ffcd7f5c32355399907c4b24525e8a4be8f091337c632be80add250cb7a6e"
+  },
+  "instrument_specs": {
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6329835044498741,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 135,
+    "total_profit_money": -46.53,
+    "total_profit_r": -8.28,
+    "signals_skipped_circuit_breaker": 4,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260923_233442.csv",
+  "report_sha256": "2689fe5e386249559cec31583ec594b13f3b55f463c667200d5f860edad26b4f",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260923_233442.csv",
+  "pending_events_sha256": "7ceb5714f0b45611d1a9cea78a61463a29df6eccfece4cc985c91d46025028f5"
+}

@@ -1,0 +1,50 @@
+{
+  "experiment_id": "holdout-20260921T163120Z",
+  "created_at": "2026-09-21T16:31:20.638319+00:00",
+  "purpose": "OOS holdout evaluation; do not tune parameters after viewing this result",
+  "is_oos_evaluation": true,
+  "period": "3M",
+  "symbols": "XAUUSD",
+  "evaluation_start": "2026-08-01",
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {},
+  "input_sha256": {
+    "XAUUSD:M15": "fcfd56511619bc893cdf6e3eb400490525a03ddd17e8866a8a4ae830cb64c52c",
+    "XAUUSD:H1": "0ce5ceb14ddba8e6a5f5b6ff6851f305be1294e82eae5c4020175eb7be24de52",
+    "XAUUSD:H4": "325eb87e4a5fba76a045409eee0ef2616cf75b75aec13719b1116d9fd1dd31d5"
+  },
+  "instrument_specs": {
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 23,
+    "total_profit_money": -101.96,
+    "total_profit_r": -0.34,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260921_113120.csv",
+  "report_sha256": "161dce41b9f3e1411a8b46c84bd3d4443dd2f5a83cbd07194d72e4233aa678df",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260921_113120.csv",
+  "pending_events_sha256": "07165e4cf304d0bfa5fe4b69ba6f7ad25d4a176112bd0b8503ec0da1e0a07a49"
+}

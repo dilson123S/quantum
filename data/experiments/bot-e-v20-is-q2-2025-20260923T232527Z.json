@@ -1,0 +1,57 @@
+{
+  "experiment_id": "bot-e-v20-is-q2-2025-20260923T232527Z",
+  "created_at": "2026-09-23T23:25:28.008126+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "3M",
+  "symbols": null,
+  "evaluation_start": null,
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "data\\experiments\\bot_e_v20_alchemist_m15\\settings.yaml": "4d780f19fc9198e34dd21894f8b75c45acf764cbc9dd2503d82f2e39d4a5d76d",
+    "data\\experiments\\bot_e_v20_alchemist_m15\\symbols.yaml": "7d777c4eddb4c260e494c5682b57f2edfd0821665a1157bdc61ecf48196e0290",
+    "data\\experiments\\bot_e_v20_alchemist_m15\\risk.yaml": "76a5d077ef049adbb7d8ef93edd0470b2353dff047c7ad1aba4a651d89c8f70e"
+  },
+  "input_sha256": {
+    "USDJPY:M15": "13aa168f6f2b046a5a133bcf3826036f728514a18b31cca6274790d52aa1a52f",
+    "USDJPY:H1": "4e09a1b5df7db8fcea53acc2796c9b84f5a836d5b53b3e27ac5eeedfd0319ff2",
+    "USDJPY:H4": "ccf4715be60aea17d7907ddb60de34eb948bee8c014e6e834a7fadc12939e513",
+    "USDJPY:D1": "295457c98d1b9eb5da46b73a8f69b49af6b1fe647a63b8d489eeb78f60ce2442",
+    "USDJPY:W1": "56de15e063b59ba038cb3d726e17a7a046e79dfb1fd60672d50d48271c294ab4",
+    "USDJPY:MN1": "f75539cc84af749fcbe952944699516e122be1c909865f0a9e17d7f30577d8b5"
+  },
+  "instrument_specs": {
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6316082008008792,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 13,
+    "total_profit_money": 36.87,
+    "total_profit_r": 5.9,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260923_182527.csv",
+  "report_sha256": "667695a8758d4e00273441a08377684ed020b1451678d71231618c2301126037",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "",
+  "pending_events_sha256": null
+}

@@ -1,0 +1,24 @@
+{
+  "strategy": "Alchemist_MSNR_CRT",
+  "bot": "Bot_G",
+  "created_at": "2026-09-24T00:06:18.064132+00:00",
+  "is_period": {
+    "start": "2026-04-27T00:05:25.392215+00:00",
+    "end": "2026-07-26T00:05:25.392215+00:00",
+    "trades": 23,
+    "profit_r": -8.69,
+    "profit_money": -844.24
+  },
+  "oos_period": {
+    "start": "2026-07-26T00:05:25.392215+00:00",
+    "end": "2026-09-24T00:05:25.392215+00:00",
+    "trades": 17,
+    "profit_r": 7.91,
+    "profit_money": 802.05
+  },
+  "symbols": [
+    "XAUUSD"
+  ],
+  "is_report_csv": "data/experiments/bot_g_alchemist_is.csv",
+  "oos_report_csv": "data/experiments/bot_g_alchemist_oos.csv"
+}

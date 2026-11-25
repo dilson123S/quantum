@@ -1,0 +1,54 @@
+{
+  "experiment_id": "holdout-20260922T004806Z",
+  "created_at": "2026-09-22T00:48:06.658694+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "1M",
+  "symbols": "XAUUSD",
+  "evaluation_start": null,
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "config\\settings.yaml": "a6ac9133a0a53fbe28755a559f55c24a2965d446c575e6fd5c314ae85fe8189c",
+    "config\\symbols.yaml": "c02977110d5ac856889dd1776195675a3d5e51f7d43ff60bb5269e317f268c8f",
+    "config\\risk.yaml": "63ee57edc86b05a6212e9b01313903c7ce33627f22bc910e3f15188404e2e361"
+  },
+  "input_sha256": {
+    "XAUUSD:M15": "e5985c6f8d822262b89184ffdb9af350188ef9ccd446e20b8034b62f4b7dac7a",
+    "XAUUSD:H1": "c06cab8a9edacc4d261a13a2ad3523bed9f760bc4730af7965c9267e3be5a202",
+    "XAUUSD:H4": "5ce9cef93d38b0b14d5c911520f2c3ce294114252a2942ca588abe6e0817e71d"
+  },
+  "instrument_specs": {
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 23,
+    "total_profit_money": -894.58,
+    "total_profit_r": -4.96,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260921_194806.csv",
+  "report_sha256": "07cfa40710d05c6b72c5fa95059dd2834c5d7c97c86b8475ff685de5aa1b058b",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260921_194806.csv",
+  "pending_events_sha256": "39ece8f979bdc236d49704360678b77b91ebf78664c069d0da1b604eb3e59eb6"
+}

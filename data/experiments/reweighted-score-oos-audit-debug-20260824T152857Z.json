@@ -1,0 +1,120 @@
+{
+  "experiment_id": "reweighted-score-oos-audit-debug-20260824T152857Z",
+  "created_at": "2026-08-24T15:28:57.711228+00:00",
+  "purpose": "OOS holdout evaluation; do not tune parameters after viewing this result",
+  "is_oos_evaluation": true,
+  "period": "1Y",
+  "symbols": "EURUSD,GBPUSD,USDJPY,XAUUSD,AUDUSD,USDCAD,USDCHF",
+  "evaluation_start": "2026-06-01",
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "config\\reweighted_score\\settings.yaml": "d888eeaace8ee409658fe5e9fabd1e180162289a4a6db8368b96329ff77fc3ef",
+    "config\\reweighted_score\\symbols.yaml": "b7a26a7b3125173e34440e1bd4cf6f328601605efc2c65a626dbdc285c812831",
+    "config\\reweighted_score\\risk.yaml": "81a5812534639fd4baada5bcc11826d5ef218cbf63eeb96592b431ce87257582"
+  },
+  "input_sha256": {
+    "EURUSD:M15": "7bb39644ec48d88cdbb07b49a70ea2991e884a073ece83f2df63d2afb28fa4fc",
+    "EURUSD:H1": "54dc0218236fc38733edeb136ac3832136e408ef99063980898fd70285e81c4f",
+    "EURUSD:H4": "b98dc0327424af108e2f05952ef675d2c9cb3b7bd7a6056368285506ce181924",
+    "GBPUSD:M15": "9165c0170775a9974c2458263af9fbf554bf124a573936d0abc524b98f3f0712",
+    "GBPUSD:H1": "de01ab40358dbfcfb5e7323cb54ce6dc4c9c665e4548a6f86047c90b293c286b",
+    "GBPUSD:H4": "d623b1467f7b2a79d829b27e260666b0988eb8c6b2ce57543caadb500d6f2032",
+    "USDJPY:M15": "ad96269e30eb82a3fea4e7802420da9ef74d04103919819633a8b8af1bf9684e",
+    "USDJPY:H1": "0caac52d7b39cfb493900f66ad763b0cace739d2df7f206ef9e2078b74a979ec",
+    "USDJPY:H4": "24762942a5a6b6e69e6f3db5da2d7780f59ac93da53ce0546a9b60f9b5369098",
+    "XAUUSD:M15": "b4ccf0e1a60d098a3254cf7ef24839e9dbf067c5305ca198e5b0def13a6b7ba1",
+    "XAUUSD:H1": "e8ec1f7ac09822ba958ab83423468f1dda85d6ad81f640eb077fccd15aedb6d0",
+    "XAUUSD:H4": "9ecae01733bfc38e466c36aec63b5984ebc26ed8b80e7032f7437726fdf10a98",
+    "AUDUSD:M15": "75492e494aac13de7285c545e67a464dfc8a931af2813e308a8e29ac0a62cd9a",
+    "AUDUSD:H1": "d2111f43a9a63efa4439efa3adb75b1eaaadc26313377139b99fe268a7593c07",
+    "AUDUSD:H4": "110f5f69bd58ea6c465202739d2fa4e7ff48fa4fb081ce26c8502887fdd245a2",
+    "USDCAD:M15": "3e8cf41ed6d271959f9604356c551a5916bef167b9dd28848dae5feedb6c8c5c",
+    "USDCAD:H1": "f192b6b76badcebee4761f109d85b44c1ef5b12507a467ece6e4f30d6c33cfa9",
+    "USDCAD:H4": "9466d0cc7e2decdb42e28f85d3c800f27c6b8a0db737c47991d2e45be24d7fd4",
+    "USDCHF:M15": "ce39acd9c0bbfa1f9e7c6b1b6ed82dfdf1acbe9aabc1c5ef2a0d71fbc3fbe660",
+    "USDCHF:H1": "206ff2d4a314ca520a2f4ea008c4117e1ea6adb45c28b646a7ca1da268f01e6d",
+    "USDCHF:H4": "22a18492e355cf58317bfcb2b1c88d81e92b7c657b982b525eec8ba94a20d719"
+  },
+  "instrument_specs": {
+    "EURUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "GBPUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6283972727558363,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    },
+    "AUDUSD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDCAD": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 0.7228044813877847,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "USDCHF": {
+      "point": 1e-05,
+      "tick_size": 1e-05,
+      "tick_value": 1.2466496291217353,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 0,
+    "total_profit_money": 0.0,
+    "total_profit_r": 0,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "",
+  "report_sha256": null,
+  "candidate_audit_csv": "data\\candidate_audit_20260824_102857.csv",
+  "candidate_audit_sha256": "4293534b6ec9f54602813c48d8e14672cd0bbfbbcaeb4b915c65e3e21230a7dc",
+  "pending_events_csv": "",
+  "pending_events_sha256": null
+}

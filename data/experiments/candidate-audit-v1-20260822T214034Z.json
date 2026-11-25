@@ -1,0 +1,52 @@
+{
+  "experiment_id": "candidate-audit-v1-20260822T214034Z",
+  "created_at": "2026-08-22T21:40:34.315927+00:00",
+  "purpose": "holdout evaluation; do not tune parameters after viewing this result",
+  "period": "3M",
+  "symbols": null,
+  "evaluation_start": "2026-07-01",
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "config\\settings.yaml": "464c31c67c6a01000ddd35cee497b6590cd44bcc2fcf50600c7646d1166d6ba0",
+    "config\\symbols.yaml": "b7a26a7b3125173e34440e1bd4cf6f328601605efc2c65a626dbdc285c812831",
+    "config\\risk.yaml": "86608ae1eed49f576e24e52f53bcddbdccb12c890b97d64528f1d7ec5642bff6"
+  },
+  "input_sha256": {
+    "USDJPY:M15": "1a9aed7e50d5f0387831d6604ccae3bf789b017bf6c77e8eba2d1c6f950692bf",
+    "USDJPY:H1": "783599e1b2942240582c41b1154f64c29e8c969b4d024af8258f1154b6691b6f",
+    "USDJPY:H4": "56aec9b3cad551d198f483c4c706f6396b838d715b7909efc5f14dd18b203216",
+    "XAUUSD:M15": "e3d6ff84de72042bf51f0104f10e715eacf684212b9135935076f1ef1167cf11",
+    "XAUUSD:H1": "32895fbb13beb78bc688dd10134913d76f0b818c52debea767710136d75ed734",
+    "XAUUSD:H4": "5b54ca74266f0b6468b54c43817f2bf75ded85b6cb59672dae952efe63f97ba4"
+  },
+  "instrument_specs": {
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6289466401670483,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    },
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "report_csv": "data\\backtest_20260822_164034.csv",
+  "report_sha256": "3740b6ebfa0c251fc741cc72b5f720306e840ab625b0e72f199a8ed3d7819709",
+  "candidate_audit_csv": "data\\candidate_audit_20260822_164034.csv",
+  "candidate_audit_sha256": "763b582b108b35ed799d37c9d02bd50a2e65e3987801c13845e8a851adc88712"
+}

@@ -1,0 +1,23 @@
+XAUUSD:
+  volume_mode: real
+  max_spread_points: 50
+  session_start: '00:00'
+  session_end: '23:59'
+
+EURUSD:
+  volume_mode: tick
+  max_spread_points: 20
+  session_start: '00:00'
+  session_end: '23:59'
+
+GBPUSD:
+  volume_mode: tick
+  max_spread_points: 25
+  session_start: '00:00'
+  session_end: '23:59'
+
+BTCUSD:
+  volume_mode: tick
+  max_spread_points: 1500
+  session_start: '00:00'
+  session_end: '23:59'

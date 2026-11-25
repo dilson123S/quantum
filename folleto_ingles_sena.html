@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SENA Brochure - Accounting & Financial Information Management - Geralding Torres</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sena-green: #39A900;
+      --sena-dark: #00324D;
+      --sena-deep: #002235;
+      --sena-accent: #00873E;
+      --sena-gold: #F59E0B;
+      --surface: #FFFFFF;
+      --surface-subtle: #F8FAFC;
+      --text-heading: #0F172A;
+      --text-body: #334155;
+      --text-muted: #64748B;
+      --border-subtle: #E2E8F0;
+      --shadow-sm: 0 2px 6px rgba(0, 50, 77, 0.05);
+      --shadow-md: 0 10px 25px rgba(0, 50, 77, 0.1);
+      --shadow-lg: 0 22px 45px rgba(0, 50, 77, 0.16);
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #091720 0%, #162E3B 50%, #204554 100%);
+      color: var(--text-body);
+      min-height: 100vh;
+      padding: 24px 16px 60px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Action Bar */
+    .top-bar {
+      max-width: 1260px;
+      margin: 0 auto 24px auto;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      padding: 14px 24px;
+      border-radius: var(--radius-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .top-bar-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .sena-logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--sena-green);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(57, 169, 0, 0.35);
+    }
+
+    .top-bar h1 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--sena-dark);
+      letter-spacing: -0.3px;
+    }
+
+    .top-bar p {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-creative {
+      background: #FEF3C7;
+      color: #92400E;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #FDE68A;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-download {
+      background: linear-gradient(135deg, #39A900, #00873E);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(57, 169, 0, 0.4);
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(57, 169, 0, 0.55);
+    }
+
+    /* Grammar Legend Banner */
+    .grammar-legend {
+      max-width: 1260px;
+      margin: 0 auto 20px auto;
+      background: #FFFFFF;
+      border-radius: 10px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.82rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .legend-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+    }
+
+    .legend-sp { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
+    .legend-pc { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+
+    /* Brochure Container (2 Trifold Sheets) */
+    .brochure-container {
+      max-width: 1260px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .trifold-sheet {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sheet-label-bar {
+      background: var(--sena-deep);
+      color: white;
+      padding: 10px 24px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--sena-green);
+    }
+
+    .sheet-panels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      min-height: 650px;
+    }
+
+    /* Individual Panels */
+    .panel {
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px dashed #CBD5E1;
+      position: relative;
+      background: #FFFFFF;
+    }
+
+    .panel:last-child {
+      border-right: none;
+    }
+
+    .panel-top-badge {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .chip {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #E8F5E9;
+      color: var(--sena-accent);
+    }
+
+    .panel-icon {
+      font-size: 1.15rem;
+    }
+
+    .panel-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    .panel-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 38px;
+      height: 3px;
+      background: var(--sena-green);
+      border-radius: 2px;
+    }
+
+    /* Visual Image Card */
+    .panel-visual-card {
+      width: 100%;
+      height: 145px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 14px rgba(0, 50, 77, 0.12);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .panel-visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .panel-visual-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .panel-body-text {
+      font-size: 0.85rem;
+      color: var(--text-body);
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    /* Grammar Highlights */
+    .tense-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 1px 5px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .tense-tag.sp {
+      background: #DBEAFE;
+      color: #1E40AF;
+      border: 1px solid #BFDBFE;
+    }
+
+    .tense-tag.pc {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+    }
+
+    .sp-rule {
+      font-weight: 600;
+      color: #0F172A;
+      border-bottom: 1.5px solid #93C5FD;
+    }
+
+    .pc-rule {
+      font-weight: 600;
+      color: #78350F;
+      background: #FEF9C3;
+      padding: 0 4px;
+      border-radius: 3px;
+      border-bottom: 1.5px solid #FCD34D;
+    }
+
+    /* Information Boxes */
+    .info-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+    }
+
+    .info-card.green {
+      border-left: 4px solid var(--sena-green);
+      background: #F0FDF4;
+    }
+
+    .info-card.blue {
+      border-left: 4px solid #0284C7;
+      background: #F0F9FF;
+    }
+
+    .info-card h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--sena-dark);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bullet-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .bullet-items li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.81rem;
+      line-height: 1.4;
+      color: var(--text-body);
+    }
+
+    .bullet-items li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: var(--sena-green);
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+
+    /* FRONT COVER STYLING (PANEL 1) */
+    .panel-cover {
+      background: linear-gradient(155deg, #002235 0%, #003B59 50%, #006837 100%);
+      color: white;
+      justify-content: space-between;
+      border-right: none;
+      position: relative;
+      overflow: hidden;
+      padding: 26px 22px;
+    }
+
+    .panel-cover::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(57,169,0,0.3) 0%, rgba(57,169,0,0) 70%);
+      pointer-events: none;
+    }
+
+    .cover-top-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cover-sena-badge {
+      width: 54px;
+      height: 54px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      margin-bottom: 8px;
+    }
+
+    .cover-sena-badge svg {
+      width: 36px;
+      height: 36px;
+      fill: var(--sena-green);
+    }
+
+    .cover-inst-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #86EFAC;
+    }
+
+    .cover-main-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin: 8px 0 2px 0;
+      line-height: 1.22;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .cover-subtitle {
+      font-size: 0.78rem;
+      color: #CBD5E1;
+      margin-bottom: 10px;
+    }
+
+    /* Cover Hero Visual Image */
+    .cover-hero-img-box {
+      width: 100%;
+      height: 150px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+
+    .cover-hero-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Apprentice ID Card */
+    .apprentice-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.74rem;
+      color: #F8FAFC;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .apprentice-card .row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 2px;
+    }
+
+    .apprentice-card .row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .apprentice-card .lbl {
+      color: #A7F3D0;
+      font-weight: 700;
+    }
+
+    .apprentice-card .val {
+      font-weight: 600;
+      color: #FFFFFF;
+      text-align: right;
+    }
+
+    .quote-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      line-height: 1.4;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .sena-footer {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 8px;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-align: center;
+    }
+
+    /* Print Setup */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      .top-bar, .grammar-legend {
+        display: none !important;
+      }
+
+      .brochure-container {
+        gap: 0;
+        max-width: 100%;
+      }
+
+      .trifold-sheet {
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        page-break-after: always;
+        height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
+      }
+
+      .sheet-label-bar {
+        display: none;
+      }
+
+      .sheet-panels-grid {
+        height: 100vh;
+      }
+
+      .panel {
+        padding: 18px 16px;
+      }
+
+      .panel-visual-card {
+        height: 125px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <header class="top-bar">
+    <div class="top-bar-title">
+      <div class="sena-logo-icon">S</div>
+      <div>
+        <h1>• GA2-240202501-AA1-EV03. Folleto.</h1>
+        <p>Evidencia de Producto • Aprendiz: Geralding Torres Gutierrez • Ficha: 3466233 • Instructora: SILVANA TARUD (Instructor Transversal Inglés)</p>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <div class="badge-creative">
+        🎨 Folleto Ilustrado con Imágenes Alusivas 3D
+      </div>
+      <button class="btn-download" onclick="window.print()">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+          <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+        </svg>
+        Descargar en PDF / Imprimir
+      </button>
+    </div>
+  </header>
+
+  <!-- Grammar Rubric Indicator -->
+  <div class="grammar-legend">
+    <strong style="color: var(--sena-dark);">Criterio de Evaluación de Inglés:</strong>
+    <div style="display: flex; gap: 14px;">
+      <span><span class="legend-tag legend-sp">SP</span> <strong>Simple Present:</strong> Describe hechos generales, perfil profesional y competencias del programa.</span>
+      <span><span class="legend-tag legend-pc">PC</span> <strong>Present Continuous:</strong> Describe actividades en desarrollo en la Fase de Análisis y la empresa didáctica.</span>
+    </div>
+  </div>
+
+  <main class="brochure-container">
+
+    <!-- ============================================================ -->
+    <!-- SHEET 1: EXTERIOR (Panel 5, Panel 6, Panel 1 Front Cover)    -->
+    <!-- ============================================================ -->
+    <section class="trifold-sheet">
+      <div class="sheet-label-bar">
+        <span>Page 1: Cara Exterior del Folleto • GA2-240202501-AA1-EV03. Folleto.</span>
+        <span>Col 1: Personal Vision • Col 2: Occupational Profile • Col 3: Front Cover</span>
+      </div>
+
+      <div class="sheet-panels-grid">
+
+        <!-- PANEL 5: MY INTERESTS & FUTURE EXPECTATIONS -->
+        <article class="panel">
+          <div class="panel-top-badge">
+            <span class="chip">Panel 5 • Personal Vision</span>
+            <span class="panel-icon">🎯</span>
+          </div>
+          <h2 class="panel-heading">Interests & Expectations</h2>
+
+          <!-- Visual Illustration: Career Success -->
+          <div class="panel-visual-card">
+            <img src="brochure_assets/career_success.jpg" alt="Career Success in Finance">
+          </div>
+
+          <div class="panel-body-text">
+            <p>
+              <span class="tense-tag sp">SP</span>
+              <span class="sp-rule">I choose this vocational program because I have a genuine passion for financial analysis, corporate discipline, and strategic numbers.</span>
+              Accounting provides the exact metrics to evaluate sustainable growth.
+            </p>
+
+            <div class="info-card green">
+              <h4>🔍 Core Personal Interests:</h4>
+              <ul class="bullet-items" style="margin-top: 4px;">
+                <li>Corporate taxation and statutory audit processes.</li>
+                <li>Cloud-based ERP and computerized accounting systems.</li>
+                <li>Delivering accurate financial intelligence to executives.</li>
+              </ul>
+            </div>
+
+            <p>
+              <span class="tense-tag pc">PC</span>
+              <span class="pc-rule">Currently, I am developing leadership skills, analytical thinking, and professional English communication.</span>
+            </p>
+
+            <p>
+              <span class="tense-tag sp">SP</span>
+              <span class="sp-rule">My future goal is to graduate as a Technologist, continue university studies in Public Accounting (Contaduría Pública), and work as an international financial advisor.</span>
+            </p>
+          </div>
+        </article>
+
+        <!-- PANEL 6: OCCUPATIONAL PROFILE & CONTACT -->
+        <article class="panel" style="background: #FAFCFF;">
+          <div class="panel-top-badge">
+            <span class="chip">Panel 6 • Career Outcomes</span>
+            <span class="panel-icon">💼</span>
+          </div>
+          <h2 class="panel-heading">Occupational Profile</h2>
+
+          <div class="panel-body-text">
+            <p>
+              <span class="tense-tag sp">SP</span>
+              <span class="sp-rule">Graduates from this SENA technology program demonstrate high-demand competencies across key economic sectors:</span>
+            </p>
+
+            <div class="info-card">
+              <ul class="bullet-items">
+                <li><strong>Accounting Assistant:</strong> Registers commercial transactions, balances auxiliary books, and executes bank reconciliations.</li>
+                <li><strong>Tax & Compliance Specialist:</strong> Computes withholdings, municipal industry tax, and national VAT returns.</li>
+                <li><strong>Payroll Administrator:</strong> Liquidates salaries, contractual social benefits, and severance obligations.</li>
+                <li><strong>Financial Information Analyst:</strong> Formulates financial statements and computes liquidity and profitability ratios.</li>
+              </ul>
+            </div>
+
+            <div class="quote-box">
+              "Accounting is the universal language of business. Understanding the numbers is the first step toward leadership."
+            </div>
+
+            <!-- Activity Technical Reference Box -->
+            <div style="background: #F1F5F9; border-radius: 8px; padding: 8px 12px; font-size: 0.72rem; margin-top: 6px; border-left: 3px solid var(--sena-green); color: var(--text-body);">
+              <div><strong>Evidencia de Producto:</strong> • GA2-240202501-AA1-EV03. Folleto.</div>
+              <div><strong>Instructora:</strong> SILVANA TARUD (Instructor Transversal Inglés)</div>
+              <div><strong>Actividad de Aprendizaje:</strong> GA2-240202501-AA1</div>
+              <div><strong>Competencia:</strong> 240202501 (Interacción oral y escrita en inglés)</div>
+            </div>
+
+            <div class="sena-footer">
+              <strong style="color: var(--sena-dark);">SERVICIO NACIONAL DE APRENDIZAJE – SENA</strong>
+              <span>Regional Atlántico • Centro de Comercio y Servicios</span>
+              <span>Barranquilla, Colombia • www.sena.edu.co</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- PANEL 1: FRONT COVER -->
+        <article class="panel panel-cover">
+          <div class="cover-top-header">
+            <div class="cover-sena-badge">
+              <!-- Official SENA Vector Emblem -->
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="4" r="2.5"/>
+                <path d="M12 8c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4z"/>
+                <path d="M4 17h16v2H4z"/>
+                <path d="M6 20h12v1.5H6z"/>
+              </svg>
+            </div>
+            <span class="cover-inst-tag">SENA • REGIONAL ATLÁNTICO</span>
+            <h1 class="cover-main-title">Accounting & Financial Information Management</h1>
+            <p class="cover-subtitle">Gestión Contable y de Información Financiera</p>
+
+            <!-- Prominent Activity Badge -->
+            <div style="background: rgba(253, 224, 71, 0.2); border: 1.5px solid #FDE047; color: #FEF08A; font-weight: 800; font-size: 0.74rem; padding: 3px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px; letter-spacing: 0.5px;">
+              • GA2-240202501-AA1-EV03. Folleto.
+            </div>
+          </div>
+
+          <!-- Cover Hero Visual Image -->
+          <div class="cover-hero-img-box">
+            <img src="brochure_assets/finance_hero.jpg" alt="Financial Intelligence and Accounting Dashboard">
+          </div>
+
+          <!-- Apprentice Details Card -->
+          <div class="apprentice-card">
+            <div class="row" style="background: rgba(57,169,0,0.3); padding: 3px 6px; border-radius: 4px; margin-bottom: 2px; border-left: 3px solid #FDE047;">
+              <span class="lbl" style="color: #FDE047;">Evidencia:</span>
+              <span class="val" style="color: #FFFFFF; font-weight: 800;">• GA2-240202501-AA1-EV03. Folleto.</span>
+            </div>
+            <div class="row">
+              <span class="lbl">Ficha / Code:</span>
+              <span class="val" style="color: #FDE047; font-weight: 800;">3466233</span>
+            </div>
+            <div class="row">
+              <span class="lbl">Aprendiz:</span>
+              <span class="val">Geralding Torres Gutierrez</span>
+            </div>
+            <div class="row" style="background: rgba(255,255,255,0.1); padding: 2px 4px; border-radius: 4px;">
+              <span class="lbl" style="color: #A7F3D0;">Instructora:</span>
+              <span class="val" style="color: #FFFFFF; font-weight: 700;">SILVANA TARUD</span>
+            </div>
+            <div class="row">
+              <span class="lbl">Cargo:</span>
+              <span class="val" style="color: #CBD5E1;">Instructor Transversal Inglés</span>
+            </div>
+            <div class="row">
+              <span class="lbl">Centro:</span>
+              <span class="val">Centro de Comercio y Servicios</span>
+            </div>
+            <div class="row">
+              <span class="lbl">Regional:</span>
+              <span class="val">Regional Atlántico</span>
+            </div>
+            <div class="row">
+              <span class="lbl">Fase:</span>
+              <span class="val">Analysis Phase (Fase de Análisis)</span>
+            </div>
+            <div class="row">
+              <span class="lbl">Fecha:</span>
+              <span class="val">Abril 2026</span>
+            </div>
+          </div>
+
+          <div style="font-size: 0.68rem; text-align: center; opacity: 0.8; letter-spacing: 0.5px;">
+            National Apprenticeship Service • Colombia
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SHEET 2: INTERIOR (Panel 2, Panel 3, Panel 4)                -->
+    <!-- ============================================================ -->
+    <section class="trifold-sheet">
+      <div class="sheet-label-bar">
+        <span>Page 2: Cara Interior del Folleto • GA2-240202501-AA1-EV03. Folleto.</span>
+        <span>Col 1: Welcome & Message • Col 2: Academic Overview • Col 3: Formative Project</span>
+      </div>
+
+      <div class="sheet-panels-grid">
+
+        <!-- PANEL 2: WELCOME & INITIAL MESSAGE -->
+        <article class="panel">
+          <div class="panel-top-badge">
+            <span class="chip">Panel 2 • Introduction</span>
+            <span class="panel-icon">👋</span>
+          </div>
+          <h2 class="panel-heading">Welcome & Message</h2>
+
+          <div class="panel-body-text">
+            <p>
+              <strong>Welcome to the world of financial intelligence!</strong>
+            </p>
+            <p>
+              My name is <strong>Geralding Torres Gutierrez</strong>, apprentice from the <em>Centro de Comercio y Servicios (Regional Atlántico)</em>. I present this brochure to highlight our vocational program.
+            </p>
+            <p>
+              <span class="tense-tag sp">SP</span>
+              <span class="sp-rule">Financial information represents the fundamental pillar of every thriving enterprise.</span>
+              Transparent accounting creates trust, guarantees legal compliance, and steers strategic decision-making.
+            </p>
+
+            <div class="info-card blue">
+              <h4>💡 Core Philosophy:</h4>
+              <p style="font-size: 0.8rem; color: #0369A1; margin-top: 2px;">
+                «Learning by doing» through real-world simulations, ethical standards, and modern IFRS compliance.
+              </p>
+            </div>
+
+            <p>
+              <span class="tense-tag pc">PC</span>
+              <span class="pc-rule">Through this learning experience, I am discovering how financial information transforms complex numbers into profitable business solutions.</span>
+            </p>
+          </div>
+        </article>
+
+        <!-- PANEL 3: BASIC PROGRAM INFORMATION & COMPETENCIES -->
+        <article class="panel">
+          <div class="panel-top-badge">
+            <span class="chip">Panel 3 • Academic Structure</span>
+            <span class="panel-icon">📊</span>
+          </div>
+          <h2 class="panel-heading">Program Overview</h2>
+
+          <!-- Visual Illustration: Accounting & Audit Tools -->
+          <div class="panel-visual-card">
+            <img src="brochure_assets/accounting_tools.jpg" alt="Accounting Tools, Balance Sheets and Tax Forms">
+          </div>
+
+          <div class="panel-body-text">
+            <p>
+              <span class="tense-tag sp">SP</span>
+              <span class="sp-rule">The Technology in Accounting and Financial Information Management program responds directly to the rigorous needs of modern commerce.</span>
+            </p>
+
+            <div class="info-card">
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px;">
+                <strong>Level:</strong> <span>Technology Degree (Tecnólogo)</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px;">
+                <strong>Ficha:</strong> <span style="font-weight: 700; color: var(--sena-green);">3466233</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem;">
+                <strong>Total Duration:</strong> <span>27 Months (18 Schooling + 9 Internship)</span>
+              </div>
+            </div>
+
+            <div class="info-card green">
+              <h4>📚 Core Competencies:</h4>
+              <ul class="bullet-items" style="margin-top: 4px;">
+                <li><strong>Financial Accounting:</strong> Recording operations under IFRS (NIIF).</li>
+                <li><strong>Tax Management:</strong> Calculating VAT, withholding, and municipal tax forms.</li>
+                <li><strong>Financial Statements:</strong> Compiling Balance Sheets and Income Reports.</li>
+                <li><strong>Payroll Management:</strong> Liquidating salaries and labor provisions.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- PANEL 4: FORMATIVE PROJECT & HANDS-ON PRACTICE -->
+        <article class="panel">
+          <div class="panel-top-badge">
+            <span class="chip">Panel 4 • Practical Experience</span>
+            <span class="panel-icon">🚀</span>
+          </div>
+          <h2 class="panel-heading">Hands-On Practice</h2>
+
+          <!-- Visual Illustration: Team Financial Analysis -->
+          <div class="panel-visual-card">
+            <img src="brochure_assets/team_analysis.jpg" alt="Apprentices Teamwork Financial Analysis">
+          </div>
+
+          <div class="panel-body-text">
+            <p>
+              <strong>Our Formative Project:</strong><br>
+              <em>«Application of accounting, tax, labor, commercial, and financial regulations through a didactic enterprise.»</em>
+            </p>
+
+            <p>
+              <span class="tense-tag sp">SP</span>
+              <span class="sp-rule">We apply statutory frameworks directly into simulated business operations every day.</span>
+            </p>
+
+            <div class="info-card blue">
+              <h4>📍 Current Phase: Analysis Phase</h4>
+              <p style="font-size: 0.8rem; margin-top: 2px;">
+                <span class="tense-tag pc">PC</span>
+                <span class="pc-rule">Currently, we are analyzing accounting source documents, auditing initial balances, and classifying enterprise assets.</span>
+              </p>
+            </div>
+
+            <p>
+              <span class="tense-tag pc">PC</span>
+              <span class="pc-rule">At this moment, our team is studying tax obligations and structuring the financial framework of our simulated company.</span>
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

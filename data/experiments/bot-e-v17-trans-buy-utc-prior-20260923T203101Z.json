@@ -1,0 +1,54 @@
+{
+  "experiment_id": "bot-e-v17-trans-buy-utc-prior-20260923T203101Z",
+  "created_at": "2026-09-23T20:31:01.576477+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "1Y",
+  "symbols": null,
+  "evaluation_start": null,
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "data\\experiments\\bot_e_v9_transitional_buy_only\\settings.yaml": "9fbcdccbc77ea842ca5f73f44fba07779d9cc13073bb88e4e949b43b8c5edad6",
+    "data\\experiments\\bot_e_v9_transitional_buy_only\\symbols.yaml": "7d777c4eddb4c260e494c5682b57f2edfd0821665a1157bdc61ecf48196e0290",
+    "data\\experiments\\bot_e_v9_transitional_buy_only\\risk.yaml": "76a5d077ef049adbb7d8ef93edd0470b2353dff047c7ad1aba4a651d89c8f70e"
+  },
+  "input_sha256": {
+    "USDJPY:M15": "3417600d7c114abea13487c9da2a8e6193d80d00c928f7c48e0ffc5eda1933fd",
+    "USDJPY:H1": "09502947196063deac7a3d309fd8517f919839fbc2c04b520de15ba1c2f0a5f5",
+    "USDJPY:H4": "c69ffcd7f5c32355399907c4b24525e8a4be8f091337c632be80add250cb7a6e"
+  },
+  "instrument_specs": {
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.631540390165653,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 164,
+    "total_profit_money": -42.24,
+    "total_profit_r": -6.35,
+    "signals_skipped_circuit_breaker": 4,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260923_153101.csv",
+  "report_sha256": "69174f973ef30af9a57ab0c058b45f2ba9e7666f7451993efe82e3176bc8612b",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260923_153101.csv",
+  "pending_events_sha256": "ef07da004ea2a8c8290b7c7ab1a5da94b110247faf532cd3285894648b46eb0a"
+}

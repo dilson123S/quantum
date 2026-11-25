@@ -1,0 +1,9 @@
+bot,scenario,trades,wins,losses,win_rate_pct,net_usd_per_10000,total_r,expectancy_r,profit_factor,max_drawdown_pct,bootstrap_p05_r,bootstrap_probability_positive,bootstrap_sufficient_sample,manifest
+BOT-A,base,192,83,101,43.2,9846.8,35.8849,0.1869,1.6159,18.2755,15.5553,0.9978,True,data\experiments\fleet-A-base-20261006T054454Z.json
+BOT-A,cost_plus_20pct,192,83,101,43.2,9789.51,35.7375,0.1861,1.6135,18.2587,15.4861,0.9978,True,data\experiments\fleet-A-cost120-20261006T054748Z.json
+BOT-B,base,171,74,88,43.3,8717.91,32.7888,0.1917,1.6326,16.9658,13.6957,0.9984,True,data\experiments\fleet-B-base-20261006T055106Z.json
+BOT-B,cost_plus_20pct,171,74,88,43.3,8672.28,32.6655,0.191,1.6296,17.0157,13.5912,0.9984,True,data\experiments\fleet-B-cost120-20261006T055446Z.json
+BOT-C,base,192,83,101,43.2,9846.8,35.8849,0.1869,1.6159,18.2755,15.5553,0.9978,True,data\experiments\fleet-C-base-20261006T055736Z.json
+BOT-C,cost_plus_20pct,192,83,101,43.2,9789.51,35.7375,0.1861,1.6135,18.2587,15.4861,0.9978,True,data\experiments\fleet-C-cost120-20261006T060038Z.json
+BOT-D,base,221,113,85,51.1,8956.21,33.005,0.1493,1.8585,14.486,16.6291,0.9994,True,data\experiments\fleet-D-base-20261006T060410Z.json
+BOT-D,cost_plus_20pct,221,113,85,51.1,8859.77,32.7454,0.1482,1.8493,14.5114,16.3989,0.9994,True,data\experiments\fleet-D-cost120-20261006T060740Z.json

@@ -1,0 +1,63 @@
+{
+  "experiment_id": "bot-e-current-baseline-candidate-audit-20260923-20260924T002719Z",
+  "created_at": "2026-09-24T00:27:20.000091+00:00",
+  "purpose": "in-sample / exploratory analysis; sealed holdout strictly excluded",
+  "is_oos_evaluation": false,
+  "period": "3M",
+  "symbols": "USDJPY",
+  "evaluation_start": null,
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "confirmation_timeframe": "M30",
+  "gap_timeframe": "H2",
+  "config_sha256": {
+    "config\\bot_e\\settings.yaml": "31ebf17e272a74cc3ec18638ae2a2f31d68e3e7b936277b3a5d1688b3c44703f",
+    "config\\bot_e\\symbols.yaml": "7d777c4eddb4c260e494c5682b57f2edfd0821665a1157bdc61ecf48196e0290",
+    "config\\bot_e\\risk.yaml": "8fc104d812edba907144b53119f7ad9ca742762cf5f58b3e83d8f9d7057f8a57"
+  },
+  "code_sha256": {
+    "backtest_runner.py": "dd24932fd3b5b56cf25899066e71546c3eb775e4b3fda297bc8ac5be72ad8a05",
+    "backtest/engine.py": "ff9f1869af7bbde256c8f26508d92c551a601de782feb443cf416ad941ee3094",
+    "strategy/alchemist.py": "dc2a2fcd6bc28c924deb6a77e6000cf19a720ff8bb0356cb7e4075a463b72a9e",
+    "core/config_loader.py": "14e2dc96247eb2e73397a19a0843873627e2362baac1c795ff3a9a89f6fe1335",
+    "main.py": "95f39daa280fea1462cb6b1d7bcf2dbf04e5b39e73b4fe6ed13132dcf126bff7"
+  },
+  "input_sha256": {
+    "USDJPY:M15": "db9a491a5fe38dfc0e6da63a5b0cb69fa0ce67d5a175d8b4a5f82bbf4d132e34",
+    "USDJPY:H1": "7c068dde6bec610045514643261281b958ddac0ad2e2139782c2ab718b99689d",
+    "USDJPY:H4": "af2d0ef24f142c5cbb3e16feaffa7312fcd9ca73db1e4e4306a971b56669cdef"
+  },
+  "instrument_specs": {
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6318436566056096,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 19,
+    "total_profit_money": 13.18,
+    "total_profit_r": 2.11,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260923_192719.csv",
+  "report_sha256": "c2adc615ec0e9a30ae56c359a46b07510e608b17a10a687d6f3604de9f16ea56",
+  "candidate_audit_csv": "data\\candidate_audit_20260923_192719.csv",
+  "candidate_audit_sha256": "68d68491d8d0a1baa41ddbce155a580757299e6c03a6747034eff6f536d0b162",
+  "pending_events_csv": "data\\pending_events_20260923_192719.csv",
+  "pending_events_sha256": "27c7863d17d3c96655e6154a005cb15c9faad5b507915e0f4edbd79dc4da7631"
+}

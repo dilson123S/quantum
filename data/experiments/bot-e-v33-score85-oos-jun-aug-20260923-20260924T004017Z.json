@@ -1,0 +1,63 @@
+{
+  "experiment_id": "bot-e-v33-score85-oos-jun-aug-20260923-20260924T004017Z",
+  "created_at": "2026-09-24T00:40:17.683905+00:00",
+  "purpose": "OOS holdout evaluation; do not tune parameters after viewing this result",
+  "is_oos_evaluation": true,
+  "period": "3M",
+  "symbols": "USDJPY",
+  "evaluation_start": "2026-06-01",
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "confirmation_timeframe": "M30",
+  "gap_timeframe": "H2",
+  "config_sha256": {
+    "data\\experiments\\bot_e_v33_score85\\settings.yaml": "33cc1033090c08ce56ecf630cf551b8947a3df4b8cdaeb110b1487521733ad5a",
+    "data\\experiments\\bot_e_v33_score85\\symbols.yaml": "7d777c4eddb4c260e494c5682b57f2edfd0821665a1157bdc61ecf48196e0290",
+    "data\\experiments\\bot_e_v33_score85\\risk.yaml": "8fc104d812edba907144b53119f7ad9ca742762cf5f58b3e83d8f9d7057f8a57"
+  },
+  "code_sha256": {
+    "backtest_runner.py": "dd24932fd3b5b56cf25899066e71546c3eb775e4b3fda297bc8ac5be72ad8a05",
+    "backtest/engine.py": "ff9f1869af7bbde256c8f26508d92c551a601de782feb443cf416ad941ee3094",
+    "strategy/alchemist.py": "dc2a2fcd6bc28c924deb6a77e6000cf19a720ff8bb0356cb7e4075a463b72a9e",
+    "core/config_loader.py": "14e2dc96247eb2e73397a19a0843873627e2362baac1c795ff3a9a89f6fe1335",
+    "main.py": "95f39daa280fea1462cb6b1d7bcf2dbf04e5b39e73b4fe6ed13132dcf126bff7"
+  },
+  "input_sha256": {
+    "USDJPY:M15": "db31b283dcd4923ca753e75c68c91db2cffc89a416f637895628ea3f09b5b5e3",
+    "USDJPY:H1": "9c9a6716a91b4225b889ec86086b7b158f5a18299551ccab015283cd005e82bb",
+    "USDJPY:H4": "f6302bd6f6a3d8a6abbf0ab79100ababb4e4e5302404c58bd55892aa04c981ac"
+  },
+  "instrument_specs": {
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6320752928088794,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 6,
+    "total_profit_money": -2.71,
+    "total_profit_r": -0.49,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260923_194017.csv",
+  "report_sha256": "4b9f4e1ba4e3dc8cdd3c1d7b02c3917200c4b651575ac87e6bf9b60a85990a5d",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260923_194017.csv",
+  "pending_events_sha256": "792add7849a8246e73b3e37d0e05f76a799672528de1fbe9ef1c4c0264d03270"
+}

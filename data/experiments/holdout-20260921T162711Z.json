@@ -1,0 +1,54 @@
+{
+  "experiment_id": "holdout-20260921T162711Z",
+  "created_at": "2026-09-21T16:27:11.797775+00:00",
+  "purpose": "OOS holdout evaluation; do not tune parameters after viewing this result",
+  "is_oos_evaluation": true,
+  "period": "3M",
+  "symbols": "XAUUSD",
+  "evaluation_start": "2026-08-01",
+  "entry_timeframe": "H1",
+  "setup_timeframe": "H4",
+  "higher_timeframe": "D1",
+  "config_sha256": {
+    "config\\bot_c_gold\\settings.yaml": "81a2a44896983da45a7a2ff1d3a50b54d29eb1e2d0efa7a631a9d4c1bff52fc0",
+    "config\\bot_c_gold\\symbols.yaml": "eb1d06589c0b2587877073bc1c27177a69f611d432cfde18605a000e8ff8753b",
+    "config\\bot_c_gold\\risk.yaml": "e951a777cad37cafc6f97e9ce54ac6c78e4e2524c54e2d59d5495cf74d23094e"
+  },
+  "input_sha256": {
+    "XAUUSD:H1": "0ce5ceb14ddba8e6a5f5b6ff6851f305be1294e82eae5c4020175eb7be24de52",
+    "XAUUSD:H4": "325eb87e4a5fba76a045409eee0ef2616cf75b75aec13719b1116d9fd1dd31d5",
+    "XAUUSD:D1": "7c8e0ea9adeeda3abe54a95b9a30092ecfb67d8c273fa01f53827a991d0e0bf5"
+  },
+  "instrument_specs": {
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 100.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 14,
+    "total_profit_money": 25.05,
+    "total_profit_r": 0.27,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260921_112711.csv",
+  "report_sha256": "67b501a5b74b4fc26b2d89dca3c00b79d25ab3b3e5847874f5d5df491a6a5c5c",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "data\\pending_events_20260921_112711.csv",
+  "pending_events_sha256": "351679e52a8f0d9810aa4bf89354505f80ea661f1b2a9e62558955c013f29fb2"
+}

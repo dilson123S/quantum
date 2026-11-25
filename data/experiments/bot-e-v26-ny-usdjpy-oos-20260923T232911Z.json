@@ -1,0 +1,57 @@
+{
+  "experiment_id": "bot-e-v26-ny-usdjpy-oos-20260923T232911Z",
+  "created_at": "2026-09-23T23:29:11.277428+00:00",
+  "purpose": "OOS holdout evaluation; do not tune parameters after viewing this result",
+  "is_oos_evaluation": true,
+  "period": "6M",
+  "symbols": null,
+  "evaluation_start": "2026-06-01",
+  "entry_timeframe": "M15",
+  "setup_timeframe": "H1",
+  "higher_timeframe": "H4",
+  "config_sha256": {
+    "data\\experiments\\bot_e_v26_ny_only\\settings.yaml": "d00eff4781d85da3f70e21174fd8e3fb56094a3fd01571f32d9c71387d321130",
+    "data\\experiments\\bot_e_v26_ny_only\\symbols.yaml": "7d777c4eddb4c260e494c5682b57f2edfd0821665a1157bdc61ecf48196e0290",
+    "data\\experiments\\bot_e_v26_ny_only\\risk.yaml": "76a5d077ef049adbb7d8ef93edd0470b2353dff047c7ad1aba4a651d89c8f70e"
+  },
+  "input_sha256": {
+    "USDJPY:M15": "91efc918eb8ff1a8f1db56c936554926e354332c5661c0b96e4bb3e2f036309d",
+    "USDJPY:H1": "cea61f30837e621e589930cb543f38bf50cf95e116e2fe2c6745671eb1f9289b",
+    "USDJPY:H4": "7f43359537059a04527f5a967cf67e442e46813a4661314de180f54cc9a7303a",
+    "USDJPY:D1": "7e7c276ecc4f29894616413d711c35fbe096e2877f58b1e345aecddc394c47b0",
+    "USDJPY:W1": "8b5e864d691c9b77e2563357e23d56d567838026247341d7a7171038bfdf1a6e",
+    "USDJPY:MN1": "7477dbd08671ac58e15a988001780194d72554e90a6713db5a3cacc7db526258"
+  },
+  "instrument_specs": {
+    "USDJPY": {
+      "point": 0.001,
+      "tick_size": 0.001,
+      "tick_value": 0.6315164604765423,
+      "volume_min": 0.01,
+      "volume_max": 200.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "summary_metrics": {
+    "total_trades": 11,
+    "total_profit_money": -16.68,
+    "total_profit_r": -2.67,
+    "signals_skipped_circuit_breaker": 0,
+    "signals_skipped_daily_loss": 0,
+    "signals_skipped_drawdown": 0,
+    "count_expired_target_reached": 0,
+    "opportunity_cost_r_missed_target": 0.0
+  },
+  "report_csv": "data\\backtest_20260923_182911.csv",
+  "report_sha256": "0991737dcc077c9526ad4c2267419359cbcf9027e3b8ced32b1ac20832e891d9",
+  "candidate_audit_csv": "",
+  "candidate_audit_sha256": null,
+  "pending_events_csv": "",
+  "pending_events_sha256": null
+}

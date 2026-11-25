@@ -1,0 +1,149 @@
+# Separate, DEMO-ONLY experiment.  The original config/settings.yaml remains
+# the conservative M15 baseline and must not be overwritten by this profile.
+bot:
+  name: QuantTradingBot-Intraday-Demo
+  magic_number: 26082105
+  mode: paper
+  allow_live_trading: false
+  journal_path: data/intraday_bot.db
+
+market:
+  # All names were verified against the connected IC Markets MT5 terminal.
+  symbols: [EURUSD, GBPUSD, USDJPY, XAUUSD, AUDUSD, USDCAD, USDCHF]
+
+timeframes:
+  higher: H1
+  setup: M15
+  entry: M5
+
+score:
+  # Broad enough to evaluate a higher-frequency candidate set; the M15 trend
+  # confirmation below stays mandatory, so this is not a quota-driven entry.
+  minimum: 65
+  min_structure: 12
+  min_trend: 10
+  structure_weight: 30
+  trend_weight: 25
+  momentum_weight: 15
+  volume_weight: 15
+  volatility_weight: 15
+
+confirmation:
+  require_setup_trend_alignment: true
+  setup_min_trend_score: 13
+
+telemetry:
+  log_rejected_score_candidates: true
+  target_daily_trades: 5
+
+decision_context:
+  # Observational only: cannot approve or reject an M5 signal.
+  enabled: true
+  shadow_mode: true
+  history_bars: 650
+  equal_level_tolerance_atr: 0.15
+  fib_zone_atr: 0.15
+  smc_max_age_bars: 40
+  smc_min_gap_atr: 0.10
+  sweep_min_penetration_atr: 0.05
+
+regime_filter:
+  enabled: true
+  shadow_mode: true
+  min_adx: 18
+  min_bb_width_ratio: 0.90
+  max_range_bb_width_ratio: 1.05
+  block_ranging: true
+  block_low_volatility: true
+
+smc_filter:
+  enabled: true
+  shadow_mode: true
+  require_sweep: false
+  require_fvg_or_order_block: false
+
+validation:
+  status: REJECTED
+  summary: 'Frecuencia lograda en exploración, pero expectativa negativa; no apto para demo.'
+  experiment_id: intraday-v1-exploratory
+  exploratory_trades: 37
+  exploratory_total_r: -4.17
+
+structure:
+  swing_lookback: 2
+  swing_confirmation: 2
+  bos_min_distance_atr: 0.10
+  bos_close_confirmation: true
+  use_choch: true
+  use_bos: true
+  max_swing_age: 60
+
+trend:
+  ema_fast: 20
+  ema_medium: 50
+  ema_slow: 200
+  adx_period: 14
+  adx_min: 18
+  adx_strong: 23
+
+momentum:
+  rsi_period: 14
+  rsi_bull_min: 50
+  rsi_bull_strong: 55
+  rsi_bear_max: 50
+  rsi_bear_strong: 45
+  macd_fast: 12
+  macd_slow: 26
+  macd_signal: 9
+
+volume:
+  period: 20
+  min_ratio: 1.05
+  strong_ratio: 1.30
+  use_obv: true
+  volume_mode: tick
+
+volatility:
+  atr_period: 14
+  atr_avg_period: 50
+  min_atr_ratio: 0.65
+  max_atr_ratio: 3.0
+  sl_multiplier: 1.25
+
+trade:
+  risk_reward: 1.5
+  break_even_r: 0.9
+  partial_close: true
+  partial_r: 1.1
+  partial_percent: 50
+  trailing: hybrid
+  entry_mode: breakout
+  breakout_buffer_points: 3
+  breakout_expiry_bars: 6
+
+filters:
+  max_spread: true
+  session_filter: true
+  news_filter: false
+  correlation_filter: true
+  trading_start: '06:00'
+  trading_end: '20:00'
+  timezone: UTC
+  max_spread_atr_percent: 10
+  news_blackout_before: 30
+  news_blackout_after: 30
+
+ml:
+  enabled: true
+  shadow_mode: true
+  allow_active_filter: false
+  model_path: data/ml_model.joblib
+  min_confidence: 0.65
+  retrain_weeks: 4
+  training_months: 6
+
+backtest:
+  commission_per_lot_round_turn: 7.0
+  slippage_points: 1.0
+  gap_slippage_points: 2.0
+  intra_bar_policy: stop_first

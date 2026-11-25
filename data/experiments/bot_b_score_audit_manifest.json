@@ -1,0 +1,119 @@
+{
+  "experiment_name": "bot_b_score_70_permissive_audit",
+  "timestamp_utc": "2026-09-22T21:51:40.806445+00:00",
+  "bot_id": "BOT-B (Tendencial Conservador)",
+  "symbol": "XAUUSD",
+  "timeframe_entry": "H1",
+  "timeframe_setup": "H4",
+  "timeframe_htf": "D1",
+  "period": {
+    "start": "2024-09-02 01:00:00+00:00",
+    "end": "2026-09-15 23:00:00+00:00",
+    "months": 24,
+    "total_bars_h1": 12051,
+    "total_bars_h4": 3153,
+    "total_bars_d1": 526
+  },
+  "market_data": {
+    "broker": "ICMarketsSC",
+    "server": "ICMarketsSC-Demo",
+    "timezone": "UTC",
+    "source": "MetaTrader 5 copy_rates_range",
+    "cleaner": "DataCleaner (gap/anomaly removed)",
+    "h1_data_sha256": "720a08e274fc5522d581065945ea2e69e23b48a4434d9bfb187edb012ce97073"
+  },
+  "costs_and_execution": {
+    "spread_points": 15,
+    "commission_round_turn_per_lot_usd": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "initial_balance_usd": 10000.0,
+    "leverage": "1:500"
+  },
+  "configuration": {
+    "score_minimum": 70.0,
+    "ml_model": "data/ml_model.joblib",
+    "ml_min_confidence": 0.55,
+    "sl_multiplier": 2.0,
+    "sl_buffer_atr": 0.25,
+    "risk_reward": 2.0,
+    "break_even_r": 1.2,
+    "partial_close": true,
+    "partial_r": 1.5,
+    "stagnation_exit_bars": 0
+  },
+  "results_summary": {
+    "total_trades": 45,
+    "winning_trades": 26,
+    "losing_trades": 19,
+    "win_rate_pct": 57.78,
+    "profit_factor": 3.75,
+    "net_profit_usd": 3255.81,
+    "total_return_r": 14.31,
+    "max_drawdown_pct": 2.36,
+    "initial_balance": 10000.0,
+    "final_balance": 13255.81
+  },
+  "score_sweep_comparison": [
+    {
+      "score": 75.0,
+      "trades": 26,
+      "wl": "17/9",
+      "win_rate": 65.4,
+      "pf": 5.65,
+      "net_profit": 2622.8,
+      "total_r": 11.8,
+      "max_dd": 2.34
+    },
+    {
+      "score": 70.0,
+      "trades": 26,
+      "wl": "17/9",
+      "win_rate": 65.4,
+      "pf": 5.65,
+      "net_profit": 2622.8,
+      "total_r": 11.8,
+      "max_dd": 2.34
+    },
+    {
+      "score": 65.0,
+      "trades": 26,
+      "wl": "17/9",
+      "win_rate": 65.4,
+      "pf": 5.65,
+      "net_profit": 2622.8,
+      "total_r": 11.8,
+      "max_dd": 2.34
+    },
+    {
+      "score": 60.0,
+      "trades": 26,
+      "wl": "17/9",
+      "win_rate": 65.4,
+      "pf": 5.65,
+      "net_profit": 2622.8,
+      "total_r": 11.8,
+      "max_dd": 2.34
+    },
+    {
+      "score": 55.0,
+      "trades": 26,
+      "wl": "17/9",
+      "win_rate": 65.4,
+      "pf": 5.65,
+      "net_profit": 2622.8,
+      "total_r": 11.8,
+      "max_dd": 2.34
+    },
+    {
+      "score": 50.0,
+      "trades": 26,
+      "wl": "17/9",
+      "win_rate": 65.4,
+      "pf": 5.65,
+      "net_profit": 2622.8,
+      "total_r": 11.8,
+      "max_dd": 2.34
+    }
+  ]
+}

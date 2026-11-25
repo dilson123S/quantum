@@ -1,0 +1,56 @@
+{
+  "experiment_id": "fleet-D-base-20261006T060410Z",
+  "created_at": "2026-10-06T06:04:10.419451+00:00",
+  "purpose": "in-sample / exploratory fleet profile comparison; holdout excluded",
+  "is_oos_evaluation": false,
+  "period": "2Y",
+  "evaluation_start": null,
+  "data_cutoff_exclusive": "2026-06-01T00:00:00+00:00",
+  "bot": "BOT-D",
+  "symbol": "XAUUSD",
+  "initial_balance_per_bot": 10000.0,
+  "config_sha256": {
+    "config/bot_d_gold/settings.yaml": "aade1fafd83af06e77512993a5ae9c61c95a566e15672932a9bad49b3099a528",
+    "config/bot_d_gold/symbols.yaml": "2b3387636222bcd9af491756beb2a76e50ea53aa0e70d11ce16b72c1225722ea",
+    "config/bot_d_gold/risk.yaml": "3f8f10f132246628b3bb8a8a357733084c6823d644d0b0173adf8b21d7bf545c"
+  },
+  "input_sha256": {
+    "XAUUSD:H1": "b6b7f2145742733981a5ec2e20c2b4bef97d6a1312ef361f9da042edec5449c5",
+    "XAUUSD:H4": "6a25151d8163adc758a491a5ffeec96cc9a9525aff96e52214dc3ed1a5f9e39d",
+    "XAUUSD:D1": "1ccef56310239ad15a1e04f18b751715b4d2294e025f922755144bc5637a7b2c"
+  },
+  "instrument_specs": {
+    "XAUUSD": {
+      "point": 0.01,
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_min": 0.01,
+      "volume_max": 10.0,
+      "volume_step": 0.01
+    }
+  },
+  "cost_assumptions": {
+    "commission_per_lot_round_turn": 7.0,
+    "slippage_points": 1.0,
+    "gap_slippage_points": 2.0,
+    "intra_bar_policy": "stop_first"
+  },
+  "stress_multiplier_applied_to_commission_and_slippage": 1.0,
+  "summary_metrics": {
+    "total_trades": 221,
+    "winning_trades": 113,
+    "losing_trades": 85,
+    "win_rate_pct": 51.1,
+    "total_profit_money": 8956.21,
+    "total_profit_r": 33.005,
+    "avg_profit_r": 0.1493,
+    "profit_factor": 1.8585,
+    "max_drawdown_pct": 14.486,
+    "bootstrap_p05_r": 16.6291,
+    "bootstrap_probability_positive": 0.9994,
+    "bootstrap_sufficient_sample": true,
+    "ml_applied": false
+  },
+  "report_csv": "data\\backtest_20261006_010410.csv",
+  "pending_events_csv": "data\\pending_events_20261006_010410.csv"
+}

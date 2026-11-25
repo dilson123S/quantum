@@ -1,0 +1,6 @@
+symbol,duration_days,base_trades,base_win_rate,base_pf,base_net_r,base_net_usd,base_max_dd_usd,s1_trades,s1_win_rate,s1_pf,s1_net_r,s1_net_usd,s1_max_dd_usd,filtered_total,losses_saved,wins_missed,filter_precision_pct
+Boom 500 Index,10.4,3,100.0,99.0,3.52,263.65,0.0,3,100.0,99.0,3.52,263.65,0.0,0,0,0,0.0
+Crash 500 Index,10.4,2,100.0,99.0,2.0,150.0,0.0,1,100.0,99.0,1.0,75.0,0.0,1,0,1,0.0
+Boom 1000 Index,10.4,0,0.0,0.0,0.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,0,0,0,0.0
+Crash 1000 Index,10.4,0,0.0,0.0,0.0,0.0,0.0,0,0.0,0.0,0.0,0.0,0.0,0,0,0,0.0
+Boom 300 Index,10.4,2,0.0,0.0,-0.95,-71.25,71.25,1,0.0,0.0,-0.62,-46.5,46.5,1,1,0,100.0

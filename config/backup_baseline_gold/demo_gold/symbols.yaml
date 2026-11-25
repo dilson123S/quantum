@@ -1,0 +1,5 @@
+XAUUSD:
+  volume_mode: "real"
+  max_spread_points: 50
+  session_start: "00:00"
+  session_end: "23:59"
