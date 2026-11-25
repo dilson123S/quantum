@@ -15,9 +15,13 @@ venv/
 
 # Databases & Backups
 *.db
+*.db-wal
+*.db-shm
 *.sqlite
 *.sqlite3
 data/*.db
+data/*.db-wal
+data/*.db-shm
 data/backups/
 
 # ML models, checkpoints and large weights
