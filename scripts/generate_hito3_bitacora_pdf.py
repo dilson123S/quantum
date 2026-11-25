@@ -61,7 +61,7 @@ class BitacoraNumberedCanvas(canvas.Canvas):
             self.line(48, 750, 564, 750)
 
         # Pie de página
-        self.drawString(48, 32, "Investigador: Nilson Rivera Gutiérrez (T00078156) · GitHub: https://github.com/dilson123S/quantum")
+        self.drawString(48, 32, "Nilson Rivera (T00078156)  ·  Mauro Prasca (T00065353)  ·  GitHub: https://github.com/dilson123S/quantum")
         self.drawRightString(564, 32, f"Página {self._pageNumber} de {total_pages}")
         self.setLineWidth(0.5)
         self.line(48, 42, 564, 42)
@@ -218,7 +218,8 @@ def build_bitacora_pdf(filename: str = "quantum_bitacora_ia.pdf") -> str:
     story.append(Paragraph("PROYECTO QUANTUM: BITÁCORA DE CO-PILOTAJE CON INTELIGENCIA ARTIFICIAL", doc_title))
     story.append(Paragraph("Documento Anexo Oficial — Hito 3 · Entrega Final (AI Engineering Logbook)", doc_subtitle))
     story.append(Paragraph(
-        "<b>Investigador:</b> Nilson Rivera Gutiérrez &nbsp;|&nbsp; <b>Código:</b> T00078156 &nbsp;|&nbsp; <b>Repositorio:</b> <u>https://github.com/dilson123S/quantum</u><br/>"
+        "<b>Investigador Principal:</b> Nilson Rivera Gutiérrez &nbsp;|&nbsp; <b>Código:</b> T00078156<br/>"
+        "<b>Co-Investigador:</b> Mauro Jose Prasca Bohorquez &nbsp;|&nbsp; <b>Código:</b> T00065353 &nbsp;|&nbsp; <b>Repositorio:</b> <u>https://github.com/dilson123S/quantum</u><br/>"
         "<b>Asistente IA:</b> Antigravity AI (Google DeepMind) &middot; <b>Modelo Local:</b> Ollama Qwen2.5-3B (LoRA) &middot; Noviembre 2026<br/>"
         "<b>Cumplimiento de Rúbrica:</b> Criterio 8 (Comunicación escrita y bitácora IA — 5 pts, Nivel Excelente: <i>Bitácora completa con verificación y reflexión</i>)",
         meta_style
@@ -404,7 +405,9 @@ def build_bitacora_pdf(filename: str = "quantum_bitacora_ia.pdf") -> str:
     story.append(Paragraph(
         "<b>CERTIFICACIÓN DE AUTORÍA Y CO-PILOTAJE:</b><br/>"
         "Certifico que la presente bitácora refleja fielmente las sesiones de desarrollo, prompts, diagnósticos asistidos e intervenciones de ingeniería realizadas en colaboración con herramientas de Inteligencia Artificial para el Hito 3 del Proyecto Quantum.<br/><br/>"
-        "<b>Nilson Rivera Gutiérrez</b> &nbsp;&nbsp;&middot;&nbsp;&nbsp; Código Estudiantil: <b>T00078156</b> &nbsp;&nbsp;&middot;&nbsp;&nbsp; Noviembre 2026",
+        "<b>Nilson Rivera Gutiérrez</b> &nbsp;&nbsp;&middot;&nbsp;&nbsp; Código Estudiantil: <b>T00078156</b><br/>"
+        "<b>Mauro Jose Prasca Bohorquez</b> &nbsp;&nbsp;&middot;&nbsp;&nbsp; Código Estudiantil: <b>T00065353</b><br/>"
+        "Noviembre 2026",
         meta_style
     ))
 

@@ -70,7 +70,7 @@ class IEEENumberedCanvas(canvas.Canvas):
             if self._pageNumber % 2 == 0:
                 self.drawString(54, 756, f"{self._pageNumber}   IEEE TRANSACTIONS ON ARTIFICIAL INTELLIGENCE, VOL. 24, NO. 4, NOVIEMBRE 2026")
             else:
-                self.drawRightString(558, 756, f"RIVERA GUTIÉRREZ: PROYECTO QUANTUM — INFORME TÉCNICO FINAL HITO 3   {self._pageNumber}")
+                self.drawRightString(558, 756, f"RIVERA GUTIÉRREZ / PRASCA BOHORQUEZ: PROYECTO QUANTUM — HITO 3   {self._pageNumber}")
             self.setLineWidth(0.5)
             self.line(54, 750, 558, 750)
         else:
@@ -81,7 +81,7 @@ class IEEENumberedCanvas(canvas.Canvas):
 
         if self._pageNumber > 1:
             self.drawRightString(558, 36, f"Página {self._pageNumber} de {total_pages}")
-            self.drawString(54, 36, "Proyecto Quantum — Entrega Final Hito 3 — Código: T00078156")
+            self.drawString(54, 36, "Proyecto Quantum — Hito 3 — Nilson Rivera (T00078156) · Mauro Prasca (T00065353)")
             self.setLineWidth(0.5)
             self.line(54, 46, 558, 46)
 
@@ -328,7 +328,7 @@ def build_ieee_pdf(filename: str = "quantum_hito3.pdf") -> str:
     # =========================================================================
     story.append(Paragraph("Proyecto Quantum: Arquitectura Híbrida de Inteligencia Artificial para Trading Algorítmico, Supervisión Concurrente de Flota y Control Estricto de Riesgo", title_style))
     story.append(Paragraph("Informe Técnico Final — Hito 3 (Entrega de Prototipo Funcional y Repositorio)", subtitle_style))
-    story.append(Paragraph("Nilson Rivera Gutiérrez, Código: T00078156", author_style))
+    story.append(Paragraph("Nilson Rivera Gutiérrez, Código: T00078156  ·  Mauro Jose Prasca Bohorquez, Código: T00065353", author_style))
     story.append(Paragraph("Facultad de Ingeniería, Programa de Inteligencia Artificial &middot; Repositorio Oficial en GitHub: <u>https://github.com/dilson123S/quantum</u> &middot; Noviembre 2026", affil_style))
     
     story.append(Paragraph(
@@ -720,7 +720,7 @@ def build_ieee_pdf(filename: str = "quantum_hito3.pdf") -> str:
 
     story.append(Paragraph("IX. GUÍA PARA LA SUSTENTACIÓN INDIVIDUAL (CRITERIO 9)", sec_h1))
     story.append(Paragraph(
-        "Preparación conceptual para la defensa oral de Nilson Rivera Gutiérrez (T00078156):",
+        "Preparación conceptual para la defensa oral de Nilson Rivera Gutiérrez (T00078156) y Mauro Jose Prasca Bohorquez (T00065353):",
         body_p
     ))
     story.append(Paragraph(
