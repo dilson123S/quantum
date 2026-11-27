@@ -8,6 +8,7 @@ A professional, institutional-grade algorithmic trading bot connected to **MetaT
 * **Autores:**
   * Nilson David Rivera Gutiérrez (Código: `T00078156`)
   * Mauro Jose Prasca Bohorquez (Código: `T00065353`)
+  > *Nota sobre el historial de commits:* Este proyecto se desarrolló y consolidó previamente en un único computador de escritorio, realizando los respaldos y actualizaciones desde una sola cuenta de GitHub (`dilson123S`); por ello, el historial de commits refleja un solo usuario aunque el desarrollo, validación y documentación se realizaron en conjunto por ambos integrantes.
 * 📄 **Informe Técnico en Formato IEEE (PDF):** [`quantum_hito3.pdf`](quantum_hito3.pdf) *(Copia en docs: [`docs/quantum_hito3.pdf`](docs/quantum_hito3.pdf))*
 * 📄 **Bitácora de Co-Pilotaje con IA (PDF Anexo):** [`quantum_bitacora_ia.pdf`](quantum_bitacora_ia.pdf) *(Copia en docs: [`docs/quantum_bitacora_ia.pdf`](docs/quantum_bitacora_ia.pdf))*
 * 📓 **Bitácora humano-IA (Markdown):** [`docs/bitacora_ia.md`](docs/bitacora_ia.md)
