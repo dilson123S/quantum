@@ -5,11 +5,15 @@ A professional, institutional-grade algorithmic trading bot connected to **MetaT
 ---
 
 ## 🎓 Entregables Académicos Oficiales (Hito 3 · Entrega Final)
-* **Investigador / Autor:** Nilson Rivera Gutiérrez (Código: `T00078156`)
+* **Autores:**
+  * Nilson David Rivera Gutiérrez (Código: `T00078156`)
+  * Mauro Jose Prasca Bohorquez (Código: `T00065353`)
 * 📄 **Informe Técnico en Formato IEEE (PDF):** [`quantum_hito3.pdf`](quantum_hito3.pdf) *(Copia en docs: [`docs/quantum_hito3.pdf`](docs/quantum_hito3.pdf))*
 * 📄 **Bitácora de Co-Pilotaje con IA (PDF Anexo):** [`quantum_bitacora_ia.pdf`](quantum_bitacora_ia.pdf) *(Copia en docs: [`docs/quantum_bitacora_ia.pdf`](docs/quantum_bitacora_ia.pdf))*
-* 📓 **Bitácora Integral de Co-Pilotaje con IA (Markdown):** [`BITACORA_IA.md`](BITACORA_IA.md) *(Copia en docs: [`docs/BITACORA_IA.md`](docs/BITACORA_IA.md))*
+* 📓 **Bitácora humano-IA (Markdown):** [`docs/bitacora_ia.md`](docs/bitacora_ia.md)
+* 📓 **Bitácora Integral Extendida (Markdown):** [`BITACORA_IA.md`](BITACORA_IA.md) *(Copia en docs: [`docs/BITACORA_IA.md`](docs/BITACORA_IA.md))*
 * 📄 **Informe Hito 2 (Formato APA 7ma):** [`quantum_hito2.pdf`](quantum_hito2.pdf)
+* 📓 **Notebook de Exploración:** [`notebooks/exploracion_quantum.ipynb`](notebooks/exploracion_quantum.ipynb)
 
 ---
 
@@ -132,15 +136,9 @@ The risk layer enforces strict institutional risk protocols before any order is 
 ### 1. Clone & Set Up Python Environment
 
 ```powershell
-# Clone the repository
-git clone https://github.com/your-username/quantum.git
+git clone https://github.com/dilson123S/quantum.git
 cd quantum
-
-# Create virtual environment
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-
-# Install dependencies
+python -m venv .venv; .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
@@ -244,50 +242,29 @@ la guía completa está en [VALIDATION_PROTOCOL.md](docs/VALIDATION_PROTOCOL.md)
 
 ```
 quantum/
-├── config/
-│   ├── settings.yaml          # Master bot configuration
-│   ├── symbols.yaml           # Per-symbol specific overrides
-│   └── risk.yaml              # Risk engine parameters & correlation groups
-├── core/
-│   ├── __init__.py
-│   ├── constants.py           # Enums, timeframes, score classifications
-│   ├── models.py              # Pydantic / Dataclass models (Candle, Signal, Trade)
-│   └── exceptions.py          # Custom domain exceptions
+├── config/                    # Master bot configuration (YAML)
+├── core/                      # Enums, models, exceptions
 ├── data/
-│   ├── __init__.py
-│   ├── mt5_connector.py       # MetaTrader 5 bridge & connection lifecycle
-│   ├── data_feed.py           # Multi-timeframe bar synchronizer
-│   └── storage.py             # SQLite/SQLAlchemy persistent storage
-├── indicators/
-│   ├── __init__.py
-│   ├── structure.py           # Swings, BOS, and CHoCH detection
-│   ├── trend.py               # EMA ribbon & ADX indicators
-│   ├── momentum.py            # RSI & MACD calculations
-│   ├── volume.py              # Volume moving averages & OBV
-│   └── volatility.py          # ATR & volatility band calculations
-├── strategy/
-│   ├── __init__.py
-│   ├── scoring_engine.py      # 5-confirmation composite scoring calculator
-│   └── signal_generator.py    # Multi-timeframe trade signal generator
-├── risk/
-│   ├── __init__.py
-│   ├── position_sizer.py      # Dynamic lot sizing & risk multiplier
-│   ├── risk_manager.py        # Circuit breakers & drawdown checks
-│   └── correlation.py         # Currency exposure & correlation validator
-├── execution/
-│   ├── __init__.py
-│   ├── order_manager.py       # MT5 order creation, modification & close
-│   └── trade_manager.py       # BE, partial take-profit, trailing stops
-├── notifications/
-│   ├── __init__.py
-│   └── telegram_bot.py        # Telegram alerts & daily performance summary
-├── tests/
-│   ├── __init__.py
-│   ├── test_indicators.py     # Unit tests for technical indicators
-│   ├── test_scoring.py        # Unit tests for scoring engine
-│   └── test_risk.py           # Unit tests for position sizing & risk rules
+│   ├── experiments/           # Resultados de backtest y holdout
+│   └── ...                    # Datasets, descargadores, limpieza
+├── docs/
+│   ├── bitacora_ia.md         # Bitácora humano-IA (formato rúbrica)
+│   └── BITACORA_IA.md         # Bitácora extendida
+├── execution/                 # MT5 order routing & trade management
+├── filters/                   # Trading session & regime filters
+├── indicators/                # Technical indicators (structure, trend, momentum, volume, volatility)
+├── learning/                  # Adaptive learning modules
+├── ml/                        # ML pipeline (XGBoost, PyTorch, Qwen SLM)
+├── monitoring/                # Dashboard & telemetry
+├── notebooks/
+│   └── exploracion_quantum.ipynb  # Exploración de datos y resultados
+├── risk/                      # Position sizing, circuit breakers, correlation
+├── strategy/                  # Scoring engine, signal generators, strategies
+├── tests/                     # Unit & integration tests (pytest)
 ├── .env.example               # Template for credentials & paths
-├── requirements.txt           # Python package dependencies
+├── requirements.txt           # Python package dependencies (pinned)
+├── quantum_hito3.pdf          # Informe IEEE (Hito 3)
+├── quantum_bitacora_ia.pdf    # Bitácora IA (PDF anexo)
 └── README.md                  # Project documentation
 ```
 

@@ -1,8 +1,9 @@
 # Bitácora de Desarrollo con Inteligencia Artificial (AI Engineering Logbook)
-**Proyecto:** Proyecto Quantum — Arquitectura Híbrida de Inteligencia Artificial para Trading Algorítmico  
-**Investigador:** Nilson Rivera Gutiérrez  
-**Código Estudiantil:** T00078156  
-**Herramienta de IA Utilizada:** Antigravity AI (Google DeepMind) & Ollama (Qwen2.5-3B Local)  
+**Proyecto:** Proyecto Quantum — Agente de cinco confirmaciones y evaluación de riesgo  
+**Autores:**
+- **Nilson David Rivera Gutiérrez** — Código: `T00078156`
+- **Mauro Jose Prasca Bohorquez** — Código: `T00065353`  
+**Herramientas de IA Utilizadas:** Antigravity AI (Google DeepMind) & Ollama (Qwen2.5-3B Local)  
 **Repositorio Oficial:** [https://github.com/dilson123S/quantum](https://github.com/dilson123S/quantum)  
 **Entrega:** Hito 3 · Entrega Final (Noviembre 2026)  
 **Cumplimiento de Rúbrica:** Criterio 8 (Comunicación escrita y bitácora IA — 5 pts, Nivel Excelente: *Bitácora completa con verificación y reflexión*).
@@ -167,5 +168,6 @@ El desarrollo del Proyecto Quantum adoptó un modelo de **co-pilotaje asistido p
 
 ---
 *Documento compilado y certificado para la entrega oficial del Hito 3.*  
-**Nilson Rivera Gutiérrez (Código: T00078156)**  
+**Nilson David Rivera Gutiérrez (Código: T00078156)**  
+**Mauro Jose Prasca Bohorquez (Código: T00065353)**  
 *Universidad Tecnológica &middot; Noviembre 2026*
